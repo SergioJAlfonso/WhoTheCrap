@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{e60b81cd-6d0a-4dd1-9a28-74e81f368860}">
+		<property name="name">
+			<value>HoveredButton</value>
+		</property>
+		<relationship name="folder">
+			<destination>{966926a9-cfcd-4835-91f4-406a9c7f18aa}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{ca1a6c16-d36e-4771-b97f-92fa8dcfa5e0}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{ca1a6c16-d36e-4771-b97f-92fa8dcfa5e0}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="isHeld">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

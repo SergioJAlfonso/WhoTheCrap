@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{9adf0ee3-f885-4376-a863-2078788bdc65}">
+		<property name="name">
+			<value>Voice Id</value>
+		</property>
+		<relationship name="folder">
+			<destination>{966926a9-cfcd-4835-91f4-406a9c7f18aa}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{acf20188-67b8-4e71-baf2-b8dc2178fe71}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{acf20188-67b8-4e71-baf2-b8dc2178fe71}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>11</value>
+		</property>
+		<property name="isHeld">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
