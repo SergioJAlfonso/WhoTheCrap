@@ -10,7 +10,7 @@ public class Fmod_UI_Button : MonoBehaviour
 
     [SerializeField] public string ButtonEventLength;                         // Saves the name of parameter length [Short, Mid, Long]
     [SerializeField] public string ButtonEventType;                           // Saves the name of type of button [Correct, Wrong]
-    [SerializeField] public string ButtonEventInteractions;                   // Saves the name of type of button [Correct, Wrong]
+    [SerializeField] public string ButtonEventInteractions;                   // Saves the interaction with button (hovered, selected) [0, 1]
 
 
     [SerializeField] private int buttonLengthInt;
