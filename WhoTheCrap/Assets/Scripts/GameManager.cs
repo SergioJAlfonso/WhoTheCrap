@@ -27,7 +27,10 @@ public class GameManager : MonoBehaviour
     int id = 345; //TODO id placeholder para pruebas, hacer que coincida con el de la escena anterior (meter ID)
 
     private float gameElapsedTime = 60; //TODO tiempo placeholder, el tiempo final irá asociado a la duración de audio de cada id
-    private float TextElapsedTime = 0.75f;
+    [SerializeField]
+    private float firstTextElapsedTime = 2f;
+    [SerializeField]
+    private float secondTextElapsedTime = 0.75f;
 
     [SerializeField]
     InitialInstruction wrongText;
@@ -86,9 +89,9 @@ public class GameManager : MonoBehaviour
             if (gameElapsedTime <= 0)
             {
                 //Debug.Log("TimeLimit");
-                TextElapsedTime -= Time.deltaTime;
+                secondTextElapsedTime -= Time.deltaTime;
                 timeText.enabled = true;
-                if (TextElapsedTime <= 0)
+                if (secondTextElapsedTime <= 0)
                 {
                     limitText.enabled = true;
                     isGameOver = false; //TODO: de momento esto, mas adelante cambio de escena/paso al zoom
@@ -96,18 +99,20 @@ public class GameManager : MonoBehaviour
             }
             else if (isGameOver)
             {
-                if (win)
+                firstTextElapsedTime -= Time.deltaTime;
+
+                if (win && firstTextElapsedTime <= 0)
                 {
                     //Debug.Log("Correct");
                     correctText.enabled = true; //TODO: de momento esto, mas adelante cambio de escena/paso al zoom
                     isGameOver = false; 
                 }
-                else
+                else if (firstTextElapsedTime <= 0)
                 {
                     //Debug.Log("Wrong Answer");
-                    TextElapsedTime -= Time.deltaTime;
+                    secondTextElapsedTime -= Time.deltaTime;
                     wrongText.enabled = true;
-                    if (TextElapsedTime <= 0)
+                    if (secondTextElapsedTime <= 0)
                     {
                         answerText.enabled = true;
                         isGameOver = false; //TODO: de momento esto, mas adelante cambio de escena/paso al zoom
