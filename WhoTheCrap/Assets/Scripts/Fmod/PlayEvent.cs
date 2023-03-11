@@ -9,6 +9,9 @@ public class PlayEvent : MonoBehaviour
     [Header("FMOD Settings")]
     [SerializeField] public EventReference EnginePath;
 
+    [Header("FMOD Settings")]
+    [SerializeField] public EventReference[] GrabacionesPath;
+
     FMOD.Studio.EventInstance engineEvent;
 
     void Start()
@@ -20,6 +23,11 @@ public class PlayEvent : MonoBehaviour
     {
         engineEvent.start();
         engineEvent.release();
+    }
+    public void playGrab(int index)
+    {
+        engineEvent = FMODUnity.RuntimeManager.CreateInstance(GrabacionesPath[index]);
+        playEngine();
     }
 }
 

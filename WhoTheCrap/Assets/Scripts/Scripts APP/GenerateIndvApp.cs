@@ -9,19 +9,52 @@ public class GenerateIndvApp : MonoBehaviour
     public TextMeshPro texto;
     [SerializeField]
     public int totalSuspects;
+    [SerializeField]
+    public PlayEvent grabadora;
+
+    int[] indices;
+    int index = 0;
 
     public void GenerateScuspect()
     {
-        //de momento asi, luego hago una lista que suffle al principio de la partida.
-        int res = Random.Range(0, totalSuspects);
-        texto.text = "Sospechoso \n ID: " + res;
+        texto.text = "Sospechoso \n ID: " + indices[index];
 
+        grabadora.playGrab(index + 1); //mas uno porque las grab empiezan en el 1 (al menos la de tu madre)
+        index++;
+        if (index >= totalSuspects)
+        {
+            index = 0;
+            Shuffle(indices);
+        }
     }
 
-    // Start is called before the first frame update
+
+    void Shuffle(int[] a)
+    {
+        // Loops through array
+        for (int i = a.Length - 1; i > 0; i--)
+        {
+            // Randomize a number between 0 and i (so that the range decreases each time)
+            int rnd = Random.Range(0, i);
+
+            // Save the value of the current i, otherwise it'll overright when we swap the values
+            int temp = a[i];
+
+            // Swap the new and old values
+            a[i] = a[rnd];
+            a[rnd] = temp;
+        }
+    }
+
     void Start()
     {
-        
+        indices = new int[totalSuspects];
+        for (int i = 0; i < totalSuspects; i++)
+        {
+            indices[i] = i;
+        }
+
+        Shuffle(indices);
     }
 
     // Update is called once per frame
