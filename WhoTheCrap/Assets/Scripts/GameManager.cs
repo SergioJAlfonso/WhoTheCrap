@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,7 +16,18 @@ public class GameManager : MonoBehaviour
         HALLWAY, GRASS, SAND, ROOM
     };
 
+    enum Gamestate { MENU, PLAYING };
+
     TerrainType terrain;
+
+
+    private bool isGameOver = false, win;
+    Gamestate gState = Gamestate.PLAYING;
+
+    int id = 345; //TODO id placeholder para pruebas, hacer que coincida con el de la escena anterior (meter ID)
+
+    private float elapsedTime = 60; //TODO tiempo placeholder, el tiempo final irá asociado a la duración de audio de cada id
+
 
     void Awake()
     {
@@ -32,6 +44,18 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    // Public method to end the game
+    public void EndGame(bool victory)
+    {
+        isGameOver = true;
+        win = victory;
+    }
+
+    public bool checkId(int otherId)
+    {
+        return (otherId == id);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -39,6 +63,29 @@ public class GameManager : MonoBehaviour
         {
             lowpass += lowFactor*Time.deltaTime;
             FMODUnity.RuntimeManager.StudioSystem.setParameterByName("explosionDistance", lowpass);
+        }
+
+        if (gState == Gamestate.PLAYING)
+        {
+            elapsedTime -= Time.deltaTime;
+            if (elapsedTime <= 0)
+            {
+                //Final TimeLimit
+                Debug.Log("TimeLimit");
+            }
+            else if (isGameOver)
+            {
+                if (win)
+                {
+
+                    Debug.Log("Correct");
+                }
+                else
+                {
+
+                    Debug.Log("Wrong Answer");
+                }
+            }
         }
     }
 
