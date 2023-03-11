@@ -217,7 +217,7 @@ namespace InfimaGames.LowPolyShooterPack
             evInstance.release();
 
             //Reduce ammunition! We just shot, so we need to get rid of one!
-            ammunitionCurrent = Mathf.Clamp(ammunitionCurrent - 1, 0, magazineBehaviour.GetAmmunitionTotal());
+            //ammunitionCurrent = Mathf.Clamp(ammunitionCurrent - 1, 0, magazineBehaviour.GetAmmunitionTotal());
 
             //Play all muzzle effects.
             muzzleBehaviour.Effect();

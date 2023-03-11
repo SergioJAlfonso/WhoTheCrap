@@ -26194,7 +26194,7 @@ PrefabInstance:
     - target: {fileID: 1829886746297237010, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
         type: 3}
       propertyPath: ammunitionTotal
-      value: 100000
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2748913124992463393, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
         type: 3}
