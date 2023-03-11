@@ -614,23 +614,23 @@ namespace InfimaGames.LowPolyShooterPack
 		/// </summary>
 		public void OnTryPlayReload(InputAction.CallbackContext context)
 		{
-			//Block while the cursor is unlocked.
-			if (!cursorLocked)
-				return;
+			////Block while the cursor is unlocked.
+			//if (!cursorLocked)
+			//	return;
 			
-			//Block.
-			if (!CanPlayAnimationReload())
-				return;
+			////Block.
+			//if (!CanPlayAnimationReload())
+			//	return;
 			
-			//Switch.
-			switch (context)
-			{
-				//Performed.
-				case {phase: InputActionPhase.Performed}:
-					//Play Animation.
-					PlayReloadAnimation();
-					break;
-			}
+			////Switch.
+			//switch (context)
+			//{
+			//	//Performed.
+			//	case {phase: InputActionPhase.Performed}:
+			//		//Play Animation.
+			//		PlayReloadAnimation();
+			//		break;
+			//}
 		}
 
 		/// <summary>
