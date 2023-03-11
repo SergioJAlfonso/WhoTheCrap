@@ -7,7 +7,7 @@ public class LookAt : MonoBehaviour
     public Transform target;
 
     private Vector3 startPosition;
-    private float desiredDuration = 5f;
+    private float desiredDuration = 0.5f;
     private float elapsedTime;
 
     [SerializeField]
@@ -17,6 +17,8 @@ public class LookAt : MonoBehaviour
     void Start()
     {
         startPosition = transform.position;
+        GameManager.instance.registerLookAt(this);
+        this.enabled = false;
     }
 
     // Update is called once per frame
@@ -26,5 +28,6 @@ public class LookAt : MonoBehaviour
         float percentageComplete = elapsedTime / desiredDuration;
 
         transform.position = Vector3.Lerp(startPosition, target.position, curve.Evaluate(percentageComplete));
+
     }
 }
