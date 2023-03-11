@@ -17,7 +17,6 @@ public class NPC_ID : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("col");
         if (collision.gameObject.CompareTag("Bullet"))
             GameManager.instance.EndGame(objective);
     }

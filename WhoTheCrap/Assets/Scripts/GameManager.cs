@@ -16,18 +16,33 @@ public class GameManager : MonoBehaviour
         HALLWAY, GRASS, SAND, ROOM
     };
 
-    enum Gamestate { MENU, PLAYING };
-
     TerrainType terrain;
 
+
+    enum Gamestate { MENU, PLAYING };
 
     private bool isGameOver = false, win;
     Gamestate gState = Gamestate.PLAYING;
 
     int id = 345; //TODO id placeholder para pruebas, hacer que coincida con el de la escena anterior (meter ID)
 
-    private float elapsedTime = 60; //TODO tiempo placeholder, el tiempo final irá asociado a la duración de audio de cada id
+    private float gameElapsedTime = 60; //TODO tiempo placeholder, el tiempo final irá asociado a la duración de audio de cada id
+    private float TextElapsedTime = 0.75f;
 
+    [SerializeField]
+    InitialInstruction wrongText;
+    
+    [SerializeField]
+    InitialInstruction answerText;
+    
+    [SerializeField]
+    InitialInstruction correctText;
+    
+    [SerializeField]
+    InitialInstruction timeText;
+
+    [SerializeField]
+    InitialInstruction limitText;
 
     void Awake()
     {
@@ -67,23 +82,36 @@ public class GameManager : MonoBehaviour
 
         if (gState == Gamestate.PLAYING)
         {
-            elapsedTime -= Time.deltaTime;
-            if (elapsedTime <= 0)
+            gameElapsedTime -= Time.deltaTime;
+            if (gameElapsedTime <= 0)
             {
-                //Final TimeLimit
-                Debug.Log("TimeLimit");
+                //Debug.Log("TimeLimit");
+                TextElapsedTime -= Time.deltaTime;
+                timeText.enabled = true;
+                if (TextElapsedTime <= 0)
+                {
+                    limitText.enabled = true;
+                    isGameOver = false; //TODO: de momento esto, mas adelante cambio de escena/paso al zoom
+                }
             }
             else if (isGameOver)
             {
                 if (win)
                 {
-
-                    Debug.Log("Correct");
+                    //Debug.Log("Correct");
+                    correctText.enabled = true; //TODO: de momento esto, mas adelante cambio de escena/paso al zoom
+                    isGameOver = false; 
                 }
                 else
                 {
-
-                    Debug.Log("Wrong Answer");
+                    //Debug.Log("Wrong Answer");
+                    TextElapsedTime -= Time.deltaTime;
+                    wrongText.enabled = true;
+                    if (TextElapsedTime <= 0)
+                    {
+                        answerText.enabled = true;
+                        isGameOver = false; //TODO: de momento esto, mas adelante cambio de escena/paso al zoom
+                    }
                 }
             }
         }
