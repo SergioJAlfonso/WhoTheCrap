@@ -8,6 +8,8 @@
 
 - [Low Poly Shooter Pack - Free Sample](https://assetstore.unity.com/packages/templates/systems/low-poly-shooter-pack-free-sample-144839)
 
+- [Polygonal's Low-Poly Particle Pack](https://assetstore.unity.com/packages/vfx/particles/polygonal-s-low-poly-particle-pack-118355)
+
 # Quién cojones es este? _(Who the crap is this?)_
 
 ## Descripción breve:
