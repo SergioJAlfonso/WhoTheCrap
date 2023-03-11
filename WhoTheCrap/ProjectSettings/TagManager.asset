@@ -16,6 +16,14 @@ TagManager:
   - Wood (Static)
   - Dirt (Static)
   - Wood
+  - HallwayTrigger
+  - SandTrigger
+  - RoomTrigger
+  - GrassTrigger
+  - TargetCustom
+  - Leaves
+  - Sand
+  - Bullet
   layers:
   - Default
   - TransparentFX
