@@ -3865,7 +3865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explodeTransform: {fileID: 1564058257}
   shatterMaterial: {fileID: 2100000, guid: 42e9f56087c86374c960dd8e6fcf2bf7, type: 2}
-  fade: {fileID: 0}
+  fade: {fileID: 1872847161}
 --- !u!4 &952316292
 Transform:
   m_ObjectHideFlags: 0
@@ -9398,7 +9398,7 @@ PrefabInstance:
     - target: {fileID: 5408599761008603534, guid: 1d10c13db27d32d4aa9f19fde45d72ec,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d10c13db27d32d4aa9f19fde45d72ec, type: 3}
@@ -9670,8 +9670,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1872847161}
         m_TargetAssemblyTypeName: FadeChangeScene, Assembly-CSharp
-        m_MethodName: FadeToLevel
-        m_Mode: 3
+        m_MethodName: FadeToNextLevel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
