@@ -1225,15 +1225,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 944622653}
   m_LocalRotation: {x: -0, y: 0.32767066, z: -0, w: 0.94479203}
-  m_LocalPosition: {x: 1.97, y: 0.69, z: -1.15}
-  m_LocalScale: {x: 3.4274, y: 2.74756, z: 1}
+  m_LocalPosition: {x: 0.18401471, y: 2.224316, z: 0.017269155}
+  m_LocalScale: {x: 0.33177394, y: 3.4486322, z: 0.08046262}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1251641254}
   - {fileID: 1944249942}
   - {fileID: 1263475313}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 1995832722}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 38.255, z: 0}
 --- !u!54 &944622658
 Rigidbody:
@@ -1903,14 +1903,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1375978740}
-  m_LocalRotation: {x: 0, y: -0.25004205, z: 0, w: 0.968235}
-  m_LocalPosition: {x: -1.06, y: -0.777, z: -5.69}
-  m_LocalScale: {x: 0.25754, y: 0.25754, z: 0.33}
+  m_LocalRotation: {x: -0, y: -0.25004205, z: -0, w: 0.968235}
+  m_LocalPosition: {x: -0.042, y: 0.5146164, z: -0.352}
+  m_LocalScale: {x: 0.028642489, y: 0.32325435, z: 0.023970151}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 321766903}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 1995832722}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -28.96, z: 0}
 --- !u!1 &1497563335
 GameObject:
@@ -2605,7 +2605,7 @@ GameObject:
   - component: {fileID: 1995832720}
   - component: {fileID: 1995832719}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: mesa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2682,10 +2682,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1995832718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.187, z: 0}
+  m_LocalPosition: {x: 0, y: -1.187, z: 1.13}
   m_LocalScale: {x: 6.883415, y: 0.79671, z: 15.875244}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 944622657}
+  - {fileID: 1375978745}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
