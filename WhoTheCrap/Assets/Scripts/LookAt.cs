@@ -28,6 +28,5 @@ public class LookAt : MonoBehaviour
         float percentageComplete = elapsedTime / desiredDuration;
 
         transform.position = Vector3.Lerp(startPosition, target.position, curve.Evaluate(percentageComplete));
-
     }
 }

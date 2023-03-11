@@ -189,6 +189,7 @@ namespace InfimaGames.LowPolyShooterPack
 		}
 		protected override void Start()
 		{
+			GameManager.instance.registerPlayerInput(gameObject.GetComponent<PlayerInput>());
 			//Cache a reference to the holster layer's index.
 			layerHolster = characterAnimator.GetLayerIndex("Layer Holster");
 			//Cache a reference to the action layer's index.
