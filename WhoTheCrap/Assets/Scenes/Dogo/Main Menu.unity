@@ -3865,6 +3865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   explodeTransform: {fileID: 1564058257}
   shatterMaterial: {fileID: 2100000, guid: 42e9f56087c86374c960dd8e6fcf2bf7, type: 2}
+  fade: {fileID: 0}
 --- !u!4 &952316292
 Transform:
   m_ObjectHideFlags: 0
@@ -5164,6 +5165,26 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 838901968}
+    - target: {fileID: 5176912562948579284, guid: 386b3a0ae42c1c448bbaf08aac1c0799,
+        type: 3}
+      propertyPath: field of view
+      value: 60.000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176912562948579284, guid: 386b3a0ae42c1c448bbaf08aac1c0799,
+        type: 3}
+      propertyPath: m_FocalLength
+      value: 20.78461
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176912562948579284, guid: 386b3a0ae42c1c448bbaf08aac1c0799,
+        type: 3}
+      propertyPath: m_projectionMatrixMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5176912562948579286, guid: 386b3a0ae42c1c448bbaf08aac1c0799,
+        type: 3}
+      propertyPath: m_CameraType
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5176912562953721152, guid: 386b3a0ae42c1c448bbaf08aac1c0799,
         type: 3}
       propertyPath: m_Mesh
@@ -8897,6 +8918,18 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &1872847161 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5408599761274385581, guid: 1d10c13db27d32d4aa9f19fde45d72ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 2054388472}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeabcbc347ddd7e439d54531152f64f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1946316970
 Mesh:
   m_ObjectHideFlags: 0
@@ -9610,7 +9643,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2135470476}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 952316291}
+        m_TargetAssemblyTypeName: BreakScreenSpawnExplosion, Assembly-CSharp
+        m_MethodName: ShatterScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1443910073}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1872847161}
+        m_TargetAssemblyTypeName: FadeChangeScene, Assembly-CSharp
+        m_MethodName: FadeToLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2135470476
 MonoBehaviour:
   m_ObjectHideFlags: 0

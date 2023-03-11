@@ -25,6 +25,8 @@ public class FadeChangeScene : MonoBehaviour
     {
         fadeInCompleted = false;
     }
+
+
     public void FadeToLevel(int levelIndex)
     {
         levelToLoad = levelIndex;
