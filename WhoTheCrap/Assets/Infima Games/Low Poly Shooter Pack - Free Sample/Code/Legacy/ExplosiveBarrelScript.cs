@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using FMODUnity;
+using FMOD.Studio;
 
 public class ExplosiveBarrelScript : MonoBehaviour {
 
@@ -23,12 +25,36 @@ public class ExplosiveBarrelScript : MonoBehaviour {
 	public float maxTime = 0.25f;
 
 	[Header("Explosion Options")]
-	//How far the explosion will reach
-	public float explosionRadius = 12.5f;
-	//How powerful the explosion is
-	public float explosionForce = 4000.0f;
-	
-	private void Update () {
+    [SerializeField]
+    //How far the explosion will reach
+    private float explosionRadius = 10f;
+    //How powerful the explosion is
+    [SerializeField]
+    private float explosionForce = 4000.0f;
+
+	public GameObject player;
+
+    [SerializeField]
+    private float lowpassRadius = 10f;
+
+	[SerializeField]
+	EventReference explosionEvRef;// = "event:/Explosions/Explosion";
+
+    EventInstance explosionEv;
+
+	[SerializeField]
+	EventReference beepEvRef;// = "event:/Explosions/Beep";
+
+    EventInstance beepEv;
+	private void Awake()
+	{
+        explosionEv = RuntimeManager.CreateInstance(explosionEvRef);
+        RuntimeManager.AttachInstanceToGameObject(explosionEv, transform);
+
+        beepEv = RuntimeManager.CreateInstance(beepEvRef);
+        RuntimeManager.AttachInstanceToGameObject(beepEv, transform);
+    }
+    private void Update () {
 		//Generate random time based on min and max time values
 		randomTime = Random.Range (minTime, maxTime);
 
@@ -50,12 +76,26 @@ public class ExplosiveBarrelScript : MonoBehaviour {
 
 		//Spawn the destroyed barrel prefab
 		Instantiate (destroyedBarrelPrefab, transform.position, 
-		             transform.rotation); 
+		             transform.rotation);
 
-		//Explosion force
-		Vector3 explosionPos = transform.position;
+        //Audio
+        float dist = Mathf.Abs((transform.position - player.transform.position).magnitude)/lowpassRadius;
+        GameManager.instance.setLow(dist);
+
+        explosionEv.start();
+        explosionEv.release();
+
+        beepEv.start();
+        beepEv.release();
+
+        //Explosion force
+        Vector3 explosionPos = transform.position;
 		Collider[] colliders = Physics.OverlapSphere(explosionPos, explosionRadius);
 		foreach (Collider hit in colliders) {
+			//Si es el jugador, no se aplica fuerza
+			if (hit.gameObject == player)
+                continue;
+
 			Rigidbody rb = hit.GetComponent<Rigidbody> ();
 			
 			//Add force to nearby rigidbodies

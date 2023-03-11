@@ -50,35 +50,22 @@ namespace InfimaGames.LowPolyShooterPack
 			if(playerCharacter != null)
 				playerCharacter.FillAmmunition(amount);
 		}
-		/// <summary>
-		/// Sets the character's knife active value. This function is called from an Animation Event.
-		/// </summary>
-		private void OnSetActiveKnife(int active)
-		{
-		}
-		
-		/// <summary>
-		/// Spawns a grenade at the correct location. This function is called from an Animation Event.
-		/// </summary>
-		private void OnGrenade()
-		{
-		}
-		/// <summary>
-		/// Sets the equipped weapon's magazine to be active or inactive! This function is called from an Animation Event.
-		/// </summary>
-		private void OnSetActiveMagazine(int active)
+        /// <summary>
+        /// Sets the character's equipped weapon's slide back pose. This function is called from an Animation Event.
+        /// </summary>
+        private void OnSlideBack(int back)
+        {
+        }
+        /// <summary>
+        /// Sets the equipped weapon's magazine to be active or inactive! This function is called from an Animation Event.
+        /// </summary>
+        private void OnSetActiveMagazine(int active)
 		{
 			//Notify the character.
 			if(playerCharacter != null)
 				playerCharacter.SetActiveMagazine(active);
 		}
 
-		/// <summary>
-		/// Bolt Animation Ended. This function is called from an Animation Event.
-		/// </summary>
-		private void OnAnimationEndedBolt()
-		{
-		}
 		/// <summary>
 		/// Reload Animation Ended. This function is called from an Animation Event.
 		/// </summary>
@@ -87,19 +74,6 @@ namespace InfimaGames.LowPolyShooterPack
 			//Notify the character.
 			if(playerCharacter != null)
 				playerCharacter.AnimationEndedReload();
-		}
-
-		/// <summary>
-		/// Grenade Throw Animation Ended. This function is called from an Animation Event.
-		/// </summary>
-		private void OnAnimationEndedGrenadeThrow()
-		{
-		}
-		/// <summary>
-		/// Melee Animation Ended. This function is called from an Animation Event.
-		/// </summary>
-		private void OnAnimationEndedMelee()
-		{
 		}
 
 		/// <summary>
@@ -119,13 +93,6 @@ namespace InfimaGames.LowPolyShooterPack
 			//Notify the character.
 			if(playerCharacter != null)
 				playerCharacter.AnimationEndedHolster();
-		}
-
-		/// <summary>
-		/// Sets the character's equipped weapon's slide back pose. This function is called from an Animation Event.
-		/// </summary>
-		private void OnSlideBack(int back)
-		{
 		}
 
 		#endregion

@@ -20,10 +20,6 @@ namespace InfimaGames.LowPolyShooterPack
         /// Returns the Sprite used on the Character's Interface.
         /// </summary>
         public abstract Sprite GetSprite();
-        /// <summary>
-        /// Returns the AudioClip to play when firing.
-        /// </summary>
-        public abstract AudioClip GetAudioClipFire();
         
         /// <summary>
         /// Returns the particle system to use when firing.

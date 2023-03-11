@@ -15,15 +15,9 @@ public class TargetScript : MonoBehaviour {
 	//Maximum time before the target goes back up
 	public float maxTime;
 
-	[Header("Audio")]
-	public AudioClip upSound;
-	public AudioClip downSound;
-
 	[Header("Animations")]
 	public AnimationClip targetUp;
 	public AnimationClip targetDown;
-
-	public AudioSource audioSource;
 	
 	private void Update () {
 		
@@ -39,10 +33,6 @@ public class TargetScript : MonoBehaviour {
 				gameObject.GetComponent<Animation>().clip = targetDown;
 				gameObject.GetComponent<Animation>().Play();
 
-				//Set the downSound as current sound, and play it
-				audioSource.GetComponent<AudioSource>().clip = downSound;
-				audioSource.Play();
-
 				//Start the timer
 				StartCoroutine(DelayTimer());
 				routineStarted = true;
@@ -57,10 +47,6 @@ public class TargetScript : MonoBehaviour {
 		//Animate the target "up" 
 		gameObject.GetComponent<Animation>().clip = targetUp;
 		gameObject.GetComponent<Animation>().Play();
-
-		//Set the upSound as current sound, and play it
-		audioSource.GetComponent<AudioSource>().clip = upSound;
-		audioSource.Play();
 
 		//Target is no longer hit
 		isHit = false;

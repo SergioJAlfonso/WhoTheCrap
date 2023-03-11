@@ -2,6 +2,8 @@
 
 using System.Linq;
 using UnityEngine;
+using FMODUnity;
+using FMOD.Studio;
 
 namespace InfimaGames.LowPolyShooterPack
 {
@@ -10,16 +12,6 @@ namespace InfimaGames.LowPolyShooterPack
     {
         #region FIELDS SERIALIZED
 
-        [Header("Audio Clips")]
-        
-        [Tooltip("The audio clip that is played while walking.")]
-        [SerializeField]
-        private AudioClip audioClipWalking;
-
-        [Tooltip("The audio clip that is played while running.")]
-        [SerializeField]
-        private AudioClip audioClipRunning;
-
         [Header("Speeds")]
 
         [SerializeField]
@@ -27,6 +19,21 @@ namespace InfimaGames.LowPolyShooterPack
 
         [Tooltip("How fast the player moves while running."), SerializeField]
         private float speedRunning = 9.0f;
+
+        [SerializeField]
+        EventReference birdEventRef;
+
+        EventInstance animalEv;
+
+        [SerializeField]
+        EventReference brEvent;// = "event:/Environment/Breeze";
+
+        EventInstance breezeEv;
+
+        [SerializeField]
+        EventReference reverbSnap;//
+        EventInstance snapEv;
+
 
         #endregion
 
@@ -53,15 +60,6 @@ namespace InfimaGames.LowPolyShooterPack
         /// Attached CapsuleCollider.
         /// </summary>
         private CapsuleCollider capsule;
-        /// <summary>
-        /// Attached AudioSource.
-        /// </summary>
-        private AudioSource audioSource;
-        
-        /// <summary>
-        /// True if the character is currently grounded.
-        /// </summary>
-        private bool grounded;
 
         /// <summary>
         /// Player Character.
@@ -88,6 +86,16 @@ namespace InfimaGames.LowPolyShooterPack
         {
             //Get Player Character.
             playerCharacter = ServiceLocator.Current.Get<IGameModeService>().GetPlayerCharacter();
+
+            animalEv = RuntimeManager.CreateInstance(birdEventRef);
+            RuntimeManager.AttachInstanceToGameObject(animalEv, transform, GetComponent<Rigidbody>());
+
+
+            breezeEv = RuntimeManager.CreateInstance(brEvent);
+
+            snapEv = RuntimeManager.CreateInstance(reverbSnap);
+            snapEv.setParameterByName("Room", 1);
+            snapEv.start();
         }
 
         /// Initializes the FpsController on start.
@@ -98,11 +106,13 @@ namespace InfimaGames.LowPolyShooterPack
             rigidBody.constraints = RigidbodyConstraints.FreezeRotation;
             //Cache the CapsuleCollider.
             capsule = GetComponent<CapsuleCollider>();
+        }
 
-            //Audio Source Setup.
-            audioSource = GetComponent<AudioSource>();
-            audioSource.clip = audioClipWalking;
-            audioSource.loop = true;
+        private void OnDestroy()
+        {
+            animalEv.release();
+            breezeEv.release();
+            snapEv.release();
         }
 
         /// Checks if the character is on the ground.
@@ -126,18 +136,56 @@ namespace InfimaGames.LowPolyShooterPack
             //Store RaycastHits.
             for (var i = 0; i < groundHits.Length; i++)
                 groundHits[i] = new RaycastHit();
-
-            //Set grounded. Now we know for sure that we're grounded.
-            grounded = true;
         }
-			
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (GameManager.instance.getTerrain() != 1 && other.CompareTag("GrassTrigger"))
+            {
+                setTer(1);
+                breezeEv.start();
+                animalEv.start();
+
+                snapEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            }
+            else if (GameManager.instance.getTerrain() != 2 && other.CompareTag("SandTrigger"))
+            {
+                setTer(2);
+                breezeEv.start();
+                animalEv.start();
+
+                snapEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+            }
+            else if (GameManager.instance.getTerrain() != 0 && other.CompareTag("HallwayTrigger"))
+            {
+                setTer(0);
+                breezeEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
+                snapEv.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                snapEv.setParameterByName("Room", 0);
+                snapEv.start();
+            }
+            else if (GameManager.instance.getTerrain() != 3 && other.CompareTag("RoomTrigger"))
+            {
+                GameManager.instance.setTerrain(3);
+                breezeEv.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
+                snapEv.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+                snapEv.setParameterByName("Room", 1);
+                snapEv.start();
+            }
+        }
+        private void setTer(int ter)
+        {
+            GameManager.instance.setTerrain(ter);
+            RuntimeManager.StudioSystem.setParameterByName("Terrain", ter);
+        }
+
+
         protected override void FixedUpdate()
         {
             //Move.
             MoveCharacter();
-            
-            //Unground.
-            grounded = false;
         }
 
         /// Moves the camera to the character, processes jumping and plays sounds every frame.
@@ -145,9 +193,8 @@ namespace InfimaGames.LowPolyShooterPack
         {
             //Get the equipped weapon!
             equippedWeapon = playerCharacter.GetInventory().GetEquipped();
-            
-            //Play Sounds!
-            PlayFootstepSounds();
+
+            RuntimeManager.AttachInstanceToGameObject(animalEv, transform, GetComponent<Rigidbody>());
         }
 
         #endregion
@@ -178,26 +225,7 @@ namespace InfimaGames.LowPolyShooterPack
             #endregion
             
             //Update Velocity.
-            Velocity = new Vector3(movement.x, 0.0f, movement.z);
-        }
-
-        /// <summary>
-        /// Plays Footstep Sounds. This code is slightly old, so may not be great, but it functions alright-y!
-        /// </summary>
-        private void PlayFootstepSounds()
-        {
-            //Check if we're moving on the ground. We don't need footsteps in the air.
-            if (grounded && rigidBody.velocity.sqrMagnitude > 0.1f)
-            {
-                //Select the correct audio clip to play.
-                audioSource.clip = playerCharacter.IsRunning() ? audioClipRunning : audioClipWalking;
-                //Play it!
-                if (!audioSource.isPlaying)
-                    audioSource.Play();
-            }
-            //Pause it if we're doing something like flying, or not moving!
-            else if (audioSource.isPlaying)
-                audioSource.Pause();
+            Velocity = new Vector3(movement.x, Velocity.y, movement.z);
         }
 
         #endregion

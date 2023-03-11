@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 916095938892669238}
   - component: {fileID: 5827704354076846068}
   - component: {fileID: 8156954733744108957}
-  - component: {fileID: 6136948836202208186}
-  - component: {fileID: -6308090265796860631}
+  - component: {fileID: 4044913529274317659}
+  - component: {fileID: 7392781997839951960}
   m_Layer: 9
   m_Name: Camera
   m_TagString: MainCamera
@@ -112,7 +112,7 @@ AudioReverbZone:
   m_Density: 100
   m_LFReference: 250
   m_RoomLF: 0
---- !u!114 &6136948836202208186
+--- !u!114 &4044913529274317659
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,31 +121,58 @@ MonoBehaviour:
   m_GameObject: {fileID: 56164245437412244}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
+  volumeTrigger: {fileID: 0}
+  volumeLayer:
     serializedVersion: 2
     m_Bits: 2048
-  m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 1
-  m_Antialiasing: 2
-  m_AntialiasingQuality: 2
-  m_StopNaN: 1
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_Version: 2
---- !u!114 &-6308090265796860631
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 2
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 1
+  m_ShowCustomSorter: 1
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
+--- !u!114 &7392781997839951960
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -744,6 +771,7 @@ GameObject:
   - component: {fileID: 2780517249769709989}
   - component: {fileID: 6311201337086346178}
   - component: {fileID: 6219025921223107655}
+  - component: {fileID: 7841527601349766262}
   - component: {fileID: 448958757}
   - component: {fileID: 434113066}
   - component: {fileID: 8163229473432397683}
@@ -810,7 +838,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2751027687307977091}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 3fcdb23bde063e94fa0b60ccf87604d6,
     type: 2}
@@ -900,6 +928,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7841527601349766262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2751027687307977091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
 --- !u!114 &448958757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -912,10 +970,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ba9a63e484e8f142b3b13cfd976e290, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClipWalking: {fileID: 8300000, guid: 74abbbf1b1724e34b894191db38e10a0, type: 3}
-  audioClipRunning: {fileID: 8300000, guid: d2add02f58e61e640aba3ae9110591cb, type: 3}
   speedWalking: 4
   speedRunning: 6.8
+  birdEventRef:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  brEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  reverbSnap:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!114 &434113066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1098,38 +1175,6 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 6bf74daf-8a98-48de-b071-9a4f6efdc3f3
     m_ActionName: Player/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 434113066}
-        m_TargetAssemblyTypeName: InfimaGames.LowPolyShooterPack.Character, Assembly-CSharp
-        m_MethodName: OnTryThrowGrenade
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: b48c7f02-acf4-4c91-9a97-f85d78b40a00
-    m_ActionName: Player/Grenade[/Keyboard/g,/XInputControllerWindows/leftShoulder]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 434113066}
-        m_TargetAssemblyTypeName: InfimaGames.LowPolyShooterPack.Character, Assembly-CSharp
-        m_MethodName: OnTryMelee
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: ee72309b-00d2-4acf-aa85-8779c255d656
-    m_ActionName: Player/Melee[/Keyboard/f,/XInputControllerWindows/rightStickPress]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 434113066}
@@ -2688,7 +2733,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3681108526964167273}
   - component: {fileID: 6408767160419437801}
-  - component: {fileID: 3332706846211791063}
+  - component: {fileID: 6958439319988969168}
   m_Layer: 9
   m_Name: Camera Depth
   m_TagString: Untagged
@@ -2754,7 +2799,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &3332706846211791063
+--- !u!114 &6958439319988969168
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2763,30 +2808,57 @@ MonoBehaviour:
   m_GameObject: {fileID: 6940384052277386700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
+  volumeTrigger: {fileID: 0}
+  volumeLayer:
     serializedVersion: 2
     m_Bits: 4096
-  m_VolumeTrigger: {fileID: 0}
-  m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 1
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 1
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_Version: 2
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 0
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 1
+  m_ShowCustomSorter: 1
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1 &7072237473395643110
 GameObject:
   m_ObjectHideFlags: 0
@@ -3316,6 +3388,7 @@ GameObject:
   - component: {fileID: 3320314160785962872}
   - component: {fileID: 7105913248407115729}
   - component: {fileID: 7954147704929373820}
+  - component: {fileID: 8055431027304230753}
   m_Layer: 9
   m_Name: SK_FP_CH_Default_Root
   m_TagString: Untagged
@@ -3342,7 +3415,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3320314160785962872
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3359,7 +3432,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &7105913248407115729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3388,6 +3461,25 @@ MonoBehaviour:
   yClamp: {x: -89, y: 89}
   smooth: 0
   interpolationSpeed: 35
+--- !u!114 &8055431027304230753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9144016917351435942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7643a634eeb06074fa0b6fe2445eab36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stepRef:
+    Guid:
+      Data1: 1869121801
+      Data2: 1142334494
+      Data3: -834584166
+      Data4: -926447257
+    Path: event:/Footsteps/Footsteps
 --- !u!1 &9213006797200856089
 GameObject:
   m_ObjectHideFlags: 0

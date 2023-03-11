@@ -21,10 +21,6 @@ namespace InfimaGames.LowPolyShooterPack
         [Tooltip("Sprite. Displayed on the player's interface.")]
         [SerializeField]
         private Sprite sprite;
-
-        [Tooltip("Audio clip played when firing through this muzzle.")]
-        [SerializeField]
-        private AudioClip audioClipFire;
         
         [Header("Particles")]
         
@@ -126,7 +122,6 @@ namespace InfimaGames.LowPolyShooterPack
         public override Transform GetSocket() => socket;
 
         public override Sprite GetSprite() => sprite;
-        public override AudioClip GetAudioClipFire() => audioClipFire;
         
         public override ParticleSystem GetParticlesFire() => particles;
         public override int GetParticlesFireCount() => flashParticlesCount;

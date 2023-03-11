@@ -268,6 +268,7 @@ namespace InfimaGames.LowPolyShooterPack
 		{
 			//Movement Value. This value affects absolute movement. Aiming movement uses this, as opposed to per-axis movement.
 			characterAnimator.SetFloat(HashMovement, Mathf.Clamp01(Mathf.Abs(axisMovement.x) + Mathf.Abs(axisMovement.y)), dampTimeLocomotion, Time.deltaTime);
+			//characterAnimator.SetFloat(HashMovement, axisMovement.magnitude > 0 ? 1 : 0);
 			
 			//Update the aiming value, but use interpolation. This makes sure that things like firing can transition properly.
 			characterAnimator.SetFloat(HashAimingAlpha, Convert.ToSingle(aiming), 0.25f / 1.0f * dampTimeAiming, Time.deltaTime);
@@ -286,8 +287,10 @@ namespace InfimaGames.LowPolyShooterPack
 		/// </summary>
 		private void Inspect()
 		{
-			//State.
-			inspecting = true;
+
+			equippedWeapon.inspectSound();
+            //State.
+            inspecting = true;
 			//Play.
 			characterAnimator.CrossFade("Inspect", 0.0f, layerActions, 0);
 		}
@@ -333,8 +336,9 @@ namespace InfimaGames.LowPolyShooterPack
 			//Only if we're not holstered, holster. If we are already, we don't need to wait.
 			if(!holstered)
 			{
-				//Holster.
-				SetHolstered(holstering = true);
+                //Holster.
+                equippedWeapon.changeWeapon(true);
+                SetHolstered(holstering = true);
 				//Wait.
 				yield return new WaitUntil(() => holstering == false);
 			}
@@ -342,7 +346,9 @@ namespace InfimaGames.LowPolyShooterPack
 			SetHolstered(false);
 			//Play Unholster Animation.
 			characterAnimator.Play("Unholster", layerHolster, 0);
-			
+
+			//Audio
+			equippedWeapon.changeWeapon(false);
 			//Equip The New Weapon.
 			inventory.Equip(index);
 			//Refresh.
@@ -378,6 +384,8 @@ namespace InfimaGames.LowPolyShooterPack
 			 * Save Time. Even though we're not actually firing, we still need this for the fire rate between
 			 * empty shots.
 			 */
+			equippedWeapon.emptyFire();
+
 			lastShotTime = Time.time;
 			//Play.
 			characterAnimator.CrossFade("Fire Empty", 0.05f, layerOverlay, 0);
@@ -657,16 +665,19 @@ namespace InfimaGames.LowPolyShooterPack
 			if (!cursorLocked)
 				return;
 
+
 			//Switch.
 			switch (context.phase)
 			{
 				case InputActionPhase.Started:
-					//Started.
-					holdingButtonAim = true;
+                    equippedWeapon.aimSound();
+                    //Started.
+                    holdingButtonAim = true;
 					break;
 				case InputActionPhase.Canceled:
-					//Canceled.
-					holdingButtonAim = false;
+                    equippedWeapon.aimSound();
+                    //Canceled.
+                    holdingButtonAim = false;
 					break;
 			}
 		}

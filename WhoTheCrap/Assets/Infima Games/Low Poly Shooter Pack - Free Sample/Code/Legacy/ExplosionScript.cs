@@ -11,20 +11,10 @@ public class ExplosionScript : MonoBehaviour {
 	[Header("Light")]
 	public Light lightFlash;
 
-	[Header("Audio")]
-	public AudioClip[] explosionSounds;
-	public AudioSource audioSource;
-
 	private void Start () {
 		//Start the coroutines
 		StartCoroutine (DestroyTimer ());
 		StartCoroutine (LightFlash ());
-
-		//Get a random impact sound from the array
-		audioSource.clip = explosionSounds
-			[Random.Range(0, explosionSounds.Length)];
-		//Play the random explosion sound
-		audioSource.Play();
 	}
 
 	private IEnumerator LightFlash () {

@@ -44,12 +44,6 @@ public class GasTankScript : MonoBehaviour {
 	[Header("Particle Systems")]
 	public ParticleSystem flameParticles;
 	public ParticleSystem smokeParticles;
-
-	[Header("Audio")]
-	public AudioSource flameSound;
-	public AudioSource impactSound;
-	//Used to check if the audio has played
-	bool audioHasPlayed = false;
 	
 	private void Start () {
 		//Make sure the light is off at start
@@ -85,17 +79,6 @@ public class GasTankScript : MonoBehaviour {
 			//Play the smoke particles
 			smokeParticles.Play ();
 
-			//Increase the flame sound pitch over time
-			flameSound.pitch += audioPitchIncrease * Time.deltaTime;
-
-			//If the audio has not played, play it
-			if (!audioHasPlayed) 
-			{
-				flameSound.Play ();
-				//Audio has played
-				audioHasPlayed = true;
-			}
-
 			if (routineStarted == false) 
 			{
 				//Start the explode coroutine
@@ -105,10 +88,6 @@ public class GasTankScript : MonoBehaviour {
 				lightObject.intensity = 3;
 			}
 		}
-	}
-	private void OnCollisionEnter (Collision collision) {
-		//Play the impact sound on every collision
-		impactSound.Play ();
 	}
 
 	private IEnumerator Explode ()

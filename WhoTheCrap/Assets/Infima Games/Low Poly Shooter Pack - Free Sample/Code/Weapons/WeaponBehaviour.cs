@@ -39,34 +39,6 @@ namespace InfimaGames.LowPolyShooterPack
         public abstract Sprite GetSpriteBody();
 
         /// <summary>
-        /// Returns the holster audio clip.
-        /// </summary>
-        public abstract AudioClip GetAudioClipHolster();
-        /// <summary>
-        /// Returns the unholster audio clip.
-        /// </summary>
-        public abstract AudioClip GetAudioClipUnholster();
-
-        /// <summary>
-        /// Returns the reload audio clip.
-        /// </summary>
-        public abstract AudioClip GetAudioClipReload();
-        /// <summary>
-        /// Returns the reload empty audio clip.
-        /// </summary>
-        public abstract AudioClip GetAudioClipReloadEmpty();
-
-        /// <summary>
-        /// Returns the fire empty audio clip.
-        /// </summary>
-        public abstract AudioClip GetAudioClipFireEmpty();
-
-        /// <summary>
-        /// Returns the fire audio clip.
-        /// </summary>
-        public abstract AudioClip GetAudioClipFire();
-        
-        /// <summary>
         /// Returns Current Ammunition. 
         /// </summary>
         public abstract int GetAmmunitionCurrent();
@@ -116,6 +88,12 @@ namespace InfimaGames.LowPolyShooterPack
         /// </summary>
         /// <param name="spreadMultiplier">Value to multiply the weapon's spread by. Very helpful to account for aimed spread multipliers.</param>
         public abstract void Fire(float spreadMultiplier = 1.0f);
+
+        public abstract void emptyFire();
+        public abstract void aimSound();
+        public abstract void inspectSound();
+        public abstract void changeWeapon(bool holster);
+
         /// <summary>
         /// Reloads the weapon.
         /// </summary>

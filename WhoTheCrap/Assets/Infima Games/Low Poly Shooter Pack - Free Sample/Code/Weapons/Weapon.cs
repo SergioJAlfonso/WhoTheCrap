@@ -1,5 +1,7 @@
 ﻿// Copyright 2021, Infima Games. All Rights Reserved.
 
+using FMOD.Studio;
+using FMODUnity;
 using UnityEngine;
 
 namespace InfimaGames.LowPolyShooterPack
@@ -56,32 +58,23 @@ namespace InfimaGames.LowPolyShooterPack
         [Tooltip("Weapon Body Texture.")]
         [SerializeField]
         private Sprite spriteBody;
-        
-        [Header("Audio Clips Holster")]
 
-        [Tooltip("Holster Audio Clip.")]
         [SerializeField]
-        private AudioClip audioClipHolster;
+        EventReference reloadEvPath;// = "event:/Weapon/Reload";
 
-        [Tooltip("Unholster Audio Clip.")]
         [SerializeField]
-        private AudioClip audioClipUnholster;
-        
-        [Header("Audio Clips Reloads")]
+        EventReference shotEvPath;// = "event:/Weapon/Shots";
 
-        [Tooltip("Reload Audio Clip.")]
         [SerializeField]
-        private AudioClip audioClipReload;
-        
-        [Tooltip("Reload Empty Audio Clip.")]
-        [SerializeField]
-        private AudioClip audioClipReloadEmpty;
-        
-        [Header("Audio Clips Other")]
+        EventReference aimEvPath;// = "event:/Weapon/Aim";
 
-        [Tooltip("AudioClip played when this weapon is fired without any ammunition.")]
         [SerializeField]
-        private AudioClip audioClipFireEmpty;
+        EventReference inspectEvPath; // = "event:/Voice/Voice"
+
+        [SerializeField]
+        EventReference changeWeaponEvPath;  //= "event:/Weapon/ChangeWeapon"
+
+        EventInstance evInstance;
 
         #endregion
 
@@ -145,6 +138,7 @@ namespace InfimaGames.LowPolyShooterPack
             characterBehaviour = gameModeService.GetPlayerCharacter();
             //Cache the world camera. We use this in line traces.
             playerCamera = characterBehaviour.GetCameraWorld().transform;
+
         }
         protected override void Start()
         {
@@ -169,16 +163,6 @@ namespace InfimaGames.LowPolyShooterPack
         
         public override Sprite GetSpriteBody() => spriteBody;
 
-        public override AudioClip GetAudioClipHolster() => audioClipHolster;
-        public override AudioClip GetAudioClipUnholster() => audioClipUnholster;
-
-        public override AudioClip GetAudioClipReload() => audioClipReload;
-        public override AudioClip GetAudioClipReloadEmpty() => audioClipReloadEmpty;
-
-        public override AudioClip GetAudioClipFireEmpty() => audioClipFireEmpty;
-        
-        public override AudioClip GetAudioClipFire() => muzzleBehaviour.GetAudioClipFire();
-        
         public override int GetAmmunitionCurrent() => ammunitionCurrent;
 
         public override int GetAmmunitionTotal() => magazineBehaviour.GetAmmunitionTotal();
@@ -200,6 +184,13 @@ namespace InfimaGames.LowPolyShooterPack
         {
             //Play Reload Animation.
             animator.Play(HasAmmunition() ? "Reload" : "Reload Empty", 0, 0.0f);
+
+            //Reload
+            evInstance = RuntimeManager.CreateInstance(reloadEvPath);
+            evInstance.setParameterByName("GunType", automatic ? 1 : 0);
+            evInstance.setParameterByName("empty", HasAmmunition() ? 0 : 1);
+            evInstance.start();
+            evInstance.release();
         }
         public override void Fire(float spreadMultiplier = 1.0f)
         {
@@ -217,6 +208,14 @@ namespace InfimaGames.LowPolyShooterPack
             //Play the firing animation.
             const string stateName = "Fire";
             animator.Play(stateName, 0, 0.0f);
+
+            //Audio
+            evInstance = RuntimeManager.CreateInstance(shotEvPath);
+            evInstance.setParameterByName("GunType", automatic?1:0);
+            evInstance.setParameterByName("Empty", 0);
+            evInstance.start();
+            evInstance.release();
+
             //Reduce ammunition! We just shot, so we need to get rid of one!
             ammunitionCurrent = Mathf.Clamp(ammunitionCurrent - 1, 0, magazineBehaviour.GetAmmunitionTotal());
 
@@ -235,6 +234,44 @@ namespace InfimaGames.LowPolyShooterPack
             GameObject projectile = Instantiate(prefabProjectile, muzzleSocket.position, rotation);
             //Add velocity to the projectile.
             projectile.GetComponent<Rigidbody>().velocity = projectile.transform.forward * projectileImpulse;   
+        }
+
+        public override void emptyFire()
+        {
+            //Audio
+            evInstance = RuntimeManager.CreateInstance(shotEvPath);
+            evInstance.setParameterByName("GunType", automatic ? 1 : 0);
+            evInstance.setParameterByName("Empty", 1);
+            evInstance.start();
+            evInstance.release();
+        }
+
+        public override void aimSound()
+        {
+            //Audio
+            evInstance = RuntimeManager.CreateInstance(aimEvPath);
+            evInstance.setParameterByName("GunType", automatic ? 1 : 0);
+            evInstance.start();
+            evInstance.release();
+        }
+
+        public override void inspectSound()
+        {
+            //Audio
+            evInstance = RuntimeManager.CreateInstance(inspectEvPath);
+            evInstance.setParameterByName("GunType", automatic ? 1 : 0);
+            evInstance.start();
+            evInstance.release();
+        }
+
+        public override void changeWeapon(bool holster)
+        {
+            //Audio
+            evInstance = RuntimeManager.CreateInstance(changeWeaponEvPath);
+            evInstance.setParameterByName("GunType", automatic ? 1 : 0);
+            evInstance.setParameterByName("Holstered", holster ? 0 : 1);
+            evInstance.start();
+            evInstance.release();
         }
 
         public override void FillAmmunition(int amount)
