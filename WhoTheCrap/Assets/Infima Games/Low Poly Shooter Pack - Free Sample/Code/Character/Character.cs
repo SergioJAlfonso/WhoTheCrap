@@ -182,7 +182,7 @@ namespace InfimaGames.LowPolyShooterPack
 			characterKinematics = GetComponent<CharacterKinematics>();
 
 			//Initialize Inventory.
-			inventory.Init();
+			inventory.Init(1);
 
 			//Refresh!
 			RefreshWeaponSetup();
@@ -662,7 +662,7 @@ namespace InfimaGames.LowPolyShooterPack
 		public void OnTryAiming(InputAction.CallbackContext context)
 		{
 			//Block while the cursor is unlocked.
-			if (!cursorLocked)
+			if (!cursorLocked )
 				return;
 
 
@@ -670,12 +670,15 @@ namespace InfimaGames.LowPolyShooterPack
 			switch (context.phase)
 			{
 				case InputActionPhase.Started:
-                    equippedWeapon.aimSound();
+
+                    if( !holstered)
+						equippedWeapon.aimSound();
                     //Started.
                     holdingButtonAim = true;
 					break;
 				case InputActionPhase.Canceled:
-                    equippedWeapon.aimSound();
+                    if (!holstered)
+                        equippedWeapon.aimSound();
                     //Canceled.
                     holdingButtonAim = false;
 					break;
@@ -736,33 +739,33 @@ namespace InfimaGames.LowPolyShooterPack
 		/// </summary>
 		public void OnTryInventoryNext(InputAction.CallbackContext context)
 		{
-			//Block while the cursor is unlocked.
-			if (!cursorLocked)
-				return;
+			////Block while the cursor is unlocked.
+			//if (!cursorLocked)
+			//	return;
 			
-			//Null Check.
-			if (inventory == null)
-				return;
+			////Null Check.
+			//if (inventory == null)
+			//	return;
 			
-			//Switch.
-			switch (context)
-			{
-				//Performed.
-				case {phase: InputActionPhase.Performed}:
-					//Get the index increment direction for our inventory using the scroll wheel direction. If we're not
-					//actually using one, then just increment by one.
-					float scrollValue = context.valueType.IsEquivalentTo(typeof(Vector2)) ? Mathf.Sign(context.ReadValue<Vector2>().y) : 1.0f;
+			////Switch.
+			//switch (context)
+			//{
+			//	//Performed.
+			//	case {phase: InputActionPhase.Performed}:
+			//		//Get the index increment direction for our inventory using the scroll wheel direction. If we're not
+			//		//actually using one, then just increment by one.
+			//		float scrollValue = context.valueType.IsEquivalentTo(typeof(Vector2)) ? Mathf.Sign(context.ReadValue<Vector2>().y) : 1.0f;
 					
-					//Get the next index to switch to.
-					int indexNext = scrollValue > 0 ? inventory.GetNextIndex() : inventory.GetLastIndex();
-					//Get the current weapon's index.
-					int indexCurrent = inventory.GetEquippedIndex();
+			//		//Get the next index to switch to.
+			//		int indexNext = scrollValue > 0 ? inventory.GetNextIndex() : inventory.GetLastIndex();
+			//		//Get the current weapon's index.
+			//		int indexCurrent = inventory.GetEquippedIndex();
 					
-					//Make sure we're allowed to change, and also that we're not using the same index, otherwise weird things happen!
-					if (CanChangeWeapon() && (indexCurrent != indexNext))
-						StartCoroutine(nameof(Equip), indexNext);
-					break;
-			}
+			//		//Make sure we're allowed to change, and also that we're not using the same index, otherwise weird things happen!
+			//		if (CanChangeWeapon() && (indexCurrent != indexNext))
+			//			StartCoroutine(nameof(Equip), indexNext);
+			//		break;
+			//}
 		}
 		
 		public void OnLockCursor(InputAction.CallbackContext context)
