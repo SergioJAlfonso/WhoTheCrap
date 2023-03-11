@@ -9,15 +9,17 @@ public class GenerateIndvApp : MonoBehaviour
     public TextMeshPro texto;
     [SerializeField]
     public int totalSuspects;
+    [SerializeField]
+    public PlayEvent grabadora;
 
     int[] indices;
     int index = 0;
 
     public void GenerateScuspect()
     {
-        //de momento asi, luego hago una lista que suffle al principio de la partida.
-        //int res = Random.Range(0, totalSuspects);
         texto.text = "Sospechoso \n ID: " + indices[index];
+
+        grabadora.playGrab(index + 1); //mas uno porque las grab empiezan en el 1 (al menos la de tu madre)
         index++;
         if (index >= totalSuspects)
         {
@@ -42,12 +44,6 @@ public class GenerateIndvApp : MonoBehaviour
             a[i] = a[rnd];
             a[rnd] = temp;
         }
-
-        // Print
-        //for (int i = 0; i < a.Length; i++)
-        //{
-        //    Debug.Log(a[i]);
-        //}
     }
 
     void Start()
