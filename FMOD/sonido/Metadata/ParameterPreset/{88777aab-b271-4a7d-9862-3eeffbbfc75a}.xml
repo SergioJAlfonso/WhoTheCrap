@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{88777aab-b271-4a7d-9862-3eeffbbfc75a}">
+		<property name="name">
+			<value>Id's asociadas a nombres (esto no vale para nada)</value>
+		</property>
+		<relationship name="folder">
+			<destination>{966926a9-cfcd-4835-91f4-406a9c7f18aa}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{07d1e2ef-c9b0-4949-a1f0-e2cdf8185999}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{07d1e2ef-c9b0-4949-a1f0-e2cdf8185999}">
+		<property name="parameterType">
+			<value>2</value>
+		</property>
+		<property name="maximum">
+			<value>3</value>
+		</property>
+		<property name="enumerationLabels">
+			<value>Preset 0</value>
+			<value>Chikito de la Calzada</value>
+			<value>El chiste del Pinguino</value>
+		</property>
+		<property name="isHeld">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
