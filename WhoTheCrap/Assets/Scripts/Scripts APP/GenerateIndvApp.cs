@@ -35,13 +35,13 @@ public class GenerateIndvApp : MonoBehaviour
         controler.recordEvent.SetParameterByName("Record Id", indices[index]);
         //Playear grabacion id "index"
         controler.playGrab();
-        controler.setStatePlaying();
-
+        //controler.setStatePlaying();
     }
 
     public void GenerateScuspect()
     {
         texto.text = "# Expediente \n: " + list.getId(index);//indices[index];
+        controler.setStateReady();
     }
 
     void Shuffle(int[] a)
