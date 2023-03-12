@@ -14,18 +14,28 @@ public class emitterController : MonoBehaviour
 
     [SerializeField] public PlayEvent recordEvent;
 
-     enum state { stop, playing, ended };
+     enum state { stop, ready, playing, ended };
      state estado = state.stop;
 
     public void setStatePlaying() { 
         estado = state.playing;
     }
+    public void setStateReady()
+    {
+        estado = state.ready;
+    }
+
 
     public void playGrab()
     {
-        if (!recordEvent.IsPlaying() || recordEvent.IsPaused())
+        if (estado == state.ready)
         {
-            recordEvent.StartEvent();
+            if (!recordEvent.IsPlaying() || recordEvent.IsPaused())
+            {
+                recordEvent.StartEvent();
+                estado = state.playing;
+            }
+
         }
     }
 
@@ -43,10 +53,6 @@ public class emitterController : MonoBehaviour
                 estado = state.stop;
             }
 
-        }
-        else
-        {
-            estado = state.stop;
         }
     }
 }
