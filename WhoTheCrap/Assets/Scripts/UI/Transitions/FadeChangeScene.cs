@@ -38,15 +38,13 @@ public class FadeChangeScene : MonoBehaviour
 
     public void FadeToLevel(int levelIndex)
     {
-        Debug.Log("ole");
         levelToLoad = levelIndex;
         animator.SetTrigger("FadeOut");
     }
 
     public void OnFadeComplete()
     {
-        if(levelToLoad != 0)
-            GameManager.instance.startPlaying();
+        GameManager.instance.startPlaying(levelToLoad != 0 ? true : false);
         SceneManager.LoadScene(levelToLoad);
     }
 
