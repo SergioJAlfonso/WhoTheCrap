@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     private bool isGameOver = false, win;
     Gamestate gState = Gamestate.PLAYING;
 
-    int id = 6587; //TODO id placeholder para pruebas, hacer que coincida con el de la escena anterior (meter ID)
+    int id = 1; //TODO id placeholder para pruebas, hacer que coincida con el de la escena anterior (meter ID)
 
     //Timers
     private const float gamePlaceholderTime = 90; //TODO tiempo placeholder, el tiempo final irá asociado a la duración de audio de cada id
@@ -185,6 +185,11 @@ public class GameManager : MonoBehaviour
 
         if (finalElapsedTime <= 0)
             gState = Gamestate.CORRECT;
+    }
+
+    public void enablePlayerInput()
+    {
+        playerInput.enabled = true;
     }
 
     // Update is called once per frame

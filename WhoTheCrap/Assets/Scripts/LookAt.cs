@@ -10,6 +10,8 @@ public class LookAt : MonoBehaviour
     private float desiredDuration = 0.5f;
     private float elapsedTime;
 
+    public NPC_ID npcID;
+
     [SerializeField]
     private AnimationCurve curve;
 
@@ -28,5 +30,11 @@ public class LookAt : MonoBehaviour
         float percentageComplete = elapsedTime / desiredDuration;
 
         transform.position = Vector3.Lerp(startPosition, target.position, curve.Evaluate(percentageComplete));
+    }
+
+    private void OnEnable()
+    {
+        if(npcID.getObjective())
+            this.enabled = false;
     }
 }
