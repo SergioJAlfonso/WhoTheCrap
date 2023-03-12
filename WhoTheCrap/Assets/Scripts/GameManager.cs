@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.ProBuilder;
 using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 
@@ -23,7 +24,7 @@ public class GameManager : MonoBehaviour
     TerrainType terrain;
 
 
-    enum Gamestate { MENU, PLAYING, TIMELIMIT, WRONGANSWER, CORRECT, ZOOM, ENDING };
+    enum Gamestate { MENU, PLAYING, TIMELIMIT, WRONGANSWER, CORRECT, ZOOM, ENDING, FADETOMENU };
 
     private bool isGameOver = false, win;
     Gamestate gState = Gamestate.MENU;
@@ -104,9 +105,12 @@ public class GameManager : MonoBehaviour
         return (otherId == id);
     }
 
-    public void startPlaying()
+    public void startPlaying(bool gameScene)
     {
-        gState = Gamestate.PLAYING;
+        if(gameScene)
+            gState = Gamestate.PLAYING;
+        else
+            gState = Gamestate.MENU;
     }
 
     public void registerID(string ID)
@@ -307,10 +311,15 @@ public class GameManager : MonoBehaviour
                 zoomElapsedTime = 0;
                 lookAtTargets = new LookAt[0];
 
-                gState = Gamestate.MENU;
+                gState = Gamestate.FADETOMENU;
                 FadeChangeScene.instance.FadeToLevel(0);         
                 break;
+            case Gamestate.FADETOMENU:
+
+                FadeChangeScene.instance.OnFadeComplete();
+                break;
         };
+        
     }
 
     public void setLow(float l)
