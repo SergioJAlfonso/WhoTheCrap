@@ -53,7 +53,7 @@ public class BreakScreenSpawnExplosion : MonoBehaviour
         explodeTransform.gameObject.SetActive(true);
         uiEventShatter.Invoke();
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.6f);
         fade.OnFadeComplete();
 
     }
