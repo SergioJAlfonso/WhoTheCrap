@@ -10,7 +10,7 @@ public class InitialInstruction : MonoBehaviour
     string[] textInput;
     [SerializeField]
     float[] initialTime;
-    
+
     float textElapsedTime;
 
     short currentText = 0;
@@ -34,6 +34,9 @@ public class InitialInstruction : MonoBehaviour
 
         text.text = textInput[currentText];
         textElapsedTime = initialTime[currentText];
+
+        //Debug.Log("Word Sound");
+        GameManager.instance.GetFmodGameManager().transition_event.StartEvent();
     }
 
     // Update is called once per frame
@@ -60,6 +63,9 @@ public class InitialInstruction : MonoBehaviour
                 text.text = textInput[currentText];
                 textElapsedTime = initialTime[currentText];
                 transform.localScale = originalScale;
+
+                //Debug.Log("Word Sound");
+                GameManager.instance.GetFmodGameManager().transition_event.StartEvent();
             }
         }
     }
