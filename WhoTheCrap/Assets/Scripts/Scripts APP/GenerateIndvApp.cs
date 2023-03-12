@@ -12,8 +12,6 @@ public class GenerateIndvApp : MonoBehaviour
     public TextMeshPro texto;
     [SerializeField]
     public int totalSuspects;
-    [SerializeField]
-    public PlayEventGrabaciones grabadora;
 
     int[] indices;
     int index = 0;
@@ -31,13 +29,17 @@ public class GenerateIndvApp : MonoBehaviour
 
     public void playGrab()
     {
-        controler.playGrab(index);
+        Debug.Log("Record Id " + indices[index]);
+        controler.recordEvent.SetParameterByName("Record Id", indices[index]);
+        //Playear grabacion id "index"
+        controler.playGrab();
+        controler.setStatePlaying();
+
     }
 
     public void GenerateScuspect()
     {
         texto.text = "Sospechoso \n ID: " + indices[index];
-       // grabadora.playGrab(index + 1); //mas uno porque las grab empiezan en el 1 (al menos la de tu madre)
 
     }
 
@@ -72,6 +74,6 @@ public class GenerateIndvApp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

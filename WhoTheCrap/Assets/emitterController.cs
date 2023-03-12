@@ -11,31 +11,38 @@ public class emitterController : MonoBehaviour
     public GenerateIndvApp genIndv;
     [SerializeField]
     public CamRotateApp camRotate;
-    [SerializeField]
-    public StudioEventEmitter emitter;
-    [SerializeField]
-    public PlayEvent lista;
 
-    enum state { stop, playing, ended};
-    state estado = state.stop;
+    [SerializeField] public PlayEvent recordEvent;
 
-    public void playGrab(int index)
+     enum state { stop, playing, ended };
+     state estado = state.stop;
+
+    public void setStatePlaying() { 
+        estado = state.playing;
+    }
+
+    public void playGrab()
     {
-        emitter.EventReference = lista.GetGrab(index);
-        emitter.Play();
+        if (!recordEvent.IsPlaying() || recordEvent.IsPaused())
+        {
+            recordEvent.StartEvent();
+        }
     }
 
     private void Update()
     {
         if (estado == state.playing)
         {
-            if (!emitter.IsPlaying())
+            if (!recordEvent.IsPlaying())
             {
                 camRotate.EventEnd();
                 //girar la camara
                 estado = state.ended;
                 genIndv.nextInd();
+
+                estado = state.stop;
             }
+
         }
         else
         {

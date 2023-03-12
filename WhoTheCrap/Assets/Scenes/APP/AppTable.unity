@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.3708985, g: 0.3783704, b: 0.35722548, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1379,8 +1379,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controler: {fileID: 1971657565}
   texto: {fileID: 650435923}
-  totalSuspects: 1
-  grabadora: {fileID: 1971657564}
+  totalSuspects: 3
+  grabadora: {fileID: 0}
 --- !u!4 &892298198 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a010ee53298ef3447b75b5de5e07d9dc,
@@ -2829,32 +2829,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1149264777}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1971657564
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1971657563}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d458de2d99cda44c8dcf7fae5369494, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnginePath:
-    Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  GrabacionesPath:
-  - Guid:
-      Data1: -1428817809
-      Data2: 1119301531
-      Data3: -361225806
-      Data4: -1741040668
-    Path: event:/Jam/Grab1
 --- !u!114 &1971657565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2869,9 +2843,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   genIndv: {fileID: 892298195}
   camRotate: {fileID: 1831123669}
-  emitter: {fileID: 1971657566}
-  lista: {fileID: 1971657564}
---- !u!114 &1971657566
+  recordEvent: {fileID: 1971657572}
+--- !u!4 &1971657569 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 476276206fd266b46978b2ea9ac8ba5b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1149264777}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1971657572
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2880,33 +2859,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1971657563}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Script: {fileID: 11500000, guid: 0d458de2d99cda44c8dcf7fae5369494, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
+  EventPath:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
-  Event: 
-  PlayEvent: 0
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: -1
-  OverrideMaxDistance: -1
---- !u!4 &1971657569 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 476276206fd266b46978b2ea9ac8ba5b,
-    type: 3}
-  m_PrefabInstance: {fileID: 1149264777}
-  m_PrefabAsset: {fileID: 0}
+      Data1: -1165544470
+      Data2: 1294892678
+      Data3: -1841642610
+      Data4: -853380775
+    Path: event:/Jam/Record Archive
+  is3D: 0
+  initialParameter: 0
+  parameterName: Record Id
+  initialValue: 0
+  PlayonStart: 0
 --- !u!1 &2052007853
 GameObject:
   m_ObjectHideFlags: 0
