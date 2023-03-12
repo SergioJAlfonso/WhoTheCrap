@@ -41,7 +41,7 @@ public class GenerateIndvApp : MonoBehaviour
 
     public void GenerateScuspect()
     {
-        texto.text = "Sospechoso \n ID: " + list.getId(index);//indices[index];
+        texto.text = "# Expediente \n: " + list.getId(index);//indices[index];
     }
 
     void Shuffle(int[] a)
