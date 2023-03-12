@@ -391,7 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200519fe8730ee040885644ab4bbe1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 10
+  id: 11
   zoomPoint: {fileID: 1324314886}
   canTalk: 0
   rig: {fileID: 1526109833}
@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200519fe8730ee040885644ab4bbe1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 5
+  id: 1
   zoomPoint: {fileID: 651749842}
   canTalk: 0
   rig: {fileID: 2016385840}
@@ -2401,7 +2401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200519fe8730ee040885644ab4bbe1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 6
+  id: 2
   zoomPoint: {fileID: 2120962033}
   canTalk: 0
   rig: {fileID: 856840727}
@@ -3153,7 +3153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200519fe8730ee040885644ab4bbe1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 4
+  id: 13
   zoomPoint: {fileID: 145058098}
   canTalk: 0
   rig: {fileID: 1834888774}
@@ -4600,7 +4600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200519fe8730ee040885644ab4bbe1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 1
+  id: 4
   zoomPoint: {fileID: 2044217099}
   canTalk: 0
   rig: {fileID: 1863601747}
@@ -5412,7 +5412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200519fe8730ee040885644ab4bbe1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 3
+  id: 8
   zoomPoint: {fileID: 241677827}
   canTalk: 0
   rig: {fileID: 512447654}
@@ -5737,7 +5737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200519fe8730ee040885644ab4bbe1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 5
   zoomPoint: {fileID: 1823528260}
   canTalk: 0
   rig: {fileID: 1797060366}
@@ -6692,7 +6692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200519fe8730ee040885644ab4bbe1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 2
+  id: 0
   zoomPoint: {fileID: 934866244}
   canTalk: 0
   rig: {fileID: 553843902}
@@ -7288,7 +7288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200519fe8730ee040885644ab4bbe1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 7
+  id: 6
   zoomPoint: {fileID: 1808864059}
   canTalk: 0
   rig: {fileID: 1824683528}
@@ -9079,7 +9079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200519fe8730ee040885644ab4bbe1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 8
+  id: 14
   zoomPoint: {fileID: 1258589013}
   canTalk: 0
   rig: {fileID: 1397046603}
@@ -10559,7 +10559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200519fe8730ee040885644ab4bbe1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 9
+  id: 3
   zoomPoint: {fileID: 1328534253}
   canTalk: 0
   rig: {fileID: 560147004}
@@ -11214,7 +11214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200519fe8730ee040885644ab4bbe1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 11
+  id: 10
   zoomPoint: {fileID: 989660169}
   canTalk: 0
   rig: {fileID: 581266924}
@@ -14330,7 +14330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200519fe8730ee040885644ab4bbe1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 13
+  id: 7
   zoomPoint: {fileID: 1717907174}
   canTalk: 0
   rig: {fileID: 1086764109}
@@ -15312,7 +15312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200519fe8730ee040885644ab4bbe1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 14
+  id: 9
   zoomPoint: {fileID: 1428890211}
   canTalk: 0
   rig: {fileID: 1236325970}
