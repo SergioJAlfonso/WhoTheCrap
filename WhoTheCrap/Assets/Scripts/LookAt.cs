@@ -11,6 +11,7 @@ public class LookAt : MonoBehaviour
     private float elapsedTime;
 
     public NPC_ID npcID;
+    public Animator characterAnim;
 
     [SerializeField]
     private AnimationCurve curve;
@@ -36,5 +37,9 @@ public class LookAt : MonoBehaviour
     {
         if(npcID.getObjective())
             this.enabled = false;
+        else
+        {
+            characterAnim.StopPlayback();
+        }
     }
 }
