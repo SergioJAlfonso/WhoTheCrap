@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{b56edebd-9aa7-4c0f-9de0-1740d02390cb}">
+		<property name="assetPath">
+			<value>WhoTheCrap Main Theme Cada vez más ráspido.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>87.069931972789121</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{22decf5e-0a9c-4720-bc2a-7587ae4a6cdc}</destination>
+		</relationship>
+	</object>
+</objects>
