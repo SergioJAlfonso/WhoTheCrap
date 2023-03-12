@@ -1,4 +1,4 @@
-Musico trompeta
+1 Musico trompeta (niño gallego)
 -Moreno
 -hombre
 -barba
@@ -8,7 +8,7 @@ Musico trompeta
 -Bombín
 -Trompeta
 
-Musico Bajo
+2 Musico Bajo
 -Blanco
 -hombre
 -Sombrero
@@ -18,7 +18,7 @@ Musico Bajo
 -Bombin muy alto
 -Bajo
 
-Musico Bateria
+3 Musico Bateria (señor de mala vida)
 -Blanco
 -hombre
 -Nariz muy grande
@@ -28,14 +28,14 @@ Musico Bateria
 -Traje
 -Tambores
 
-Señora Negocios (lleva un bolso robado)
+4 Señora Negocios (lleva un bolso robado) (niño gallego)
 -Decir que le ha robado el bolso
 -Mujer
 -Pendientes muy largos
 -Moño
 -Traje
 
-Punky
+5 Punky
 -Pálido
 -Brazaletes en las manos
 -hombre
@@ -43,7 +43,7 @@ Punky
 -Gafas de sol
 -Cresta
 
-Calvo Gordo
+6 Calvo Gordo (señor de mala vida)
 -barba
 -hombre
 -Corbata
