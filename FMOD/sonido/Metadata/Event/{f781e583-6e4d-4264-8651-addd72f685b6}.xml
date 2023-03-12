@@ -66,6 +66,11 @@
 		<relationship name="automationTracks">
 			<destination>{ac6caaa4-ca17-4e53-a43e-2b635844010f}</destination>
 		</relationship>
+		<relationship name="modules">
+			<destination>{08392cf8-5c07-4a6c-9f1d-2c8f01d2f614}</destination>
+			<destination>{a27bc270-eb85-4913-bbea-9dc3e03f13ff}</destination>
+			<destination>{859fae0e-7bf3-4bb1-8e2f-8a0ff7c8d540}</destination>
+		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{544f050a-4827-487b-abc6-759b9ba3e9a0}</destination>
 		</relationship>
@@ -76,6 +81,11 @@
 		</property>
 	</object>
 	<object class="ParameterProxy" id="{7dd94a43-eb23-4183-adf6-561738af0977}">
+		<relationship name="modules">
+			<destination>{08392cf8-5c07-4a6c-9f1d-2c8f01d2f614}</destination>
+			<destination>{a27bc270-eb85-4913-bbea-9dc3e03f13ff}</destination>
+			<destination>{859fae0e-7bf3-4bb1-8e2f-8a0ff7c8d540}</destination>
+		</relationship>
 		<relationship name="preset">
 			<destination>{acf20188-67b8-4e71-baf2-b8dc2178fe71}</destination>
 		</relationship>
@@ -105,6 +115,39 @@
 	<object class="AutomationTrack" id="{ac6caaa4-ca17-4e53-a43e-2b635844010f}">
 		<relationship name="automator">
 			<destination>{4f5aff66-eafb-46d7-b63d-1e3d609c5648}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{08392cf8-5c07-4a6c-9f1d-2c8f01d2f614}">
+		<property name="volume">
+			<value>-18</value>
+		</property>
+		<property name="looping">
+			<value>true</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{e30eecc3-5a95-4bab-8a40-2866ac0ca22b}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{a27bc270-eb85-4913-bbea-9dc3e03f13ff}">
+		<property name="start">
+			<value>1</value>
+		</property>
+		<property name="looping">
+			<value>true</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{e6f7f563-5d78-4f64-9ae4-e68a4ac88894}</destination>
+		</relationship>
+	</object>
+	<object class="SingleSound" id="{859fae0e-7bf3-4bb1-8e2f-8a0ff7c8d540}">
+		<property name="start">
+			<value>2</value>
+		</property>
+		<property name="looping">
+			<value>true</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{d3a2d0cf-4b63-4a3d-a46a-7dc59b239cf1}</destination>
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{544f050a-4827-487b-abc6-759b9ba3e9a0}">
@@ -145,5 +188,12 @@
 	<object class="MixerBusPanner" id="{9e77a41d-33c4-4aaf-be92-aae7814a36a5}" />
 	<object class="MixerBusFader" id="{59a324f9-51e8-4103-8464-11daafd1c784}" />
 	<object class="MixerBusFader" id="{f3a18c49-26b7-4820-b556-832e2943c6be}" />
-	<object class="SpatialiserEffect" id="{bbc8a63a-f114-4ea3-9035-c5615148af56}" />
+	<object class="SpatialiserEffect" id="{bbc8a63a-f114-4ea3-9035-c5615148af56}">
+		<property name="maximumDistance">
+			<value>2</value>
+		</property>
+		<property name="overrideRange">
+			<value>true</value>
+		</property>
+	</object>
 </objects>

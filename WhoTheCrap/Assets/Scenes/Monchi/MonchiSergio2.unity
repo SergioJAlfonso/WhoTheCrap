@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 2bd8959f5fbd3644aa33af1a155fc147, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -293,6 +293,7 @@ MonoBehaviour:
   id: 5
   zoomPoint: {fileID: 651749842}
   canTalk: 0
+  rig: {fileID: 2016385840}
 --- !u!54 &107709673
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1218,6 +1219,7 @@ MonoBehaviour:
   id: 6
   zoomPoint: {fileID: 2120962033}
   canTalk: 0
+  rig: {fileID: 856840727}
 --- !u!114 &297347255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1882,6 +1884,7 @@ MonoBehaviour:
   id: 4
   zoomPoint: {fileID: 145058098}
   canTalk: 0
+  rig: {fileID: 1834888774}
 --- !u!136 &380656768
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3233,6 +3236,7 @@ MonoBehaviour:
   id: 1
   zoomPoint: {fileID: 2044217099}
   canTalk: 0
+  rig: {fileID: 1863601747}
 --- !u!54 &509904392
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3981,6 +3985,7 @@ MonoBehaviour:
   id: 3
   zoomPoint: {fileID: 241677827}
   canTalk: 0
+  rig: {fileID: 512447654}
 --- !u!114 &604682645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4305,6 +4310,7 @@ MonoBehaviour:
   id: 0
   zoomPoint: {fileID: 1823528260}
   canTalk: 0
+  rig: {fileID: 1797060366}
 --- !u!114 &626838045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5259,6 +5265,7 @@ MonoBehaviour:
   id: 2
   zoomPoint: {fileID: 934866244}
   canTalk: 0
+  rig: {fileID: 553843902}
 --- !u!114 &786893237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5854,6 +5861,7 @@ MonoBehaviour:
   id: 7
   zoomPoint: {fileID: 1808864059}
   canTalk: 0
+  rig: {fileID: 1824683528}
 --- !u!114 &829873287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6884,6 +6892,7 @@ MonoBehaviour:
   id: 8
   zoomPoint: {fileID: 1258589013}
   canTalk: 0
+  rig: {fileID: 1397046603}
 --- !u!1 &1187807740
 GameObject:
   m_ObjectHideFlags: 0
@@ -7880,6 +7889,7 @@ MonoBehaviour:
   id: 9
   zoomPoint: {fileID: 1328534253}
   canTalk: 0
+  rig: {fileID: 560147004}
 --- !u!114 &1423396579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9980,8 +9990,8 @@ Transform:
   - {fileID: 107709670}
   - {fileID: 297347250}
   - {fileID: 829873223}
-  - {fileID: 1098050107}
   - {fileID: 1423396515}
+  - {fileID: 1098050107}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
