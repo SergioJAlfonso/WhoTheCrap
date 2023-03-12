@@ -19,7 +19,7 @@ public class CamRotateApp : MonoBehaviour
     {
         if (rotating)
         {
-            if (Vector3.Distance(transform.eulerAngles, destRot) > 0.1f)
+            if (Vector3.Distance(transform.eulerAngles, to) > 0.1f)
             {
                 transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, to, Time.deltaTime);
             }
