@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     private float finalElapsedTime = oriSecondTextTime;
 
     //Texts
-    InitialInstruction wrongText, answerText, correctText, timeText, limitText;
+    InitialInstruction wrongText, answerText, correctText, timeText, limitText, cambioText;
 
     LookAt[] lookAtTargets = new LookAt[0];
 
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
     //Zoom
     private Vector3 zoomStartPosition, zoomEndPosition;
     private float desiredZoomDuration = 0.5f;
-    private const float zoomTime = 1f;
+    private const float zoomTime = 2.0f;
     private float zoomElapsedTime = 0;
 
     Quaternion startRotation, endRotation;
@@ -144,16 +144,17 @@ public class GameManager : MonoBehaviour
                 break;
             case "limit":
                 limitText = ii;
+                break; 
+            case "cambio":
+                cambioText = ii;
                 break;
         };
     }
-
     public void registerObjectiveTransform(Transform tr, Transform zoomTr)
     {
         objectiveTransform = tr;
         zoomTransform = zoomTr;
     }
-
     public void registerCamera(Transform tr)
     {
         cameraTransform = tr;
@@ -279,7 +280,8 @@ public class GameManager : MonoBehaviour
                 break;
 
             case Gamestate.ZOOM:
-
+                if (cambioText.enabled == false)
+                    cambioText.enabled = true;
                 //Lerp de camara
                 zoomElapsedTime += Time.deltaTime;
 
@@ -296,6 +298,9 @@ public class GameManager : MonoBehaviour
 
             case Gamestate.CORRECT:
 
+                if (cambioText.enabled == false)
+                    cambioText.enabled = true;
+
                 zoomElapsedTime += Time.deltaTime;
                 if (zoomElapsedTime >= zoomTime)
                     gState = Gamestate.ENDING;
@@ -304,15 +309,9 @@ public class GameManager : MonoBehaviour
             case Gamestate.ENDING:
 
                 gState = Gamestate.PLAYING;
-                isGameOver = false;
-                gameElapsedTime = gamePlaceholderTime;
-                firstTextElapsedTime = oriFirstTextTime;
-                finalElapsedTime = secondTextElapsedTime = oriSecondTextTime;
-                zoomElapsedTime = 0;
-                lookAtTargets = new LookAt[0];
-                id = -1;
+                resetParams();
 
-                gState = Gamestate.FADETOMENU;
+                 gState = Gamestate.FADETOMENU;
                 FadeChangeScene.instance.FadeToLevel(0);         
                 break;
             case Gamestate.FADETOMENU:
@@ -321,6 +320,17 @@ public class GameManager : MonoBehaviour
                 break;
         };
         
+    }
+
+    private void resetParams()
+    {
+        isGameOver = false;
+        gameElapsedTime = gamePlaceholderTime;
+        firstTextElapsedTime = oriFirstTextTime;
+        finalElapsedTime = secondTextElapsedTime = oriSecondTextTime;
+        zoomElapsedTime = 0;
+        lookAtTargets = new LookAt[0];
+        id = -1;
     }
 
     public void setLow(float l)

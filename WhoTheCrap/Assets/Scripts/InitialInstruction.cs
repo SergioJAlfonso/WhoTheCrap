@@ -24,6 +24,8 @@ public class InitialInstruction : MonoBehaviour
 
     [SerializeField]
     private bool enablePlayerInput = false;
+    [SerializeField]
+    private bool mute = false;
 
     // Start is called before the first frame update
     void Start()
@@ -35,8 +37,8 @@ public class InitialInstruction : MonoBehaviour
         text.text = textInput[currentText];
         textElapsedTime = initialTime[currentText];
 
-        //Debug.Log("Word Sound");
-        GameManager.instance.GetFmodGameManager().transition_event.StartEvent();
+        if (!mute)
+            GameManager.instance.GetFmodGameManager().transition_event.StartEvent();
     }
 
     // Update is called once per frame
@@ -64,8 +66,8 @@ public class InitialInstruction : MonoBehaviour
                 textElapsedTime = initialTime[currentText];
                 transform.localScale = originalScale;
 
-                //Debug.Log("Word Sound");
-                GameManager.instance.GetFmodGameManager().transition_event.StartEvent();
+                if(!mute)
+                    GameManager.instance.GetFmodGameManager().transition_event.StartEvent();
             }
         }
     }
