@@ -52,36 +52,36 @@
 -Calvo
 -Gordo mu gordo
 
-7 Pelirroja Vaquera
+7 Pelirroja Vaquera (Er gato con bota)
 -Chica
 -Seria
 -Caucasica
 -pelo largo
 -delgada
--sombrero vaquero
+-sombrero vaquero 
 -botas
 -pelirroja
--mostacho
-
+-mostacho 
+ 
 8 Waluigi
--Moreno
--sombrero
--cinturon
--mostacho
+-Moreno      
+-sombrero 
+-cinturon 
+-mostacho 
 -Narizon
 -Mono amarillo
-
+C       
 9 Afro Cuernos
--Fiestero
+-Fiestero  
 -Mucho estilo
 -Moreno
 -Ropa color pastel
--Gafas
+-Gafas 
 -Cejas Gruesas
 -Afro
 -Cuernos
 
-10 Viejo Encorvado 
+10 Viejo Encorvado (niño gallego)
 -Ropa antigua
 -Elegante
 -Chaleco
@@ -99,7 +99,7 @@
 -Labial
 -Gorda
 
-12 Cientifico entradas 
+12 Cientifico entradas (señor de mala vida)
 -Hombre
 -Viejo
 -Gafas
@@ -118,7 +118,7 @@
 -Sombrero en Copa
 -Estetoscopio
 
-14 Cura casco de Albañil
+14 Cura casco de Albañil (er zebah)
 - Hombre
 - Delgado
 - No tenia barba
@@ -128,7 +128,7 @@
 - Caso de albañil
 
 15 Poli (Lleva Donut Gigante)
-- Hombre
+- Hombre   
 - Serio
 - Gafas
 - Mostacho
