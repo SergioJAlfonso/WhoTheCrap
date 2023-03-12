@@ -42,7 +42,7 @@ public class NPCSoundBehaviour : MonoBehaviour
             {
                 if (!eventsList[actualState].IsPlaying() || eventsList[actualState].IsPaused())
                 {
-                    Debug.Log("Machine State Event" + statesList[actualState]);
+                    Debug.Log("Machine State Event " + statesList[actualState]);
                     eventsList[actualState].StartEvent();
                 }
             }

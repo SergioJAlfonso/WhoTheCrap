@@ -4727,6 +4727,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  enablePlayerInput: 0
 --- !u!114 &284738792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5203,6 +5204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 494336487}
+  npcID: {fileID: 1454956185}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -7507,6 +7509,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  enablePlayerInput: 0
 --- !u!114 &439580640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7807,6 +7810,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  enablePlayerInput: 0
 --- !u!114 &442481123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12513,6 +12517,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  enablePlayerInput: 0
 --- !u!114 &694689022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13515,6 +13520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 494336487}
+  npcID: {fileID: 1980601664}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -17594,6 +17600,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  enablePlayerInput: 0
 --- !u!114 &1067594594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20506,6 +20513,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1231648364}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1232548072 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2050141834808786961, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1596834167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1232548074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232548072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f6e92a7ab046a84496c227b6f85f8b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1235386550
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24152,7 +24177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200519fe8730ee040885644ab4bbe1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 345
+  id: 1
   zoomPoint: {fileID: 1392425046}
   canTalk: 1
 --- !u!114 &1454956186
@@ -25018,6 +25043,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  enablePlayerInput: 0
 --- !u!114 &1493868234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28165,6 +28191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 494336487}
+  npcID: {fileID: 926816047}
   curve:
     serializedVersion: 2
     m_Curve:

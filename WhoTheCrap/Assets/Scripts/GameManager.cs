@@ -302,7 +302,7 @@ public class GameManager : MonoBehaviour
                 zoomElapsedTime = 0;
                 lookAtTargets = new LookAt[0];
 
-                SceneManager.LoadScene("Sergio");
+                SceneManager.LoadScene("Monchi");
                 break;
         };
     }
