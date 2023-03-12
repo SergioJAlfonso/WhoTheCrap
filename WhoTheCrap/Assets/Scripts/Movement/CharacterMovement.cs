@@ -51,7 +51,7 @@ public class CharacterMovement : MonoBehaviour
         for (int i = 0; i < points.Length; i++)
         {
             Gizmos.DrawWireSphere(points[i].point.position, .5f);
-            Handles.Label(points[i].point.position, ""+i);
+            //Handles.Label(points[i].point.position, ""+i);
         }
     }
 }

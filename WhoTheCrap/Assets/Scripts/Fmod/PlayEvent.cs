@@ -1,33 +1,117 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 using FMODUnity;
+using UnityEngine;
 
 public class PlayEvent : MonoBehaviour
 {
-    [Header("FMOD Settings")]
-    [SerializeField] public EventReference EnginePath;
+
+   
 
     [Header("FMOD Settings")]
-    [SerializeField] public EventReference[] GrabacionesPath;
+    [Header("EventPath")]
+    [SerializeField] public EventReference EventPath;
 
-    FMOD.Studio.EventInstance engineEvent;
+    [SerializeField] bool is3D;
+
+    [SerializeField] bool initialParameter;
+    [SerializeField] string parameterName;
+    [SerializeField] int initialValue;
+
+    [SerializeField] bool PlayonStart;
+
+    FMOD.Studio.EventInstance Event;
+    public FMOD.Studio.EventInstance GetEvent() { return Event; }   
 
     void Start()
     {
-        engineEvent = FMODUnity.RuntimeManager.CreateInstance(EnginePath);
+        Event = FMODUnity.RuntimeManager.CreateInstance(EventPath);
+
+        if (is3D) {
+            // Establecemos la posici�n inicial del evento en el mundo 3D
+            Vector3 posicion = transform.position;
+            FMOD.ATTRIBUTES_3D atributos = RuntimeUtils.To3DAttributes(posicion);
+            Event.set3DAttributes(atributos);
+        }
+
+        if (initialParameter)
+        {
+            SetParameterByName(parameterName, initialValue);
+        }
+
+        if (PlayonStart)
+        {
+            StartEvent();
+        }
     }
 
-    public void playEngine()
+    private void Update()
     {
-        engineEvent.start();
-        engineEvent.release();
+        if (is3D)
+        {
+            // Actualizamos la posici�n del evento en el mundo 3D cada frame
+            Vector3 posicion = transform.position;
+            FMOD.ATTRIBUTES_3D atributos = RuntimeUtils.To3DAttributes(posicion);
+            Event.set3DAttributes(atributos);
+        }
     }
-    public void playGrab(int index)
+    //public EventReference GetGrab(int index)
+    //{
+    //    return GrabacionesPath[index];
+    //    //engineEvent = FMODUnity.RuntimeManager.CreateInstance(GrabacionesPath[index]);
+    //    //playEngine();
+
+    //}
+
+    private void OnDestroy()
     {
-        engineEvent = FMODUnity.RuntimeManager.CreateInstance(GrabacionesPath[index]);
-        playEngine();
+        // Liberamos la instancia del evento cuando el objeto es destruido
+        Event.release();
     }
+
+    public void StartEvent()
+    {
+        ResumeEvent();
+        Event.start();
+    }
+
+    public void PauseEvent()
+    {
+        Event.setPaused(true);
+    }
+
+    public void ResumeEvent()
+    {
+        if (IsPaused())
+            Event.setPaused(false);
+    }
+
+    public void StopEvent()
+    {
+        Event.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+    }
+    public void FadeStopEvent()
+    {
+        Event.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+
+    }
+
+    public void SetParameterByName(string parameterName, int value)
+    {
+        Event.setParameterByName(parameterName, value);
+    }
+
+    //
+    public bool IsPlaying()
+    {
+        Event.getPlaybackState(out FMOD.Studio.PLAYBACK_STATE state);
+        return state != FMOD.Studio.PLAYBACK_STATE.STOPPED;
+    }
+
+    public bool IsPaused()
+    {
+        Event.getPaused(out bool paused);
+        return paused;
+    }
+
+   
 }
 

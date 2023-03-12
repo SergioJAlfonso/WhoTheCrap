@@ -5,7 +5,7 @@
 			<value>Clock</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{715d0461-87e5-4e21-92fc-f6d521d41e1d}</destination>
@@ -53,7 +53,7 @@
 			<destination>{cb4423c0-8e98-4531-a3fd-4b46db6b7f8b}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{6f4f0bd5-16ca-40bd-90f9-f3090bdee825}</destination>
+			<destination>{83ba3c1b-dc5a-4866-841e-13785a5844e8}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{d74aa5fc-ca57-484e-bb2a-7eca91bef4f3}" />
@@ -62,11 +62,17 @@
 		<relationship name="automationTracks">
 			<destination>{3b2ffbbc-366e-49bf-b5e1-757bef04294e}</destination>
 		</relationship>
+		<relationship name="modules">
+			<destination>{9a1c5b92-2f3f-4152-8741-f743637bfbe2}</destination>
+		</relationship>
 		<relationship name="mixerGroup">
 			<destination>{a1ed3796-3446-4db2-8c22-a90242e9868c}</destination>
 		</relationship>
 	</object>
 	<object class="Timeline" id="{597b2c9d-02f2-4c3e-b5ce-0f2294085806}">
+		<relationship name="modules">
+			<destination>{9a1c5b92-2f3f-4152-8741-f743637bfbe2}</destination>
+		</relationship>
 		<relationship name="markers">
 			<destination>{f11db574-dcef-4173-9f70-26a34d0e8bc6}</destination>
 			<destination>{91ddee3a-9499-4daa-9103-26a4e5872ff0}</destination>
@@ -94,6 +100,14 @@
 			<destination>{882def2e-c956-474b-a586-9a0b74175abd}</destination>
 		</relationship>
 	</object>
+	<object class="SingleSound" id="{9a1c5b92-2f3f-4152-8741-f743637bfbe2}">
+		<property name="length">
+			<value>86.935510204081638</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{a04c562f-dabf-4582-ab37-de43c310a70f}</destination>
+		</relationship>
+	</object>
 	<object class="EventMixerGroup" id="{a1ed3796-3446-4db2-8c22-a90242e9868c}">
 		<property name="name">
 			<value>Audio 1</value>
@@ -113,7 +127,7 @@
 	</object>
 	<object class="NamedMarker" id="{f11db574-dcef-4173-9f70-26a34d0e8bc6}">
 		<property name="position">
-			<value>28</value>
+			<value>15</value>
 		</property>
 		<property name="name">
 			<value>Fin de Partida</value>

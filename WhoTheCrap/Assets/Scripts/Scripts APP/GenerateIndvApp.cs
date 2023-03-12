@@ -5,21 +5,20 @@ using UnityEngine;
 
 public class GenerateIndvApp : MonoBehaviour
 {
+
+    [SerializeField]
+    public emitterController controler;
     [SerializeField]
     public TextMeshPro texto;
     [SerializeField]
     public int totalSuspects;
-    [SerializeField]
-    public PlayEvent grabadora;
 
     int[] indices;
     int index = 0;
 
-    public void GenerateScuspect()
-    {
-        texto.text = "Sospechoso \n ID: " + indices[index];
 
-        grabadora.playGrab(index + 1); //mas uno porque las grab empiezan en el 1 (al menos la de tu madre)
+    public void nextInd()
+    {
         index++;
         if (index >= totalSuspects)
         {
@@ -28,6 +27,21 @@ public class GenerateIndvApp : MonoBehaviour
         }
     }
 
+    public void playGrab()
+    {
+        Debug.Log("Record Id " + indices[index]);
+        controler.recordEvent.SetParameterByName("Record Id", indices[index]);
+        //Playear grabacion id "index"
+        controler.playGrab();
+        controler.setStatePlaying();
+
+    }
+
+    public void GenerateScuspect()
+    {
+        texto.text = "Sospechoso \n ID: " + indices[index];
+
+    }
 
     void Shuffle(int[] a)
     {
@@ -60,6 +74,6 @@ public class GenerateIndvApp : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
