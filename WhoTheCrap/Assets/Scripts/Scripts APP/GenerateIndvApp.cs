@@ -10,7 +10,7 @@ public class GenerateIndvApp : MonoBehaviour
     [SerializeField]
     public int totalSuspects;
     [SerializeField]
-    public PlayEvent grabadora;
+    public PlayEventGrabaciones grabadora;
 
     int[] indices;
     int index = 0;

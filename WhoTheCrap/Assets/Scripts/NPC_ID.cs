@@ -11,12 +11,26 @@ public class NPC_ID : MonoBehaviour
 
     public Transform zoomPoint;
 
+    [SerializeField] bool canTalk;
+
+
     void Start()
     {
         if (GameManager.instance.checkId(id))
         {
-            GameManager.instance.registerObjectiveTransform(transform,zoomPoint);
+            GameManager.instance.registerObjectiveTransform(transform, zoomPoint);
             objective = true;
+        }
+        if (canTalk)
+        {
+            //Debug.Log("Can Talk");
+            if (GetComponent<PlayEvent>() == null)
+                Debug.Log("NPC can talk - No PlayEvent found");
+            else
+            {
+                GameManager.instance.registerNPCSoundBehabiour(this.GetComponent<NPCSoundBehaviour>());
+                GetComponent<NPCSoundBehaviour>().ChangeActualState(0);
+            }
         }
     }
 

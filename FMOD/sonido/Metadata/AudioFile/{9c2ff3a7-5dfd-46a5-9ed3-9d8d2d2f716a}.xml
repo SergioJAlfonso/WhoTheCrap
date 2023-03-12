@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{9c2ff3a7-5dfd-46a5-9ed3-9d8d2d2f716a}">
+		<property name="assetPath">
+			<value>onlymp3.to - cosecha propia de patacas.-Zcb8yPEItwA-256k-1654289596634.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>64.052244897959184</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{22decf5e-0a9c-4720-bc2a-7587ae4a6cdc}</destination>
+		</relationship>
+	</object>
+</objects>

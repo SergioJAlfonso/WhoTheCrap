@@ -67,10 +67,19 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     int zoomRotationOffset = 10;
 
+    //FMOD
+    [SerializeField]
+    private FmodGameManager fmodGameManager;
+    bool firstCall = true;
+    NPCSoundBehaviour[] npcSoundBehaviourList = new NPCSoundBehaviour[0];
+
+
     void Awake()
     {
         lowpass = maxLow;
         terrain = TerrainType.ROOM;
+
+
         if (instance == null)
         {
             instance = this;
@@ -143,7 +152,7 @@ public class GameManager : MonoBehaviour
         {
             finalElapsedTime -= Time.deltaTime;
 
-            if(limitText.enabled == false)
+            if (limitText.enabled == false)
                 limitText.enabled = true;
 
             if (finalElapsedTime <= 0)
@@ -180,6 +189,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (fmodGameManager != null)
+            fmodUpdate();
+        else
+            Debug.Log("fmodManagerMissing");
+
         if (lowpass < maxLow)
         {
             lowpass += lowFactor * Time.deltaTime;
@@ -233,7 +247,7 @@ public class GameManager : MonoBehaviour
             endRotation = Quaternion.LookRotation(zoomEndRotationPosition - zoomEndPosition, Vector3.up);
             gState = Gamestate.ZOOM;
         }
-        else if(gState == Gamestate.ZOOM)
+        else if (gState == Gamestate.ZOOM)
         {
             //Lerp de camara
             zoomElapsedTime += Time.deltaTime;
@@ -241,11 +255,11 @@ public class GameManager : MonoBehaviour
 
             Camera.main.transform.rotation = Quaternion.Slerp(startRotation, endRotation, zoomLerpCurve.Evaluate(percentageComplete));
             Camera.main.transform.position = Vector3.Lerp(zoomStartPosition, zoomEndPosition, zoomLerpCurve.Evaluate(percentageComplete));
-            
+
             if (zoomElapsedTime >= zoomTime)
                 gState = Gamestate.ENDING;
         }
-        else if(gState == Gamestate.ENDING)
+        else if (gState == Gamestate.ENDING)
         {
             gState = Gamestate.PLAYING;
             isGameOver = false;
@@ -272,6 +286,121 @@ public class GameManager : MonoBehaviour
     public int getTerrain()
     {
         return (int)terrain;
+    }
+
+
+
+
+    public FmodGameManager GetFmodGameManager() { return fmodGameManager; }
+
+    public void fmodUpdate()
+    {
+        if (gState == Gamestate.PLAYING)
+        {
+
+            if (firstCall)
+            {
+
+                if (!fmodGameManager.music_event.IsPlaying() || fmodGameManager.music_event.IsPaused())
+                {
+                    //Debug.Log("music_event");
+                    fmodGameManager.music_event.StartEvent();
+                }
+                if (!fmodGameManager.breeze_event.IsPlaying() || fmodGameManager.breeze_event.IsPaused())
+                {
+                    //Debug.Log("breeze_event");
+                    fmodGameManager.breeze_event.StartEvent();
+                }
+                firstCall = false;
+            }
+
+            if (gameElapsedTime <= 0)
+            {
+                //timeLimit();
+                if (!fmodGameManager.clock_event.IsPlaying() || fmodGameManager.clock_event.IsPaused())
+                {
+                    //Debug.Log("clock_event");
+                    fmodGameManager.clock_event.StartEvent();
+                }
+            }
+            else if (isGameOver)
+            {
+                if (win && firstTextElapsedTime <= 0)
+                {
+                    //correct();
+                    foreach (NPCSoundBehaviour npc in npcSoundBehaviourList)
+                    {
+                        npc.ChangeActualState(1);   //1 es estado win
+                    }
+                }
+                else if (firstTextElapsedTime <= 0)
+                {
+                    //wrongAnswer();
+                    foreach (NPCSoundBehaviour npc in npcSoundBehaviourList)
+                    {
+                        npc.ChangeActualState(2);   //2 es estado loose
+                    }
+                }
+                else
+                {
+                    //Ambient after shoot
+                    if (!fmodGameManager.heart_event.IsPlaying() || fmodGameManager.heart_event.IsPaused())
+                    {
+                        //Debug.Log("heart_event");
+                        fmodGameManager.heart_event.StartEvent();
+                    }
+                    //Silence music and murmur
+                    fmodGameManager.music_event.PauseEvent();
+                    fmodGameManager.breeze_event.PauseEvent();
+                    //Silence NPC'S
+                    foreach (NPCSoundBehaviour npc in npcSoundBehaviourList)
+                    {
+                        npc.ChangeActualState(3);   //3 es el ultimo estado que es vacio/silencio
+                    }
+                }
+            }
+        }
+
+        else if (gState == Gamestate.TIMELIMIT || gState == Gamestate.WRONGANSWER || gState == Gamestate.CORRECT)
+        {
+            //gState = Gamestate.ZOOM;
+
+        }
+        else if (gState == Gamestate.ZOOM)
+        {
+            //if (zoomElapsedTime >= zoomTime)
+            //    gState = Gamestate.ENDING;
+            if (!fmodGameManager.zoom_event.IsPlaying() || fmodGameManager.zoom_event.IsPaused())
+            {
+                //Debug.Log("Zoom sound");
+                fmodGameManager.zoom_event.StartEvent();
+            }
+
+        }
+        else if (gState == Gamestate.ENDING)
+        {
+            //gState = Gamestate.PLAYING;
+            //Debug.Log("Reset sound");
+            fmodGameManager.music_event.PauseEvent();
+            fmodGameManager.breeze_event.PauseEvent();
+            fmodGameManager.clock_event.PauseEvent();
+            fmodGameManager.zoom_event.PauseEvent();
+            fmodGameManager.transition_event.PauseEvent();
+            fmodGameManager.heart_event.PauseEvent();
+
+            foreach (NPCSoundBehaviour npc in npcSoundBehaviourList)
+            {
+                npc.ChangeActualState(0);
+            }
+
+            firstCall = true;
+        }
+    }
+
+    public void registerNPCSoundBehabiour(NPCSoundBehaviour npc)
+    {
+        Array.Resize(ref npcSoundBehaviourList, npcSoundBehaviourList.Length + 1);
+        npcSoundBehaviourList[npcSoundBehaviourList.Length - 1] = npc;
     }
 
 }
