@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class PlayEvent : MonoBehaviour
 {
+
+   
+
     [Header("FMOD Settings")]
     [Header("EventPath")]
     [SerializeField] public EventReference EventPath;
@@ -23,7 +26,7 @@ public class PlayEvent : MonoBehaviour
         Event = FMODUnity.RuntimeManager.CreateInstance(EventPath);
 
         if (is3D) {
-            // Establecemos la posición inicial del evento en el mundo 3D
+            // Establecemos la posiciï¿½n inicial del evento en el mundo 3D
             Vector3 posicion = transform.position;
             FMOD.ATTRIBUTES_3D atributos = RuntimeUtils.To3DAttributes(posicion);
             Event.set3DAttributes(atributos);
@@ -44,12 +47,19 @@ public class PlayEvent : MonoBehaviour
     {
         if (is3D)
         {
-            // Actualizamos la posición del evento en el mundo 3D cada frame
+            // Actualizamos la posiciï¿½n del evento en el mundo 3D cada frame
             Vector3 posicion = transform.position;
             FMOD.ATTRIBUTES_3D atributos = RuntimeUtils.To3DAttributes(posicion);
             Event.set3DAttributes(atributos);
         }
     }
+    //public EventReference GetGrab(int index)
+    //{
+    //    return GrabacionesPath[index];
+    //    //engineEvent = FMODUnity.RuntimeManager.CreateInstance(GrabacionesPath[index]);
+    //    //playEngine();
+
+    //}
 
     private void OnDestroy()
     {
