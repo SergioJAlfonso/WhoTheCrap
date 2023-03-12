@@ -51,3 +51,95 @@
 -Camisa remangada
 -Calvo
 -Gordo mu gordo
+
+7 Pelirroja Vaquera
+-Chica
+-Seria
+-Caucasica
+-pelo largo
+-delgada
+-sombrero vaquero
+-botas
+-pelirroja
+-mostacho
+
+8 Waluigi
+-Moreno
+-sombrero
+-cinturon
+-mostacho
+-Narizon
+-Mono amarillo
+
+9 Afro Cuernos
+-Fiestero
+-Mucho estilo
+-Moreno
+-Ropa color pastel
+-Gafas
+-Cejas Gruesas
+-Afro
+-Cuernos
+
+10 Viejo Encorvado 
+-Ropa antigua
+-Elegante
+-Chaleco
+-Cansado/Encorvado
+-Boina
+-Baston
+
+11 Mujer Gorda Afro
+-Mujer
+-Contenta
+-Piel oscura
+-Camisa manga corta
+-Afro
+-Pendientes
+-Labial
+-Gorda
+
+12 Cientifico entradas 
+-Hombre
+-Viejo
+-Gafas
+-Inteligente
+-Iba de blanco
+-Entradas
+-Mostacho (como el de Dali)
+
+13 Doctora Sombrero Copa
+-Mujer
+-Seria
+-Iba de blanco
+-Sanidad
+-Pelo Claro
+-Llevaba un monoculo
+-Sombrero en Copa
+-Estetoscopio
+
+14 Cura casco de Albañil
+- Hombre
+- Delgado
+- No tenia barba
+- Bata larga
+- Colgante
+- Religioso
+- Caso de albañil
+
+15 Poli (Lleva Donut Gigante)
+- Hombre
+- Serio
+- Gafas
+- Mostacho
+- Sombrero
+- Iba de azul
+- Una placa
+- Tenia autoridad
+
+
+
+
+
+
+
