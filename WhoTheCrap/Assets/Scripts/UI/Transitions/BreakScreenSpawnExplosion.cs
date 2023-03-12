@@ -7,6 +7,18 @@ public class BreakScreenSpawnExplosion : MonoBehaviour
     [SerializeField] Transform explodeTransform;
     [SerializeField] Material shatterMaterial;
     [SerializeField] FadeChangeScene fade;
+    [SerializeField] MainMenuTransitionController transitionController;
+    [SerializeField] GameObject startMenuCanvas, mainMenuCanvas;
+
+    public void Update()
+    {
+        if (Input.anyKeyDown)
+        {
+            transitionController.StartGame();
+            mainMenuCanvas.SetActive(true);
+            startMenuCanvas.SetActive(false);
+        }
+    }
 
     public void ShatterScreen()
     {
@@ -28,7 +40,7 @@ public class BreakScreenSpawnExplosion : MonoBehaviour
 
         explodeTransform.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(1.5f);
         fade.OnFadeComplete();
 
     }
