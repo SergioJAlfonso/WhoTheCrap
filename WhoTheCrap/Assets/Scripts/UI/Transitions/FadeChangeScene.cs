@@ -35,6 +35,7 @@ public class FadeChangeScene : MonoBehaviour
 
     public void OnFadeComplete()
     {
+        GameManager.instance.startPlaying();
         SceneManager.LoadScene(levelToLoad);
     }
 
