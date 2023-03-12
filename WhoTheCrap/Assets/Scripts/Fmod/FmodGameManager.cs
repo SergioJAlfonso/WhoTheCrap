@@ -16,6 +16,7 @@ public class FmodGameManager : MonoBehaviour
     [SerializeField] public PlayEvent zoom_event;
     [SerializeField] public PlayEvent transition_event;
     [SerializeField] public PlayEvent heart_event;
+    [SerializeField] public PlayEvent ui_event;
 
     void Awake()
     {
