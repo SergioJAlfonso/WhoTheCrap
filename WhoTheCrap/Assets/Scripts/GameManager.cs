@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     private bool isGameOver = false, win;
     Gamestate gState = Gamestate.MENU;
 
-    int id = 1;
+    int id = -1;
 
     //Timers
     private const float gamePlaceholderTime = 90; //TODO tiempo placeholder, el tiempo final irá asociado a la duración de audio de cada id
@@ -113,9 +113,9 @@ public class GameManager : MonoBehaviour
             gState = Gamestate.MENU;
     }
 
-    public void registerID(string ID)
+    public void registerID(int ID)
     {
-        id = int.Parse(ID);
+        id = ID;
     }
     public void registerLookAt(LookAt la)
     {
@@ -310,6 +310,7 @@ public class GameManager : MonoBehaviour
                 finalElapsedTime = secondTextElapsedTime = oriSecondTextTime;
                 zoomElapsedTime = 0;
                 lookAtTargets = new LookAt[0];
+                id = -1;
 
                 gState = Gamestate.FADETOMENU;
                 FadeChangeScene.instance.FadeToLevel(0);         

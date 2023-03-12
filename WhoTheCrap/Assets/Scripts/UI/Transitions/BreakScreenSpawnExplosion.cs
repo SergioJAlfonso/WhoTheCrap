@@ -11,6 +11,11 @@ public class BreakScreenSpawnExplosion : MonoBehaviour
     [SerializeField] GameObject startMenuCanvas, mainMenuCanvas;
 
     private bool initiated = false;
+    public void Awake()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
 
     public void Update()
     {
@@ -25,7 +30,8 @@ public class BreakScreenSpawnExplosion : MonoBehaviour
 
     public void ShatterScreen()
     {
-        StartCoroutine(CoroutineScreenshot());
+        if (!GameManager.instance.checkId(-1))
+            StartCoroutine(CoroutineScreenshot());
     }
 
     IEnumerator CoroutineScreenshot()
