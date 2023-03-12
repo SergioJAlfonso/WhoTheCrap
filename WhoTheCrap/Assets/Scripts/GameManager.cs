@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.ProBuilder;
 using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 
@@ -23,12 +24,12 @@ public class GameManager : MonoBehaviour
     TerrainType terrain;
 
 
-    enum Gamestate { MENU, PLAYING, TIMELIMIT, WRONGANSWER, CORRECT, ZOOM, ENDING };
+    enum Gamestate { MENU, PLAYING, TIMELIMIT, WRONGANSWER, CORRECT, ZOOM, ENDING, FADETOMENU };
 
     private bool isGameOver = false, win;
-    Gamestate gState = Gamestate.PLAYING;
+    Gamestate gState = Gamestate.MENU;
 
-    int id = 1;
+    int id = -1;
 
     //Timers
     private const float gamePlaceholderTime = 90; //TODO tiempo placeholder, el tiempo final irá asociado a la duración de audio de cada id
@@ -104,9 +105,17 @@ public class GameManager : MonoBehaviour
         return (otherId == id);
     }
 
-    public void registerID(string ID)
+    public void startPlaying(bool gameScene)
     {
-        id = int.Parse(ID);
+        if(gameScene)
+            gState = Gamestate.PLAYING;
+        else
+            gState = Gamestate.MENU;
+    }
+
+    public void registerID(int ID)
+    {
+        id = ID;
     }
     public void registerLookAt(LookAt la)
     {
@@ -301,10 +310,17 @@ public class GameManager : MonoBehaviour
                 finalElapsedTime = secondTextElapsedTime = oriSecondTextTime;
                 zoomElapsedTime = 0;
                 lookAtTargets = new LookAt[0];
+                id = -1;
 
-                SceneManager.LoadScene("Monchi");
+                gState = Gamestate.FADETOMENU;
+                FadeChangeScene.instance.FadeToLevel(0);         
+                break;
+            case Gamestate.FADETOMENU:
+
+                FadeChangeScene.instance.OnFadeComplete();
                 break;
         };
+        
     }
 
     public void setLow(float l)

@@ -1,0 +1,228 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5464121024654467708
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5464121024654467700}
+  - component: {fileID: 5464121024654467703}
+  - component: {fileID: 5464121024654467702}
+  - component: {fileID: 5464121024654467705}
+  - component: {fileID: 5464121024654467704}
+  - component: {fileID: 5464121024654467707}
+  - component: {fileID: 5464121024654467706}
+  - component: {fileID: 5464121024654467709}
+  - component: {fileID: 5464121024654467701}
+  m_Layer: 0
+  m_Name: FmodGameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5464121024654467700
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464121024654467708}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5464121024654467703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464121024654467708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adac64502f499ac4f8e10634968c3ae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  music_event: {fileID: 5464121024654467702}
+  breeze_event: {fileID: 5464121024654467705}
+  clock_event: {fileID: 5464121024654467704}
+  clockEnded_event: {fileID: 5464121024654467701}
+  zoom_event: {fileID: 5464121024654467707}
+  transition_event: {fileID: 5464121024654467706}
+  heart_event: {fileID: 5464121024654467709}
+--- !u!114 &5464121024654467702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464121024654467708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d458de2d99cda44c8dcf7fae5369494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventPath:
+    Guid:
+      Data1: 1664559984
+      Data2: 1237129932
+      Data3: -616955735
+      Data4: 1944987554
+    Path: event:/Jam/Music
+  is3D: 0
+  initialParameter: 0
+  parameterName: 
+  initialValue: 0
+  PlayonStart: 0
+--- !u!114 &5464121024654467705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464121024654467708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d458de2d99cda44c8dcf7fae5369494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventPath:
+    Guid:
+      Data1: 860347298
+      Data2: 1083635060
+      Data3: 1030971271
+      Data4: -1719245477
+    Path: event:/Jam/Breeze
+  is3D: 0
+  initialParameter: 0
+  parameterName: 
+  initialValue: 0
+  PlayonStart: 0
+--- !u!114 &5464121024654467704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464121024654467708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d458de2d99cda44c8dcf7fae5369494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventPath:
+    Guid:
+      Data1: 1767003466
+      Data2: 1313260392
+      Data3: -266920537
+      Data4: -33853774
+    Path: event:/Jam/Clock
+  is3D: 0
+  initialParameter: 0
+  parameterName: 
+  initialValue: 0
+  PlayonStart: 0
+--- !u!114 &5464121024654467707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464121024654467708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d458de2d99cda44c8dcf7fae5369494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventPath:
+    Guid:
+      Data1: -1188567324
+      Data2: 1156796518
+      Data3: -657265237
+      Data4: -980584016
+    Path: event:/Jam/Zoom
+  is3D: 0
+  initialParameter: 0
+  parameterName: 
+  initialValue: 0
+  PlayonStart: 0
+--- !u!114 &5464121024654467706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464121024654467708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d458de2d99cda44c8dcf7fae5369494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventPath:
+    Guid:
+      Data1: 405995006
+      Data2: 1289409412
+      Data3: -1865912658
+      Data4: -149262794
+    Path: event:/Jam/Transitions
+  is3D: 0
+  initialParameter: 0
+  parameterName: 
+  initialValue: 0
+  PlayonStart: 0
+--- !u!114 &5464121024654467709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464121024654467708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d458de2d99cda44c8dcf7fae5369494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventPath:
+    Guid:
+      Data1: -1866445917
+      Data2: 1090172801
+      Data3: -2030449219
+      Data4: 1513336595
+    Path: event:/Jam/Heart
+  is3D: 0
+  initialParameter: 0
+  parameterName: 
+  initialValue: 0
+  PlayonStart: 0
+--- !u!114 &5464121024654467701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5464121024654467708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d458de2d99cda44c8dcf7fae5369494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EventPath:
+    Guid:
+      Data1: 723906209
+      Data2: 1157029981
+      Data3: 41801649
+      Data4: -218080365
+    Path: event:/Jam/ClockEnded
+  is3D: 0
+  initialParameter: 0
+  parameterName: 
+  initialValue: 0
+  PlayonStart: 0

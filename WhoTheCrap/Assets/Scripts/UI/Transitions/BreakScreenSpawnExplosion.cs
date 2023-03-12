@@ -10,19 +10,23 @@ public class BreakScreenSpawnExplosion : MonoBehaviour
     [SerializeField] MainMenuTransitionController transitionController;
     [SerializeField] GameObject startMenuCanvas, mainMenuCanvas;
 
+    private bool initiated = false;
+
     public void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.anyKeyDown && !initiated)
         {
             transitionController.StartGame();
             mainMenuCanvas.SetActive(true);
             startMenuCanvas.SetActive(false);
+            initiated = true;
         }
     }
 
     public void ShatterScreen()
     {
-        StartCoroutine(CoroutineScreenshot());
+        if (!GameManager.instance.checkId(-1))
+            StartCoroutine(CoroutineScreenshot());
     }
 
     IEnumerator CoroutineScreenshot()
