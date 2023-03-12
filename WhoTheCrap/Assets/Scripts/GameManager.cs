@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.ProBuilder;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 
@@ -22,17 +25,16 @@ public class GameManager : MonoBehaviour
 
     TerrainType terrain;
 
-
-    enum Gamestate { MENU, PLAYING, TIMELIMIT, WRONGANSWER, CORRECT, ZOOM, ENDING };
+    enum Gamestate { MENU, PLAYING, TIMELIMIT, WRONGANSWER, CORRECT, ZOOM, ENDING, FADETOMENU };
 
     private bool isGameOver = false, win;
     Gamestate gState = Gamestate.MENU;
 
-    int id = 1;
+    int id = -1;
 
     //Timers
-    private const float gamePlaceholderTime = 90; //TODO tiempo placeholder, el tiempo final irá asociado a la duración de audio de cada id
-    private float gameElapsedTime = gamePlaceholderTime; //TODO tiempo placeholder, el tiempo final irá asociado a la duración de audio de cada id
+    private const float gameOriginalTime = 90; //TODO tiempo placeholder, el tiempo final irá asociado a la duración de audio de cada id
+    private float gameElapsedTime = gameOriginalTime; 
 
     private const float oriFirstTextTime = 2f;
     private float firstTextElapsedTime = oriFirstTextTime;
@@ -43,7 +45,7 @@ public class GameManager : MonoBehaviour
     private float finalElapsedTime = oriSecondTextTime;
 
     //Texts
-    InitialInstruction wrongText, answerText, correctText, timeText, limitText;
+    InitialInstruction wrongText, answerText, correctText, timeText, limitText, cambioText;
 
     LookAt[] lookAtTargets = new LookAt[0];
 
@@ -57,7 +59,7 @@ public class GameManager : MonoBehaviour
     //Zoom
     private Vector3 zoomStartPosition, zoomEndPosition;
     private float desiredZoomDuration = 0.5f;
-    private const float zoomTime = 1f;
+    private const float zoomTime = 2.0f;
     private float zoomElapsedTime = 0;
 
     Quaternion startRotation, endRotation;
@@ -74,6 +76,9 @@ public class GameManager : MonoBehaviour
     bool firstCall = true;
     NPCSoundBehaviour[] npcSoundBehaviourList = new NPCSoundBehaviour[0];
 
+    //Post Process
+    //private Volume ppVolume;
+    private Vignette vignette;
 
     void Awake()
     {
@@ -104,14 +109,20 @@ public class GameManager : MonoBehaviour
         return (otherId == id);
     }
 
-    public void startPlaying()
+    public void startPlaying(bool gameScene)
     {
-        gState = Gamestate.PLAYING;
+        if(gameScene)
+            gState = Gamestate.PLAYING;
+        else
+            gState = Gamestate.MENU;
     }
-
-    public void registerID(string ID)
+    public void registerVignette(Volume v)
     {
-        id = int.Parse(ID);
+        v.profile.TryGet(out vignette);
+    }
+    public void registerID(int ID)
+    {
+        id = ID;
     }
     public void registerLookAt(LookAt la)
     {
@@ -140,16 +151,17 @@ public class GameManager : MonoBehaviour
                 break;
             case "limit":
                 limitText = ii;
+                break; 
+            case "cambio":
+                cambioText = ii;
                 break;
         };
     }
-
     public void registerObjectiveTransform(Transform tr, Transform zoomTr)
     {
         objectiveTransform = tr;
         zoomTransform = zoomTr;
     }
-
     public void registerCamera(Transform tr)
     {
         cameraTransform = tr;
@@ -254,6 +266,9 @@ public class GameManager : MonoBehaviour
                         }
                     }
                 }
+
+                if (gameElapsedTime <= 15 && vignette.intensity.value <= 0.45f)
+                    vignette.intensity.value += 0.0005f;
                 break;
 
             case Gamestate.TIMELIMIT:
@@ -275,7 +290,8 @@ public class GameManager : MonoBehaviour
                 break;
 
             case Gamestate.ZOOM:
-
+                if (cambioText.enabled == false)
+                    cambioText.enabled = true;
                 //Lerp de camara
                 zoomElapsedTime += Time.deltaTime;
 
@@ -292,6 +308,9 @@ public class GameManager : MonoBehaviour
 
             case Gamestate.CORRECT:
 
+                if (cambioText.enabled == false)
+                    cambioText.enabled = true;
+
                 zoomElapsedTime += Time.deltaTime;
                 if (zoomElapsedTime >= zoomTime)
                     gState = Gamestate.ENDING;
@@ -300,17 +319,28 @@ public class GameManager : MonoBehaviour
             case Gamestate.ENDING:
 
                 gState = Gamestate.PLAYING;
-                isGameOver = false;
-                gameElapsedTime = gamePlaceholderTime;
-                firstTextElapsedTime = oriFirstTextTime;
-                finalElapsedTime = secondTextElapsedTime = oriSecondTextTime;
-                zoomElapsedTime = 0;
-                lookAtTargets = new LookAt[0];
+                resetParams();
 
-                gState = Gamestate.MENU;
+                 gState = Gamestate.FADETOMENU;
                 FadeChangeScene.instance.FadeToLevel(0);         
                 break;
+            case Gamestate.FADETOMENU:
+
+                FadeChangeScene.instance.OnFadeComplete();
+                break;
         };
+        
+    }
+
+    private void resetParams()
+    {
+        isGameOver = false;
+        gameElapsedTime = gameOriginalTime;
+        firstTextElapsedTime = oriFirstTextTime;
+        finalElapsedTime = secondTextElapsedTime = oriSecondTextTime;
+        zoomElapsedTime = 0;
+        lookAtTargets = new LookAt[0];
+        id = -1;
     }
 
     public void setLow(float l)

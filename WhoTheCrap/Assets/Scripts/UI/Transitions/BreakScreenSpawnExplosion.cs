@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BreakScreenSpawnExplosion : MonoBehaviour
 {
@@ -9,8 +10,14 @@ public class BreakScreenSpawnExplosion : MonoBehaviour
     [SerializeField] FadeChangeScene fade;
     [SerializeField] MainMenuTransitionController transitionController;
     [SerializeField] GameObject startMenuCanvas, mainMenuCanvas;
+    [SerializeField] UnityEvent uiEventStart, uiEventShatter;
 
     private bool initiated = false;
+    public void Awake()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
 
     public void Update()
     {
@@ -20,12 +27,14 @@ public class BreakScreenSpawnExplosion : MonoBehaviour
             mainMenuCanvas.SetActive(true);
             startMenuCanvas.SetActive(false);
             initiated = true;
+            uiEventStart.Invoke();
         }
     }
 
     public void ShatterScreen()
     {
-        StartCoroutine(CoroutineScreenshot());
+        if (!GameManager.instance.checkId(-1))
+            StartCoroutine(CoroutineScreenshot());
     }
 
     IEnumerator CoroutineScreenshot()
@@ -42,6 +51,7 @@ public class BreakScreenSpawnExplosion : MonoBehaviour
         shatterMaterial.SetTexture("_BaseMap", screenshotTexture2D);
 
         explodeTransform.gameObject.SetActive(true);
+        uiEventShatter.Invoke();
 
         yield return new WaitForSeconds(1.5f);
         fade.OnFadeComplete();

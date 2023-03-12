@@ -67,7 +67,6 @@
 			<destination>{31bf608e-a54c-432e-a175-37ebbbec7874}</destination>
 		</relationship>
 		<relationship name="modules">
-			<destination>{c73cdb0d-62ae-4139-9751-97712ea56fb7}</destination>
 			<destination>{a2f5ee73-7bda-4254-be38-14d89d7f65ae}</destination>
 			<destination>{8559a2de-f427-4b02-9fc0-b3c7361b59bd}</destination>
 		</relationship>
@@ -82,7 +81,6 @@
 	</object>
 	<object class="ParameterProxy" id="{c829118d-91d5-4b03-9869-1e2f2401480d}">
 		<relationship name="modules">
-			<destination>{c73cdb0d-62ae-4139-9751-97712ea56fb7}</destination>
 			<destination>{a2f5ee73-7bda-4254-be38-14d89d7f65ae}</destination>
 			<destination>{8559a2de-f427-4b02-9fc0-b3c7361b59bd}</destination>
 		</relationship>
@@ -115,11 +113,6 @@
 	<object class="AutomationTrack" id="{31bf608e-a54c-432e-a175-37ebbbec7874}">
 		<relationship name="automator">
 			<destination>{3c2c9dfb-0dad-46cd-82e7-1854d20f7a0d}</destination>
-		</relationship>
-	</object>
-	<object class="SingleSound" id="{c73cdb0d-62ae-4139-9751-97712ea56fb7}">
-		<relationship name="audioFile">
-			<destination>{2514a487-c4d4-4126-a8b8-50fe221ccf63}</destination>
 		</relationship>
 	</object>
 	<object class="SingleSound" id="{a2f5ee73-7bda-4254-be38-14d89d7f65ae}">

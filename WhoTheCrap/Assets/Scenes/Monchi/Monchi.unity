@@ -5205,7 +5205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 494336487}
   npcID: {fileID: 1454956185}
-  characterAnim: {fileID: 0}
+  characterAnim: {fileID: 1454956188}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -13522,7 +13522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 494336487}
   npcID: {fileID: 1980601664}
-  characterAnim: {fileID: 0}
+  characterAnim: {fileID: 1980601665}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -28194,7 +28194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 494336487}
   npcID: {fileID: 926816047}
-  characterAnim: {fileID: 0}
+  characterAnim: {fileID: 926816051}
   curve:
     serializedVersion: 2
     m_Curve:

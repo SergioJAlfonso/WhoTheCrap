@@ -1,4 +1,4 @@
-Musico trompeta
+1 Musico trompeta (niño gallego)
 -Moreno
 -hombre
 -barba
@@ -8,7 +8,7 @@ Musico trompeta
 -Bombín
 -Trompeta
 
-Musico Bajo
+2 Musico Bajo (calamardo)
 -Blanco
 -hombre
 -Sombrero
@@ -18,7 +18,7 @@ Musico Bajo
 -Bombin muy alto
 -Bajo
 
-Musico Bateria
+3 Musico11 Bateria (señor de mala vida)
 -Blanco
 -hombre
 -Nariz muy grande
@@ -28,14 +28,14 @@ Musico Bateria
 -Traje
 -Tambores
 
-Señora Negocios (lleva un bolso robado)
+4 Señora Negocios (lleva un bolso robado) (niño gallego)
 -Decir que le ha robado el bolso
 -Mujer
 -Pendientes muy largos
 -Moño
 -Traje
 
-Punky
+5 Punky (Homero)
 -Pálido
 -Brazaletes en las manos
 -hombre
@@ -43,7 +43,7 @@ Punky
 -Gafas de sol
 -Cresta
 
-Calvo Gordo
+6 Calvo Gordo (señor de mala vida)
 -barba
 -hombre
 -Corbata
@@ -51,3 +51,95 @@ Calvo Gordo
 -Camisa remangada
 -Calvo
 -Gordo mu gordo
+
+7 Pelirroja Vaquera (Er gato con bota)
+-Chica
+-Seria
+-Caucasica
+-pelo largo
+-delgada
+-sombrero vaquero 
+-botas
+-pelirroja
+-mostacho 
+ 
+8 Waluigi
+-Moreno      
+-sombrero 
+-cinturon 
+-mostacho 
+-Narizon
+-Mono amarillo
+C       
+9 Afro Cuernos
+-Fiestero  
+-Mucho estilo
+-Moreno
+-Ropa color pastel
+-Gafas 
+-Cejas Gruesas
+-Afro
+-Cuernos
+
+10 Viejo Encorvado (niño gallego)
+-Ropa antigua
+-Elegante
+-Chaleco
+-Cansado/Encorvado
+-Boina
+-Baston
+
+11 Mujer Gorda Afro
+-Mujer
+-Contenta
+-Piel oscura
+-Camisa manga corta
+-Afro
+-Pendientes
+-Labial
+-Gorda
+
+12 Cientifico entradas (señor de mala vida)
+-Hombre
+-Viejo
+-Gafas
+-Inteligente
+-Iba de blanco
+-Entradas
+-Mostacho (como el de Dali)
+
+13 Doctora Sombrero Copa
+-Mujer
+-Seria
+-Iba de blanco
+-Sanidad
+-Pelo Claro
+-Llevaba un monoculo
+-Sombrero en Copa
+-Estetoscopio
+
+14 Cura casco de Albañil (er zebah)
+- Hombre
+- Delgado
+- No tenia barba
+- Bata larga
+- Colgante
+- Religioso
+- Caso de albañil
+
+15 Poli (Lleva Donut Gigante)
+- Hombre   
+- Serio
+- Gafas
+- Mostacho
+- Sombrero
+- Iba de azul
+- Una placa
+- Tenia autoridad
+
+
+
+
+
+
+
