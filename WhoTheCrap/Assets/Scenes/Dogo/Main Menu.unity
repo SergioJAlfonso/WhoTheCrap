@@ -7007,7 +7007,7 @@ PrefabInstance:
     - target: {fileID: 616115605194811778, guid: 65338fca93885d94c9eb993246e613e5,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 616115605194811778, guid: 65338fca93885d94c9eb993246e613e5,
         type: 3}
@@ -9710,63 +9710,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106e5c17785b41a49af8d53198407d04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  supportHDRTextures: 1
-  supportDX11: 1
-  isSupported: 1
-  Dither: 1
-  Pixelate: 0
-  Grain: 0
-  Grain_Old: 0
-  Grain_New: 0
-  grain:
-    m_Enabled: 0
-    m_Settings:
-      colored: 0
-      intensity: 1
-      size: 3
-      luminanceContribution: 0.814
-      animated: 0
-  colored: 0
-  intensity: 1
-  size: 3
-  luminanceContribution: 0.814
-  animated: 0
-  _palette: {fileID: 11400000, guid: eb5ce426cf98c744a81e852c7390cd16, type: 2}
-  _pattern: {fileID: 11400000, guid: c04ded80bff222144821a17e2c63de70, type: 2}
-  _patternTexture: {fileID: 0}
-  _shader: {fileID: 4800000, guid: 8ca8b34aa013842f3b399b6961e7dc3b, type: 3}
-  _material: {fileID: 0}
-  _pixelScale: 0.39
-  cam: {fileID: 1597383847}
-  ortoCamera: {fileID: 0}
-  renTex: {fileID: 0}
-  pixelator: {fileID: 0}
-  quad: {fileID: 0}
-  quadRenderer: {fileID: 0}
-  previousWidth: 1296
-  previousHeight: 729
-  previousPixelation: 0.39
-  intensityMultiplier: 0.25
-  generalIntensity: 0.5
-  blackIntensity: 1
-  whiteIntensity: 1
-  midGrey: 0.2
-  dx11Grain: 0
-  softness: 0.0001
-  monochrome: 1
-  intensities: {x: 1, y: 1, z: 1}
-  tiling: {x: 64, y: 64, z: 64}
-  monochromeTiling: 64
-  filterMode: 1
-  noiseTexture: {fileID: 0}
-  noiseShader: {fileID: 4800000, guid: 2b63037831bb3834dbe7f37515cc9ec8, type: 3}
-  noiseMaterial: {fileID: 0}
-  dx11NoiseShader: {fileID: 0}
-  dx11NoiseMaterial: {fileID: 0}
-  mat: {fileID: 0}
-  profile: {fileID: 0}
-  ub: {fileID: 0}
-  gm: {fileID: 0}
 --- !u!4 &1597383854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8513133155929336281, guid: f0906d1c81137d54b8845355c8a110f4,
