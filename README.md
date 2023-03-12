@@ -12,6 +12,8 @@
 
 - [Polygonal's Low-Poly Particle Pack](https://assetstore.unity.com/packages/vfx/particles/polygonal-s-low-poly-particle-pack-118355)
 
+- [FREE Skybox Extended Shader](https://assetstore.unity.com/packages/vfx/shaders/free-skybox-extended-shader-107400)
+
 # Quién cojones es este? _(Who the crap is this?)_
 
 ## Descripción breve:
