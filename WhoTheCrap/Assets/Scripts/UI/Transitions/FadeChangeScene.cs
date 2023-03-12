@@ -12,13 +12,23 @@ public class FadeChangeScene : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null)
+        //if (instance != null)
+        //{
+        //    Destroy(gameObject);
+        //    return;
+        //}
+
+        //instance = this;
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
         {
             Destroy(gameObject);
-            return;
         }
-
-        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void Start()
@@ -26,16 +36,17 @@ public class FadeChangeScene : MonoBehaviour
         fadeInCompleted = false;
     }
 
-
     public void FadeToLevel(int levelIndex)
     {
+        Debug.Log("ole");
         levelToLoad = levelIndex;
         animator.SetTrigger("FadeOut");
     }
 
     public void OnFadeComplete()
     {
-        GameManager.instance.startPlaying();
+        if(levelToLoad != 0)
+            GameManager.instance.startPlaying();
         SceneManager.LoadScene(levelToLoad);
     }
 

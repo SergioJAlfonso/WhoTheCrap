@@ -1254,6 +1254,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8641686273749246201, guid: ff656fec316f17d41924bc92e7d653dc,
         type: 3}
+      propertyPath: fmodGameManager
+      value: 
+      objectReference: {fileID: 1754988563}
+    - target: {fileID: 8641686273749246201, guid: ff656fec316f17d41924bc92e7d653dc,
+        type: 3}
       propertyPath: zoomLerpCurve.m_Curve.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -1895,6 +1900,75 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &638109612
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467708, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_Name
+      value: FmodGameManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 13af48caf58d6d94daaca97a3b8b971d, type: 3}
 --- !u!1001 &677075878
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6691,6 +6765,18 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!114 &1754988563 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5464121024654467703, guid: 13af48caf58d6d94daaca97a3b8b971d,
+    type: 3}
+  m_PrefabInstance: {fileID: 638109612}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adac64502f499ac4f8e10634968c3ae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &1801074460
 Mesh:
   m_ObjectHideFlags: 0

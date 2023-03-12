@@ -5,9 +5,9 @@ using UnityEngine;
 public class IdList : MonoBehaviour
 {
     [SerializeField]
-    public int[] ids;
+    public string[] ids;
 
-    public bool exist(int id)
+    public bool exist(string id)
     {
         for (int i =0; i < ids.Length; i++)
         {
@@ -20,7 +20,7 @@ public class IdList : MonoBehaviour
     /* Para recoger la id para los audios y logica del jeugo que utilizan los audios
      * y el registro del disparo
      * -1 es error */
-    public int getIndex(int id)
+    public int getIndex(string id)
     {
         for (int i = 0; i < ids.Length; i++)
         {
@@ -31,11 +31,16 @@ public class IdList : MonoBehaviour
         return -1;
     }
     /* -1 es error */
-    public int getId(int index)
+    public string getId(int index)
     {
         if (index < ids.Length)
             return ids[index];
-        return -1;
+        return null;
     }
 
+
+    public int totalIds()
+    {
+        return ids.Length;
+    }
 }
