@@ -1225,6 +1225,7 @@ GameObject:
   - component: {fileID: 868526388}
   - component: {fileID: 868526387}
   - component: {fileID: 868526386}
+  - component: {fileID: 868526389}
   m_Layer: 5
   m_Name: Play Button
   m_TagString: Untagged
@@ -1321,6 +1322,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 868526389}
+        m_TargetAssemblyTypeName: Fmod_UI_Button, Assembly-CSharp
+        m_MethodName: playButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &868526387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1359,6 +1372,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 868526384}
   m_CullTransparentMesh: 1
+--- !u!114 &868526389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868526384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b1e47e1af9803d48b73e37d6606a4a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIEventPath:
+    Guid:
+      Data1: 1421498329
+      Data2: 1194386693
+      Data3: 1412349825
+      Data4: 82045836
+    Path: event:/Jam/UI FX
+  ButtonEventLength: Short
+  ButtonEventType: Normal
+  ButtonEventInteractions: 0
+  buttonLengthInt: 0
+  buttonTypeInt: 0
 --- !u!1 &892298194 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a010ee53298ef3447b75b5de5e07d9dc,
@@ -1380,7 +1417,6 @@ MonoBehaviour:
   controler: {fileID: 1971657565}
   texto: {fileID: 650435923}
   totalSuspects: 3
-  grabadora: {fileID: 0}
 --- !u!4 &892298198 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a010ee53298ef3447b75b5de5e07d9dc,
@@ -1697,6 +1733,7 @@ GameObject:
   - component: {fileID: 1268010041}
   - component: {fileID: 1268010040}
   - component: {fileID: 1268010039}
+  - component: {fileID: 1268010042}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1781,6 +1818,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1268010042}
+        m_TargetAssemblyTypeName: Fmod_UI_Button, Assembly-CSharp
+        m_MethodName: playButton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1268010040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1819,6 +1868,30 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268010037}
   m_CullTransparentMesh: 1
+--- !u!114 &1268010042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268010037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b1e47e1af9803d48b73e37d6606a4a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIEventPath:
+    Guid:
+      Data1: 1421498329
+      Data2: 1194386693
+      Data3: 1412349825
+      Data4: 82045836
+    Path: event:/Jam/UI FX
+  ButtonEventLength: Short
+  ButtonEventType: Normal
+  ButtonEventInteractions: 0
+  buttonLengthInt: 0
+  buttonTypeInt: 0
 --- !u!1 &1270494808
 GameObject:
   m_ObjectHideFlags: 0
