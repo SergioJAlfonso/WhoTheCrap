@@ -196,85 +196,95 @@ public class GameManager : MonoBehaviour
             FMODUnity.RuntimeManager.StudioSystem.setParameterByName("explosionDistance", lowpass);
         }
 
-        if (gState == Gamestate.PLAYING)
+        switch (gState)
         {
-            gameElapsedTime -= Time.deltaTime;
+            case Gamestate.PLAYING:
+                gameElapsedTime -= Time.deltaTime;
 
-            if (gameElapsedTime <= 0)
-            {
-                timeLimit();
-            }
-            else if (isGameOver)
-            {
-                if (playerInput.enabled == true)
-                    playerInput.enabled = false;
-
-                firstTextElapsedTime -= Time.deltaTime;
-
-                if (win && firstTextElapsedTime <= 0)
+                if (gameElapsedTime <= 0)
                 {
-                    correct();
+                    timeLimit();
                 }
-                else if (firstTextElapsedTime <= 0)
+                else if (isGameOver)
                 {
-                    wrongAnswer();
-                }
-                else
-                {
-                    //Look at playersa
-                    foreach (LookAt la in lookAtTargets)
+                    if (playerInput.enabled == true)
+                        playerInput.enabled = false;
+
+                    firstTextElapsedTime -= Time.deltaTime;
+
+                    if (win && firstTextElapsedTime <= 0)
                     {
-                        la.enabled = true;
+                        correct();
+                    }
+                    else if (firstTextElapsedTime <= 0)
+                    {
+                        wrongAnswer();
+                    }
+                    else
+                    {
+                        //Look at playersa
+                        foreach (LookAt la in lookAtTargets)
+                        {
+                            la.enabled = true;
+                        }
                     }
                 }
-            }
-        }
+                break;
 
-        else if (gState == Gamestate.TIMELIMIT || gState == Gamestate.WRONGANSWER || gState == Gamestate.CORRECT)
-        {
-            //Valores iniciales de lerp de camara
-            //zoomStartPosition = Camera.main.transform.position;
-            zoomStartPosition = cameraTransform.position;
-            zoomEndPosition = zoomTransform.position;
+            case Gamestate.TIMELIMIT:
+            case Gamestate.WRONGANSWER:
+
+                //Valores iniciales de lerp de camara
+                //zoomStartPosition = Camera.main.transform.position;
+                zoomStartPosition = cameraTransform.position;
+                zoomEndPosition = zoomTransform.position;
 
 
-            //startRotation = Camera.main.transform.rotation;
-            startRotation = cameraTransform.rotation;
-            Vector3 zoomEndRotationPosition = objectiveTransform.position;
-            zoomEndRotationPosition.y += zoomRotationOffset;
+                //startRotation = Camera.main.transform.rotation;
+                startRotation = cameraTransform.rotation;
+                Vector3 zoomEndRotationPosition = objectiveTransform.position;
+                zoomEndRotationPosition.y += zoomRotationOffset;
 
-            endRotation = Quaternion.LookRotation(zoomEndRotationPosition - zoomEndPosition, Vector3.up);
-            gState = Gamestate.ZOOM;
+                endRotation = Quaternion.LookRotation(zoomEndRotationPosition - zoomEndPosition, Vector3.up);
+                gState = Gamestate.ZOOM;
+                break;
 
-            //Camera.main.transform.LookAt(new Vector3(1, 1, 1));
-        }
-        else if(gState == Gamestate.ZOOM)
-        {
-            //Lerp de camara
-            zoomElapsedTime += Time.deltaTime;
+            case Gamestate.ZOOM:
 
-            float percentageComplete = zoomElapsedTime / desiredZoomDuration;
+                //Lerp de camara
+                zoomElapsedTime += Time.deltaTime;
 
-            cameraTransform.rotation = Quaternion.Slerp(startRotation, endRotation, zoomLerpCurve.Evaluate(percentageComplete));
-            cameraTransform.position = Vector3.Lerp(zoomStartPosition, zoomEndPosition, zoomLerpCurve.Evaluate(percentageComplete));
-            //Camera.main.transform.rotation = Quaternion.Slerp(startRotation, endRotation, zoomLerpCurve.Evaluate(percentageComplete));
-            //Camera.main.transform.position = Vector3.Lerp(zoomStartPosition, zoomEndPosition, zoomLerpCurve.Evaluate(percentageComplete));
+                float percentageComplete = zoomElapsedTime / desiredZoomDuration;
 
-            if (zoomElapsedTime >= zoomTime)
-                gState = Gamestate.ENDING;
-        }
-        else if(gState == Gamestate.ENDING)
-        {
-            gState = Gamestate.PLAYING;
-            isGameOver = false;
-            gameElapsedTime = gamePlaceholderTime;
-            firstTextElapsedTime = oriFirstTextTime;
-            finalElapsedTime = secondTextElapsedTime = oriSecondTextTime;
-            zoomElapsedTime = 0;
-            lookAtTargets = new LookAt[0];
+                cameraTransform.rotation = Quaternion.Slerp(startRotation, endRotation, zoomLerpCurve.Evaluate(percentageComplete));
+                cameraTransform.position = Vector3.Lerp(zoomStartPosition, zoomEndPosition, zoomLerpCurve.Evaluate(percentageComplete));
+                //Camera.main.transform.rotation = Quaternion.Slerp(startRotation, endRotation, zoomLerpCurve.Evaluate(percentageComplete));
+                //Camera.main.transform.position = Vector3.Lerp(zoomStartPosition, zoomEndPosition, zoomLerpCurve.Evaluate(percentageComplete));
 
-            SceneManager.LoadScene("Sergio");
-        }
+                if (zoomElapsedTime >= zoomTime)
+                    gState = Gamestate.ENDING;
+                break;
+            
+            case Gamestate.CORRECT:
+
+                zoomElapsedTime += Time.deltaTime;
+                if (zoomElapsedTime >= zoomTime)
+                    gState = Gamestate.ENDING;
+                break;
+
+            case Gamestate.ENDING:
+
+                gState = Gamestate.PLAYING;
+                isGameOver = false;
+                gameElapsedTime = gamePlaceholderTime;
+                firstTextElapsedTime = oriFirstTextTime;
+                finalElapsedTime = secondTextElapsedTime = oriSecondTextTime;
+                zoomElapsedTime = 0;
+                lookAtTargets = new LookAt[0];
+
+                SceneManager.LoadScene("Sergio");
+                break;
+        };
     }
 
     public void setLow(float l)
