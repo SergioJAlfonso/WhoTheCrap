@@ -13,7 +13,7 @@ public class NPC_ID : MonoBehaviour
 
     [SerializeField] bool canTalk;
 
-
+    public GameObject rig;
     void Start()
     {
         if (GameManager.instance.checkId(id))
@@ -38,7 +38,7 @@ public class NPC_ID : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            transform.GetChild(3).gameObject.SetActive(false);
+            rig.gameObject.SetActive(false);
             GameManager.instance.EndGame(objective);
         }
     }
