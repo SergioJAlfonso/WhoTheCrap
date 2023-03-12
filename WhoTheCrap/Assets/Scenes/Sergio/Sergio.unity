@@ -1730,6 +1730,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 81420991}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &86039231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 86039232}
+  m_Layer: 0
+  m_Name: zoompoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &86039232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 86039231}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.091, y: 1.395, z: 1.267}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 926816046}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &86697714 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7610868675822231441, guid: e85142d1c78f896448e46cbaebcccc58,
@@ -4987,6 +5018,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  enablePlayerInput: 0
 --- !u!114 &284738792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5463,6 +5495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 494336487}
+  npcID: {fileID: 1454956185}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -7894,6 +7927,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  enablePlayerInput: 0
 --- !u!114 &439580640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8194,6 +8228,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  enablePlayerInput: 0
 --- !u!114 &442481123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13051,6 +13086,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  enablePlayerInput: 1
 --- !u!114 &694689022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14105,6 +14141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 494336487}
+  npcID: {fileID: 1980601664}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -16642,8 +16679,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200519fe8730ee040885644ab4bbe1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 65872
-  zoomPoint: {fileID: 0}
+  id: 1
+  zoomPoint: {fileID: 86039232}
 --- !u!136 &926816048
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -16689,7 +16726,15 @@ MonoBehaviour:
   m_RigLayers:
   - m_Rig: {fileID: 1460755269}
     m_Active: 1
-  m_Effectors: []
+  m_Effectors:
+  - m_Transform: {fileID: 86039232}
+    m_Style:
+      shape: {fileID: 4300000, guid: e050c2b16fe384bd994474655a4b4968, type: 2}
+      color: {r: 1, g: 0.959195, b: 0, a: 0.5}
+      size: 0.1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+    m_Visible: 1
 --- !u!95 &926816051
 Animator:
   serializedVersion: 5
@@ -18684,6 +18729,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  enablePlayerInput: 0
 --- !u!114 &1067594594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24494,7 +24540,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1392425045}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.395, z: 1.25}
+  m_LocalPosition: {x: 0, y: 1.395, z: 1.267}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25450,7 +25496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200519fe8730ee040885644ab4bbe1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 345
+  id: 2
   zoomPoint: {fileID: 1392425046}
 --- !u!114 &1454956186
 MonoBehaviour:
@@ -25531,7 +25577,15 @@ MonoBehaviour:
   m_RigLayers:
   - m_Rig: {fileID: 621934761}
     m_Active: 1
-  m_Effectors: []
+  m_Effectors:
+  - m_Transform: {fileID: 1392425046}
+    m_Style:
+      shape: {fileID: 4300000, guid: e050c2b16fe384bd994474655a4b4968, type: 2}
+      color: {r: 0.98765564, g: 1, b: 0, a: 0.5}
+      size: 0.1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+    m_Visible: 1
 --- !u!95 &1454956188
 Animator:
   serializedVersion: 5
@@ -26222,6 +26276,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  enablePlayerInput: 0
 --- !u!114 &1493868234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29158,6 +29213,11 @@ PrefabInstance:
       propertyPath: changeWeaponEvPath.Guid.Data4
       value: 442187255
       objectReference: {fileID: 0}
+    - target: {fileID: 601192529242639950, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1829886746297237010, guid: 19eadcf8fbed56b4da77ca94c1b4145f,
         type: 3}
       propertyPath: ammunitionTotal
@@ -29519,6 +29579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 494336487}
+  npcID: {fileID: 926816047}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -30013,6 +30074,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mesh_CharactersBase_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1645234274129282416, guid: de81f48b78ccebb4da8cd305857d63e4,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de81f48b78ccebb4da8cd305857d63e4, type: 3}
@@ -35863,7 +35929,15 @@ MonoBehaviour:
   m_RigLayers:
   - m_Rig: {fileID: 6341673}
     m_Active: 1
-  m_Effectors: []
+  m_Effectors:
+  - m_Transform: {fileID: 365724542}
+    m_Style:
+      shape: {fileID: 4300000, guid: e050c2b16fe384bd994474655a4b4968, type: 2}
+      color: {r: 1, g: 0.9238702, b: 0, a: 0.5}
+      size: 0.1
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0}
+    m_Visible: 1
 --- !u!114 &1980601664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35876,7 +35950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 200519fe8730ee040885644ab4bbe1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 6587
+  id: 3
   zoomPoint: {fileID: 365724542}
 --- !u!95 &1980601665
 Animator:
