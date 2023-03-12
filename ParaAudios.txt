@@ -8,7 +8,7 @@
 -Bombín
 -Trompeta
 
-2 Musico Bajo
+2 Musico Bajo (calamardo)
 -Blanco
 -hombre
 -Sombrero
@@ -18,7 +18,7 @@
 -Bombin muy alto
 -Bajo
 
-3 Musico Bateria (señor de mala vida)
+3 Musico11 Bateria (señor de mala vida)
 -Blanco
 -hombre
 -Nariz muy grande
@@ -35,7 +35,7 @@
 -Moño
 -Traje
 
-5 Punky
+5 Punky (Homero)
 -Pálido
 -Brazaletes en las manos
 -hombre
