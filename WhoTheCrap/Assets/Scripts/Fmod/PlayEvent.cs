@@ -53,11 +53,13 @@ public class PlayEvent : MonoBehaviour
             Event.set3DAttributes(atributos);
         }
     }
-    public EventReference GetGrab(int index)
-    {
-        return GrabacionesPath[index];
-        //engineEvent = FMODUnity.RuntimeManager.CreateInstance(GrabacionesPath[index]);
-        //playEngine();
+    //public EventReference GetGrab(int index)
+    //{
+    //    return GrabacionesPath[index];
+    //    //engineEvent = FMODUnity.RuntimeManager.CreateInstance(GrabacionesPath[index]);
+    //    //playEngine();
+
+    //}
 
     private void OnDestroy()
     {
