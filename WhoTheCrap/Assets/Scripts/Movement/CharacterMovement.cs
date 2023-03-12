@@ -37,12 +37,16 @@ public class CharacterMovement : MonoBehaviour
 
         rigidbody.MovePosition(Vector3.MoveTowards(transform.position, position, speed * Time.fixedDeltaTime));
 
-        if ((transform.position - position).magnitude < 0.1f){
+        if ((transform.position - position).magnitude < 0.1f)
+        {
             wait += Time.deltaTime;
 
-            if(wait >= points[pointIndex].waitTime)
+            if (wait >= points[pointIndex].waitTime)
+            {
                 pointIndex = pointIndex + 1 >= points.Length ? 0 : pointIndex + 1;
+            }
         }
+        transform.forward = position - transform.position;
     }
 
     private void OnDrawGizmos()
