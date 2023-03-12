@@ -50,7 +50,8 @@ public class FadeChangeScene : MonoBehaviour
 
     public void FadeToNextLevel()
     {
-        FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
+        if(!GameManager.instance.checkId(-1))
+            FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void FadeInCompleted()

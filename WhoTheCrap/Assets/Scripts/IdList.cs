@@ -9,7 +9,7 @@ public class IdList : MonoBehaviour
 
     public bool exist(string id)
     {
-        for (int i =0; i < ids.Length; i++)
+        for (int i = 0; i < ids.Length; i++)
         {
             if (ids[i] == id)
                 return true;

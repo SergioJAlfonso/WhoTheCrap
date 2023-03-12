@@ -25,7 +25,8 @@ public class BreakScreenSpawnExplosion : MonoBehaviour
 
     public void ShatterScreen()
     {
-        StartCoroutine(CoroutineScreenshot());
+        if (!GameManager.instance.checkId(-1))
+            StartCoroutine(CoroutineScreenshot());
     }
 
     IEnumerator CoroutineScreenshot()
