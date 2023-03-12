@@ -22,6 +22,9 @@ public class InitialInstruction : MonoBehaviour
     [SerializeField]
     private AnimationCurve curve;
 
+    [SerializeField]
+    private bool enablePlayerInput = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +53,10 @@ public class InitialInstruction : MonoBehaviour
         if (textElapsedTime <= 0)
         {
             if (currentText == textInput.Length - 1)
+            {
+                if (enablePlayerInput) GameManager.instance.enablePlayerInput();
                 Destroy(this.gameObject);
+            }
             else
             {
                 currentText++;

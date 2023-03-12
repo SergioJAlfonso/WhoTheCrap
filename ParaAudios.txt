@@ -1,0 +1,53 @@
+Musico trompeta
+-Moreno
+-hombre
+-barba
+-Sombrero
+-Corbata
+-Traje
+-Bombín
+-Trompeta
+
+Musico Bajo
+-Blanco
+-hombre
+-Sombrero
+-barba
+-Corbata
+-Traje
+-Bombin muy alto
+-Bajo
+
+Musico Bateria
+-Blanco
+-hombre
+-Nariz muy grande
+-barba
+-Muchos sombreros
+-Corbata
+-Traje
+-Tambores
+
+Señora Negocios (lleva un bolso robado)
+-Decir que le ha robado el bolso
+-Mujer
+-Pendientes muy largos
+-Moño
+-Traje
+
+Punky
+-Pálido
+-Brazaletes en las manos
+-hombre
+-Camiseta tirantes
+-Gafas de sol
+-Cresta
+
+Calvo Gordo
+-barba
+-hombre
+-Corbata
+-Camisa
+-Camisa remangada
+-Calvo
+-Gordo mu gordo
