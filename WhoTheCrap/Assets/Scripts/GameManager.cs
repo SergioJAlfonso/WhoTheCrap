@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     private bool isGameOver = false, win;
     Gamestate gState = Gamestate.PLAYING;
 
-    int id = 345; //TODO id placeholder para pruebas, hacer que coincida con el de la escena anterior (meter ID)
+    int id = 6587; //TODO id placeholder para pruebas, hacer que coincida con el de la escena anterior (meter ID)
 
     //Timers
     private const float gamePlaceholderTime = 90; //TODO tiempo placeholder, el tiempo final irá asociado a la duración de audio de cada id
@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
 
     Transform objectiveTransform;
     Transform zoomTransform;
+    Transform cameraTransform;
 
 
     //Zoom
@@ -65,7 +66,7 @@ public class GameManager : MonoBehaviour
     private AnimationCurve zoomLerpCurve;
 
     [SerializeField]
-    int zoomRotationOffset = 10;
+    int zoomRotationOffset = 1;
 
     void Awake()
     {
@@ -94,6 +95,10 @@ public class GameManager : MonoBehaviour
         return (otherId == id);
     }
 
+    public void registerID(string ID)
+    {
+        id = int.Parse(ID);
+    }
     public void registerLookAt(LookAt la)
     {
         Array.Resize(ref lookAtTargets, lookAtTargets.Length + 1);
@@ -129,6 +134,11 @@ public class GameManager : MonoBehaviour
     {
         objectiveTransform = tr;
         zoomTransform = zoomTr;
+    }
+
+    public void registerCamera(Transform tr)
+    {
+        cameraTransform = tr;
     }
     private void timeLimit()
     {
@@ -223,25 +233,33 @@ public class GameManager : MonoBehaviour
         else if (gState == Gamestate.TIMELIMIT || gState == Gamestate.WRONGANSWER || gState == Gamestate.CORRECT)
         {
             //Valores iniciales de lerp de camara
-            zoomStartPosition = Camera.main.transform.position;
+            //zoomStartPosition = Camera.main.transform.position;
+            zoomStartPosition = cameraTransform.position;
             zoomEndPosition = zoomTransform.position;
 
-            startRotation = Camera.main.transform.rotation;
+
+            //startRotation = Camera.main.transform.rotation;
+            startRotation = cameraTransform.rotation;
             Vector3 zoomEndRotationPosition = objectiveTransform.position;
             zoomEndRotationPosition.y += zoomRotationOffset;
 
             endRotation = Quaternion.LookRotation(zoomEndRotationPosition - zoomEndPosition, Vector3.up);
             gState = Gamestate.ZOOM;
+
+            //Camera.main.transform.LookAt(new Vector3(1, 1, 1));
         }
         else if(gState == Gamestate.ZOOM)
         {
             //Lerp de camara
             zoomElapsedTime += Time.deltaTime;
+
             float percentageComplete = zoomElapsedTime / desiredZoomDuration;
 
-            Camera.main.transform.rotation = Quaternion.Slerp(startRotation, endRotation, zoomLerpCurve.Evaluate(percentageComplete));
-            Camera.main.transform.position = Vector3.Lerp(zoomStartPosition, zoomEndPosition, zoomLerpCurve.Evaluate(percentageComplete));
-            
+            cameraTransform.rotation = Quaternion.Slerp(startRotation, endRotation, zoomLerpCurve.Evaluate(percentageComplete));
+            cameraTransform.position = Vector3.Lerp(zoomStartPosition, zoomEndPosition, zoomLerpCurve.Evaluate(percentageComplete));
+            //Camera.main.transform.rotation = Quaternion.Slerp(startRotation, endRotation, zoomLerpCurve.Evaluate(percentageComplete));
+            //Camera.main.transform.position = Vector3.Lerp(zoomStartPosition, zoomEndPosition, zoomLerpCurve.Evaluate(percentageComplete));
+
             if (zoomElapsedTime >= zoomTime)
                 gState = Gamestate.ENDING;
         }
@@ -273,5 +291,4 @@ public class GameManager : MonoBehaviour
     {
         return (int)terrain;
     }
-
 }

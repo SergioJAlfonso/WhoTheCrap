@@ -44,3 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50d140f1c60b02948bdf332131ad276c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoomLerpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  zoomRotationOffset: 1
