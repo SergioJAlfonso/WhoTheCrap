@@ -853,8 +853,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1417,12 +1417,29 @@ MonoBehaviour:
   controler: {fileID: 1971657565}
   texto: {fileID: 650435923}
   totalSuspects: 3
+  list: {fileID: 892298199}
 --- !u!4 &892298198 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a010ee53298ef3447b75b5de5e07d9dc,
     type: 3}
   m_PrefabInstance: {fileID: 509439163}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &892298199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892298194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 559c952bf59aa2f49b2ba2a159ea61be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ids:
+  - 007007
+  - 022722
+  - 666999
 --- !u!1 &1109295038
 GameObject:
   m_ObjectHideFlags: 0
