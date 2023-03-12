@@ -12,6 +12,8 @@ public class GenerateIndvApp : MonoBehaviour
     public TextMeshPro texto;
     [SerializeField]
     public int totalSuspects;
+    [SerializeField]
+    public IdList list;
 
     int[] indices;
     int index = 0;
@@ -39,8 +41,7 @@ public class GenerateIndvApp : MonoBehaviour
 
     public void GenerateScuspect()
     {
-        texto.text = "Sospechoso \n ID: " + indices[index];
-
+        texto.text = "Sospechoso \n ID: " + list.getId(index);//indices[index];
     }
 
     void Shuffle(int[] a)
