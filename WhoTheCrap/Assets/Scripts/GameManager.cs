@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     enum Gamestate { MENU, PLAYING, TIMELIMIT, WRONGANSWER, CORRECT, ZOOM, ENDING };
 
     private bool isGameOver = false, win;
-    Gamestate gState = Gamestate.PLAYING;
+    Gamestate gState = Gamestate.MENU;
 
     int id = 1;
 
@@ -102,6 +102,11 @@ public class GameManager : MonoBehaviour
     public bool checkId(int otherId)
     {
         return (otherId == id);
+    }
+
+    public void startPlaying()
+    {
+        gState = Gamestate.PLAYING;
     }
 
     public void registerID(string ID)
@@ -209,6 +214,7 @@ public class GameManager : MonoBehaviour
         else
             Debug.Log("fmodManagerMissing");
 
+        Debug.Log(gState);
 
         if (lowpass < maxLow)
         {
@@ -302,7 +308,8 @@ public class GameManager : MonoBehaviour
                 zoomElapsedTime = 0;
                 lookAtTargets = new LookAt[0];
 
-                SceneManager.LoadScene("Monchi");
+                gState = Gamestate.MENU;
+                SceneManager.LoadScene(0);
                 break;
         };
     }

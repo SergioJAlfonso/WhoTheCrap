@@ -31169,232 +31169,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1783128706
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1783128714}
-  - component: {fileID: 1783128713}
-  - component: {fileID: 1783128712}
-  - component: {fileID: 1783128711}
-  - component: {fileID: 1783128710}
-  - component: {fileID: 1783128709}
-  - component: {fileID: 1783128708}
-  - component: {fileID: 1783128707}
-  - component: {fileID: 1783128715}
-  m_Layer: 0
-  m_Name: FmodGameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1783128707
+--- !u!114 &1783128713 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5464121024654467703, guid: 13af48caf58d6d94daaca97a3b8b971d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5464121025086980350}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783128706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d458de2d99cda44c8dcf7fae5369494, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EventPath:
-    Guid:
-      Data1: -1866445917
-      Data2: 1090172801
-      Data3: -2030449219
-      Data4: 1513336595
-    Path: event:/Jam/Heart
-  is3D: 0
-  initialParameter: 0
-  parameterName: 
-  initialValue: 0
-  PlayonStart: 0
---- !u!114 &1783128708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783128706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d458de2d99cda44c8dcf7fae5369494, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EventPath:
-    Guid:
-      Data1: 405995006
-      Data2: 1289409412
-      Data3: -1865912658
-      Data4: -149262794
-    Path: event:/Jam/Transitions
-  is3D: 0
-  initialParameter: 0
-  parameterName: 
-  initialValue: 0
-  PlayonStart: 0
---- !u!114 &1783128709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783128706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d458de2d99cda44c8dcf7fae5369494, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EventPath:
-    Guid:
-      Data1: -1188567324
-      Data2: 1156796518
-      Data3: -657265237
-      Data4: -980584016
-    Path: event:/Jam/Zoom
-  is3D: 0
-  initialParameter: 0
-  parameterName: 
-  initialValue: 0
-  PlayonStart: 0
---- !u!114 &1783128710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783128706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d458de2d99cda44c8dcf7fae5369494, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EventPath:
-    Guid:
-      Data1: 1767003466
-      Data2: 1313260392
-      Data3: -266920537
-      Data4: -33853774
-    Path: event:/Jam/Clock
-  is3D: 0
-  initialParameter: 0
-  parameterName: 
-  initialValue: 0
-  PlayonStart: 0
---- !u!114 &1783128711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783128706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d458de2d99cda44c8dcf7fae5369494, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EventPath:
-    Guid:
-      Data1: 860347298
-      Data2: 1083635060
-      Data3: 1030971271
-      Data4: -1719245477
-    Path: event:/Jam/Breeze
-  is3D: 0
-  initialParameter: 0
-  parameterName: 
-  initialValue: 0
-  PlayonStart: 0
---- !u!114 &1783128712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783128706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d458de2d99cda44c8dcf7fae5369494, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EventPath:
-    Guid:
-      Data1: 1664559984
-      Data2: 1237129932
-      Data3: -616955735
-      Data4: 1944987554
-    Path: event:/Jam/Music
-  is3D: 0
-  initialParameter: 0
-  parameterName: 
-  initialValue: 0
-  PlayonStart: 0
---- !u!114 &1783128713
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783128706}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: adac64502f499ac4f8e10634968c3ae5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  music_event: {fileID: 1783128712}
-  breeze_event: {fileID: 1783128711}
-  clock_event: {fileID: 1783128710}
-  clockEnded_event: {fileID: 1783128715}
-  zoom_event: {fileID: 1783128709}
-  transition_event: {fileID: 1783128708}
-  heart_event: {fileID: 1783128707}
---- !u!4 &1783128714
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783128706}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1783128715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1783128706}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d458de2d99cda44c8dcf7fae5369494, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EventPath:
-    Guid:
-      Data1: 723906209
-      Data2: 1157029981
-      Data3: 41801649
-      Data4: -218080365
-    Path: event:/Jam/ClockEnded
-  is3D: 0
-  initialParameter: 0
-  parameterName: 
-  initialValue: 0
-  PlayonStart: 0
 --- !u!1001 &1783287424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36898,6 +36684,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff656fec316f17d41924bc92e7d653dc, type: 3}
+--- !u!1001 &5464121025086980350
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467700, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464121024654467708, guid: 13af48caf58d6d94daaca97a3b8b971d,
+        type: 3}
+      propertyPath: m_Name
+      value: FmodGameManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 13af48caf58d6d94daaca97a3b8b971d, type: 3}
 --- !u!1001 &6364725875954125307
 PrefabInstance:
   m_ObjectHideFlags: 0
