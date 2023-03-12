@@ -38,6 +38,7 @@ public class FadeChangeScene : MonoBehaviour
 
     public void FadeToLevel(int levelIndex)
     {
+        Debug.Log("ole");
         levelToLoad = levelIndex;
         animator.SetTrigger("FadeOut");
     }

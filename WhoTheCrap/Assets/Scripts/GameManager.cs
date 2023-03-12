@@ -214,7 +214,6 @@ public class GameManager : MonoBehaviour
         else
             Debug.Log("fmodManagerMissing");
 
-        Debug.Log(gState);
 
         if (lowpass < maxLow)
         {
