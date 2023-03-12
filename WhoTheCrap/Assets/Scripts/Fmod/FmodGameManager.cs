@@ -12,6 +12,7 @@ public class FmodGameManager : MonoBehaviour
     [SerializeField] public PlayEvent music_event;
     [SerializeField] public PlayEvent breeze_event;
     [SerializeField] public PlayEvent clock_event;
+    [SerializeField] public PlayEvent clockEnded_event;
     [SerializeField] public PlayEvent zoom_event;
     [SerializeField] public PlayEvent transition_event;
     [SerializeField] public PlayEvent heart_event;

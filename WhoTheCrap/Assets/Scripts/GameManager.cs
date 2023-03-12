@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     private bool isGameOver = false, win;
     Gamestate gState = Gamestate.PLAYING;
 
-    int id = 1; 
+    int id = 1;
 
     //Timers
     private const float gamePlaceholderTime = 90; //TODO tiempo placeholder, el tiempo final irá asociado a la duración de audio de cada id
@@ -334,7 +334,6 @@ public class GameManager : MonoBehaviour
 
             if (firstCall)
             {
-
                 if (!fmodGameManager.music_event.IsPlaying() || fmodGameManager.music_event.IsPaused())
                 {
                     //Debug.Log("music_event");
@@ -348,13 +347,20 @@ public class GameManager : MonoBehaviour
                 firstCall = false;
             }
 
+            if (gameElapsedTime <= 15)
+            {
+                if (!fmodGameManager.clock_event.IsPlaying() || fmodGameManager.clock_event.IsPaused())
+                {
+                    fmodGameManager.clock_event.StartEvent();
+                }
+            }
             if (gameElapsedTime <= 0)
             {
                 //timeLimit();
-                if (!fmodGameManager.clock_event.IsPlaying() || fmodGameManager.clock_event.IsPaused())
+                if (!fmodGameManager.clockEnded_event.IsPlaying() || fmodGameManager.clockEnded_event.IsPaused())
                 {
                     //Debug.Log("clock_event");
-                    fmodGameManager.clock_event.StartEvent();
+                    fmodGameManager.clockEnded_event.StartEvent();
                 }
             }
             else if (isGameOver)

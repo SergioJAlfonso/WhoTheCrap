@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{a04c562f-dabf-4582-ab37-de43c310a70f}">
+		<property name="assetPath">
+			<value>onlymp3.to - Sonido reloj tic tac - Tic tac clock sound (FX)-dqaJan9zkbg-256k-1654049242844.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>86.935510204081638</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{22decf5e-0a9c-4720-bc2a-7587ae4a6cdc}</destination>
+		</relationship>
+	</object>
+</objects>
