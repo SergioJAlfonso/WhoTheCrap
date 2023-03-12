@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BreakScreenSpawnExplosion : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class BreakScreenSpawnExplosion : MonoBehaviour
     [SerializeField] FadeChangeScene fade;
     [SerializeField] MainMenuTransitionController transitionController;
     [SerializeField] GameObject startMenuCanvas, mainMenuCanvas;
+    [SerializeField] UnityEvent uiEvent;
 
     private bool initiated = false;
     public void Awake()
@@ -25,6 +27,7 @@ public class BreakScreenSpawnExplosion : MonoBehaviour
             mainMenuCanvas.SetActive(true);
             startMenuCanvas.SetActive(false);
             initiated = true;
+            uiEvent.Invoke();
         }
     }
 
