@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{e30eecc3-5a95-4bab-8a40-2866ac0ca22b}">
+		<property name="assetPath">
+			<value>SnapSave.io - Tu madre tiene una p#lla que ya la quisiera yo (Animación a mi manera) (128 kbps).mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>29.857959183673469</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{22decf5e-0a9c-4720-bc2a-7587ae4a6cdc}</destination>
+		</relationship>
+	</object>
+</objects>
