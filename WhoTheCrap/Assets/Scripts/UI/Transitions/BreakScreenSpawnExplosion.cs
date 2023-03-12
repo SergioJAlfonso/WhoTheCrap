@@ -10,7 +10,7 @@ public class BreakScreenSpawnExplosion : MonoBehaviour
     [SerializeField] FadeChangeScene fade;
     [SerializeField] MainMenuTransitionController transitionController;
     [SerializeField] GameObject startMenuCanvas, mainMenuCanvas;
-    [SerializeField] UnityEvent uiEvent;
+    [SerializeField] UnityEvent uiEventStart, uiEventShatter;
 
     private bool initiated = false;
     public void Awake()
@@ -27,7 +27,7 @@ public class BreakScreenSpawnExplosion : MonoBehaviour
             mainMenuCanvas.SetActive(true);
             startMenuCanvas.SetActive(false);
             initiated = true;
-            uiEvent.Invoke();
+            uiEventStart.Invoke();
         }
     }
 
@@ -51,6 +51,7 @@ public class BreakScreenSpawnExplosion : MonoBehaviour
         shatterMaterial.SetTexture("_BaseMap", screenshotTexture2D);
 
         explodeTransform.gameObject.SetActive(true);
+        uiEventShatter.Invoke();
 
         yield return new WaitForSeconds(1.5f);
         fade.OnFadeComplete();
