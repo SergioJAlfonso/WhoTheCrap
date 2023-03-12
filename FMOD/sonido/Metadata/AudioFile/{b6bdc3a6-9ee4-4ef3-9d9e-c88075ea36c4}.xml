@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{0be65ec4-c88d-4715-b76f-1bbb5eb975e9}">
+	<object class="AudioFile" id="{b6bdc3a6-9ee4-4ef3-9d9e-c88075ea36c4}">
 		<property name="assetPath">
-			<value>ES_Impact Glass Break - SFX Producer.mp3</value>
+			<value>Locuciones/2 Musico Bajo.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
 		</property>
 		<property name="frequencyInKHz">
-			<value>48</value>
+			<value>44.0999985</value>
 		</property>
 		<property name="channelCount">
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>1.6799999999999999</value>
+			<value>82.102857142857147</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{22decf5e-0a9c-4720-bc2a-7587ae4a6cdc}</destination>
