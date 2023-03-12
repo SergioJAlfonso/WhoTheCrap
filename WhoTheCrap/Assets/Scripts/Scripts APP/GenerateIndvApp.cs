@@ -40,7 +40,7 @@ public class GenerateIndvApp : MonoBehaviour
 
     public void GenerateScuspect()
     {
-        texto.text = "# Expediente \n: " + list.getId(index);//indices[index];
+        texto.text = "# Expediente \n: " + list.getId(indices[index]);//indices[index];
         controler.setStateReady();
     }
 
