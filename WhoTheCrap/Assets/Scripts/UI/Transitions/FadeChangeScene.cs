@@ -12,20 +12,29 @@ public class FadeChangeScene : MonoBehaviour
 
     private void Awake()
     {
-        if (instance != null)
+        //if (instance != null)
+        //{
+        //    Destroy(gameObject);
+        //    return;
+        //}
+
+        //instance = this;
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
         {
             Destroy(gameObject);
-            return;
         }
-
-        instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void Start()
     {
         fadeInCompleted = false;
     }
-
 
     public void FadeToLevel(int levelIndex)
     {
@@ -35,7 +44,8 @@ public class FadeChangeScene : MonoBehaviour
 
     public void OnFadeComplete()
     {
-        GameManager.instance.startPlaying();
+        if(levelToLoad != 0)
+            GameManager.instance.startPlaying();
         SceneManager.LoadScene(levelToLoad);
     }
 

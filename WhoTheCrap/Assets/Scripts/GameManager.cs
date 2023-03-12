@@ -309,7 +309,7 @@ public class GameManager : MonoBehaviour
                 lookAtTargets = new LookAt[0];
 
                 gState = Gamestate.MENU;
-                SceneManager.LoadScene(0);
+                FadeChangeScene.instance.FadeToLevel(0);         
                 break;
         };
     }
