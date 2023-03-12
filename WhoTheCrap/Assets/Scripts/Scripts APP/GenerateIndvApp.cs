@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class GenerateIndvApp : MonoBehaviour
 {
+
+    [SerializeField]
+    public emitterController controler;
     [SerializeField]
     public TextMeshPro texto;
     [SerializeField]
@@ -15,11 +18,9 @@ public class GenerateIndvApp : MonoBehaviour
     int[] indices;
     int index = 0;
 
-    public void GenerateScuspect()
-    {
-        texto.text = "Sospechoso \n ID: " + indices[index];
 
-        grabadora.playGrab(index + 1); //mas uno porque las grab empiezan en el 1 (al menos la de tu madre)
+    public void nextInd()
+    {
         index++;
         if (index >= totalSuspects)
         {
@@ -28,6 +29,17 @@ public class GenerateIndvApp : MonoBehaviour
         }
     }
 
+    public void playGrab()
+    {
+        controler.playGrab(index);
+    }
+
+    public void GenerateScuspect()
+    {
+        texto.text = "Sospechoso \n ID: " + indices[index];
+       // grabadora.playGrab(index + 1); //mas uno porque las grab empiezan en el 1 (al menos la de tu madre)
+
+    }
 
     void Shuffle(int[] a)
     {
