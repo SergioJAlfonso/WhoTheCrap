@@ -63,7 +63,7 @@
 -pelirroja
 -mostacho 
  
-8 Waluigi
+8 Waluigi (Chuso)
 -Moreno      
 -sombrero 
 -cinturon 
@@ -71,7 +71,7 @@
 -Narizon
 -Mono amarillo
 C       
-9 Afro Cuernos
+9 Afro Cuernos (BOBOBO)
 -Fiestero  
 -Mucho estilo
 -Moreno
@@ -89,7 +89,7 @@ C
 -Boina
 -Baston
 
-11 Mujer Gorda Afro
+11 Mujer Gorda Afro (Cubano)
 -Mujer
 -Contenta
 -Piel oscura
@@ -108,7 +108,7 @@ C
 -Entradas
 -Mostacho (como el de Dali)
 
-13 Doctora Sombrero Copa
+13 Doctora Sombrero Copa (gangoso)
 -Mujer
 -Seria
 -Iba de blanco
@@ -127,7 +127,7 @@ C
 - Religioso
 - Caso de albañil
 
-15 Poli (Lleva Donut Gigante)
+15 Poli (Lleva Donut Gigante) (Aberroncho)
 - Hombre   
 - Serio
 - Gafas
