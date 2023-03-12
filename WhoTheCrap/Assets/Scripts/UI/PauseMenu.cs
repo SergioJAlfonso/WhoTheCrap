@@ -6,11 +6,13 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] GameObject pauseMenu;
+
+    bool active = false;
     private void Update()
     {
         if(Input.GetKeyUp(KeyCode.Escape))
         {
-            if (pauseMenu.active)
+            if (active)
                 Resume();
             else
                 Pause();
@@ -21,12 +23,14 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
+        active = true;
     }
 
     public void Resume()
     {
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
+        active = false;
     }
 
     public void Home(int sceneID)

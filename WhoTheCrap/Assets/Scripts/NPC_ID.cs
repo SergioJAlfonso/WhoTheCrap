@@ -9,10 +9,15 @@ public class NPC_ID : MonoBehaviour
 
     bool objective = false;
 
+    public Transform zoomPoint;
+
     void Start()
     {
         if (GameManager.instance.checkId(id))
+        {
+            GameManager.instance.registerObjectiveTransform(transform,zoomPoint);
             objective = true;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

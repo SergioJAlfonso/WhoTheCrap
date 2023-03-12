@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Sergio.unity
+    path: Assets/Scenes/Sergio/Ser_MainMenu.unity
+    guid: a481875916e3ecb44b027c857d3a5d3a
+  - enabled: 1
+    path: Assets/Scenes/Sergio/Sergio.unity
     guid: b15b52ddd5c48f94687ad15f1b4fb18c
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 9eb07e2d669e9c94e9d7d3c782a916f7,

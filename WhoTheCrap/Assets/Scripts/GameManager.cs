@@ -2,8 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Analytics;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using static UnityEngine.GraphicsBuffer;
 
 
 public class GameManager : MonoBehaviour
@@ -22,40 +23,50 @@ public class GameManager : MonoBehaviour
     TerrainType terrain;
 
 
-    enum Gamestate { MENU, PLAYING, TIMELIMIT, WRONGANSWER, CORRECT };
+    enum Gamestate { MENU, PLAYING, TIMELIMIT, WRONGANSWER, CORRECT, ZOOM, ENDING };
 
     private bool isGameOver = false, win;
     Gamestate gState = Gamestate.PLAYING;
 
-    int id = 345; //TODO id placeholder para pruebas, hacer que coincida con el de la escena anterior (meter ID)
+    int id = 6587; //TODO id placeholder para pruebas, hacer que coincida con el de la escena anterior (meter ID)
 
-    private const float gamePlaceholderTime = 60; //TODO tiempo placeholder, el tiempo final irá asociado a la duración de audio de cada id
-    private float gameElapsedTime = 60; //TODO tiempo placeholder, el tiempo final irá asociado a la duración de audio de cada id
+    //Timers
+    private const float gamePlaceholderTime = 90; //TODO tiempo placeholder, el tiempo final irá asociado a la duración de audio de cada id
+    private float gameElapsedTime = gamePlaceholderTime; //TODO tiempo placeholder, el tiempo final irá asociado a la duración de audio de cada id
 
     private const float oriFirstTextTime = 2f;
-    private float firstTextElapsedTime = 2f;
+    private float firstTextElapsedTime = oriFirstTextTime;
 
     private const float oriSecondTextTime = 0.75f;
-    private float secondTextElapsedTime = 0.75f;
-    [SerializeField]
-    private float finalElapsedTime = 0.75f;
+    private float secondTextElapsedTime = oriSecondTextTime;
 
-    [SerializeField]
-    InitialInstruction wrongText;
+    private float finalElapsedTime = oriSecondTextTime;
 
-    [SerializeField]
-    InitialInstruction answerText;
-
-    [SerializeField]
-    InitialInstruction correctText;
-
-    [SerializeField]
-    InitialInstruction timeText;
-
-    [SerializeField]
-    InitialInstruction limitText;
+    //Texts
+    InitialInstruction wrongText, answerText, correctText, timeText, limitText;
 
     LookAt[] lookAtTargets = new LookAt[0];
+
+    PlayerInput playerInput;
+
+    Transform objectiveTransform;
+    Transform zoomTransform;
+    Transform cameraTransform;
+
+
+    //Zoom
+    private Vector3 zoomStartPosition, zoomEndPosition;
+    private float desiredZoomDuration = 0.5f;
+    private const float zoomTime = 1f;
+    private float zoomElapsedTime = 0;
+
+    Quaternion startRotation, endRotation;
+
+    [SerializeField]
+    private AnimationCurve zoomLerpCurve;
+
+    [SerializeField]
+    int zoomRotationOffset = 1;
 
     void Awake()
     {
@@ -84,12 +95,20 @@ public class GameManager : MonoBehaviour
         return (otherId == id);
     }
 
+    public void registerID(string ID)
+    {
+        id = int.Parse(ID);
+    }
     public void registerLookAt(LookAt la)
     {
         Array.Resize(ref lookAtTargets, lookAtTargets.Length + 1);
         lookAtTargets[lookAtTargets.Length - 1] = la;
     }
-    public void registerText(String st, InitialInstruction ii)
+    public void registerPlayerInput(PlayerInput pi)
+    {
+        playerInput = pi;
+    }
+    public void registerText(string st, InitialInstruction ii)
     {
         switch (st)
         {
@@ -111,6 +130,63 @@ public class GameManager : MonoBehaviour
         };
     }
 
+    public void registerObjectiveTransform(Transform tr, Transform zoomTr)
+    {
+        objectiveTransform = tr;
+        zoomTransform = zoomTr;
+    }
+
+    public void registerCamera(Transform tr)
+    {
+        cameraTransform = tr;
+    }
+    private void timeLimit()
+    {
+        if (playerInput.enabled == true)
+        {
+            playerInput.enabled = false;
+            timeText.enabled = true;
+        }
+
+        secondTextElapsedTime -= Time.deltaTime;
+        if (secondTextElapsedTime <= 0)
+        {
+            finalElapsedTime -= Time.deltaTime;
+
+            if(limitText.enabled == false)
+                limitText.enabled = true;
+
+            if (finalElapsedTime <= 0)
+                gState = Gamestate.TIMELIMIT;
+        }
+    }
+    private void wrongAnswer()
+    {
+        secondTextElapsedTime -= Time.deltaTime;
+        if (wrongText.enabled == false)
+            wrongText.enabled = true;
+
+        if (secondTextElapsedTime <= 0)
+        {
+            if (answerText.enabled == false)
+                answerText.enabled = true;
+            finalElapsedTime -= Time.deltaTime;
+
+            if (finalElapsedTime <= 0)
+                gState = Gamestate.WRONGANSWER;
+        }
+    }
+    private void correct()
+    {
+        //Debug.Log("Correct");
+        if (correctText.enabled == false)
+            correctText.enabled = true;
+        finalElapsedTime -= Time.deltaTime;
+
+        if (finalElapsedTime <= 0)
+            gState = Gamestate.CORRECT;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -120,75 +196,95 @@ public class GameManager : MonoBehaviour
             FMODUnity.RuntimeManager.StudioSystem.setParameterByName("explosionDistance", lowpass);
         }
 
-        if (gState == Gamestate.PLAYING)
+        switch (gState)
         {
-            //TODO: enablear solo una vez, refactorizar esto que estoy haciendo una escabechina
-            gameElapsedTime -= Time.deltaTime;
-            if (gameElapsedTime <= 0)
-            {
-                //Debug.Log("TimeLimit");
-                secondTextElapsedTime -= Time.deltaTime;
-                timeText.enabled = true;
-                if (secondTextElapsedTime <= 0)
-                {
-                    finalElapsedTime -= Time.deltaTime;
-                    limitText.enabled = true;
+            case Gamestate.PLAYING:
+                gameElapsedTime -= Time.deltaTime;
 
-                    if (finalElapsedTime <= 0)
-                        gState = Gamestate.TIMELIMIT;
+                if (gameElapsedTime <= 0)
+                {
+                    timeLimit();
                 }
-            }
-            else if (isGameOver)
-            {
-                //TODO: 
-
-                firstTextElapsedTime -= Time.deltaTime;
-
-                if (win && firstTextElapsedTime <= 0)
+                else if (isGameOver)
                 {
-                    //Debug.Log("Correct");
-                    correctText.enabled = true;
-                    finalElapsedTime -= Time.deltaTime;
+                    if (playerInput.enabled == true)
+                        playerInput.enabled = false;
 
-                    if (finalElapsedTime <= 0)
-                        gState = Gamestate.CORRECT;
-                }
-                else if (firstTextElapsedTime <= 0)
-                {
-                    //Debug.Log("Wrong Answer");
-                    secondTextElapsedTime -= Time.deltaTime;
-                    wrongText.enabled = true;
-                    if (secondTextElapsedTime <= 0)
+                    firstTextElapsedTime -= Time.deltaTime;
+
+                    if (win && firstTextElapsedTime <= 0)
                     {
-                        answerText.enabled = true;
-                        finalElapsedTime -= Time.deltaTime;
-
-                        if (finalElapsedTime <= 0)
-                            gState = Gamestate.WRONGANSWER;
+                        correct();
+                    }
+                    else if (firstTextElapsedTime <= 0)
+                    {
+                        wrongAnswer();
+                    }
+                    else
+                    {
+                        //Look at playersa
+                        foreach (LookAt la in lookAtTargets)
+                        {
+                            la.enabled = true;
+                        }
                     }
                 }
-                else
-                {
-                    //Look at player
-                    foreach (LookAt la in lookAtTargets)
-                    {
-                        la.enabled = true;
-                    }
-                }
-            }
-        }
-        
-        else if(gState == Gamestate.TIMELIMIT || gState == Gamestate.WRONGANSWER || gState == Gamestate.CORRECT)
-        {
-            gState = Gamestate.PLAYING;
-            isGameOver = false;
-            gameElapsedTime = gamePlaceholderTime;
-            firstTextElapsedTime = oriFirstTextTime;
-            finalElapsedTime = secondTextElapsedTime = oriSecondTextTime;
-            lookAtTargets = new LookAt[0];
+                break;
 
-            SceneManager.LoadScene("Sergio");
-        }
+            case Gamestate.TIMELIMIT:
+            case Gamestate.WRONGANSWER:
+
+                //Valores iniciales de lerp de camara
+                //zoomStartPosition = Camera.main.transform.position;
+                zoomStartPosition = cameraTransform.position;
+                zoomEndPosition = zoomTransform.position;
+
+
+                //startRotation = Camera.main.transform.rotation;
+                startRotation = cameraTransform.rotation;
+                Vector3 zoomEndRotationPosition = objectiveTransform.position;
+                zoomEndRotationPosition.y += zoomRotationOffset;
+
+                endRotation = Quaternion.LookRotation(zoomEndRotationPosition - zoomEndPosition, Vector3.up);
+                gState = Gamestate.ZOOM;
+                break;
+
+            case Gamestate.ZOOM:
+
+                //Lerp de camara
+                zoomElapsedTime += Time.deltaTime;
+
+                float percentageComplete = zoomElapsedTime / desiredZoomDuration;
+
+                cameraTransform.rotation = Quaternion.Slerp(startRotation, endRotation, zoomLerpCurve.Evaluate(percentageComplete));
+                cameraTransform.position = Vector3.Lerp(zoomStartPosition, zoomEndPosition, zoomLerpCurve.Evaluate(percentageComplete));
+                //Camera.main.transform.rotation = Quaternion.Slerp(startRotation, endRotation, zoomLerpCurve.Evaluate(percentageComplete));
+                //Camera.main.transform.position = Vector3.Lerp(zoomStartPosition, zoomEndPosition, zoomLerpCurve.Evaluate(percentageComplete));
+
+                if (zoomElapsedTime >= zoomTime)
+                    gState = Gamestate.ENDING;
+                break;
+            
+            case Gamestate.CORRECT:
+
+                zoomElapsedTime += Time.deltaTime;
+                if (zoomElapsedTime >= zoomTime)
+                    gState = Gamestate.ENDING;
+                break;
+
+            case Gamestate.ENDING:
+
+                gState = Gamestate.PLAYING;
+                isGameOver = false;
+                gameElapsedTime = gamePlaceholderTime;
+                firstTextElapsedTime = oriFirstTextTime;
+                finalElapsedTime = secondTextElapsedTime = oriSecondTextTime;
+                zoomElapsedTime = 0;
+                lookAtTargets = new LookAt[0];
+
+                SceneManager.LoadScene("Sergio");
+                break;
+        };
     }
 
     public void setLow(float l)
@@ -205,5 +301,4 @@ public class GameManager : MonoBehaviour
     {
         return (int)terrain;
     }
-
 }

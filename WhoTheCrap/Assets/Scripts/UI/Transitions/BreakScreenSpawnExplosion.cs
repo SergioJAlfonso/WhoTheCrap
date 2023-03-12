@@ -6,13 +6,11 @@ public class BreakScreenSpawnExplosion : MonoBehaviour
 {
     [SerializeField] Transform explodeTransform;
     [SerializeField] Material shatterMaterial;
+    [SerializeField] FadeChangeScene fade;
 
-    private void Update()
+    public void ShatterScreen()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(CoroutineScreenshot());
-        }
+        StartCoroutine(CoroutineScreenshot());
     }
 
     IEnumerator CoroutineScreenshot()
@@ -29,5 +27,9 @@ public class BreakScreenSpawnExplosion : MonoBehaviour
         shatterMaterial.SetTexture("_BaseMap", screenshotTexture2D);
 
         explodeTransform.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(0.7f);
+        fade.OnFadeComplete();
+
     }
 }
