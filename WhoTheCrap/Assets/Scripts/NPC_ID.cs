@@ -37,7 +37,10 @@ public class NPC_ID : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
+        {
+            transform.GetChild(3).gameObject.SetActive(false);
             GameManager.instance.EndGame(objective);
+        }
     }
 
     public bool getObjective()
