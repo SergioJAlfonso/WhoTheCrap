@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.ProBuilder;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using static UnityEngine.GraphicsBuffer;
 
@@ -23,7 +25,6 @@ public class GameManager : MonoBehaviour
 
     TerrainType terrain;
 
-
     enum Gamestate { MENU, PLAYING, TIMELIMIT, WRONGANSWER, CORRECT, ZOOM, ENDING, FADETOMENU };
 
     private bool isGameOver = false, win;
@@ -32,8 +33,8 @@ public class GameManager : MonoBehaviour
     int id = -1;
 
     //Timers
-    private const float gamePlaceholderTime = 90; //TODO tiempo placeholder, el tiempo final irá asociado a la duración de audio de cada id
-    private float gameElapsedTime = gamePlaceholderTime; //TODO tiempo placeholder, el tiempo final irá asociado a la duración de audio de cada id
+    private const float gameOriginalTime = 90; //TODO tiempo placeholder, el tiempo final irá asociado a la duración de audio de cada id
+    private float gameElapsedTime = gameOriginalTime; 
 
     private const float oriFirstTextTime = 2f;
     private float firstTextElapsedTime = oriFirstTextTime;
@@ -75,6 +76,9 @@ public class GameManager : MonoBehaviour
     bool firstCall = true;
     NPCSoundBehaviour[] npcSoundBehaviourList = new NPCSoundBehaviour[0];
 
+    //Post Process
+    //private Volume ppVolume;
+    private Vignette vignette;
 
     void Awake()
     {
@@ -112,7 +116,10 @@ public class GameManager : MonoBehaviour
         else
             gState = Gamestate.MENU;
     }
-
+    public void registerVignette(Volume v)
+    {
+        v.profile.TryGet(out vignette);
+    }
     public void registerID(int ID)
     {
         id = ID;
@@ -259,6 +266,9 @@ public class GameManager : MonoBehaviour
                         }
                     }
                 }
+
+                if (gameElapsedTime <= 15 && vignette.intensity.value <= 0.45f)
+                    vignette.intensity.value += 0.0005f;
                 break;
 
             case Gamestate.TIMELIMIT:
@@ -325,7 +335,7 @@ public class GameManager : MonoBehaviour
     private void resetParams()
     {
         isGameOver = false;
-        gameElapsedTime = gamePlaceholderTime;
+        gameElapsedTime = gameOriginalTime;
         firstTextElapsedTime = oriFirstTextTime;
         finalElapsedTime = secondTextElapsedTime = oriSecondTextTime;
         zoomElapsedTime = 0;
