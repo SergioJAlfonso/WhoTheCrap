@@ -55,7 +55,7 @@ public class LookAt : MonoBehaviour
         else
         {
             characterAnim.StopPlayback();
-            Debug.Log(target + " " + parentTr);
+            //Debug.Log(target + " " + parentTr);
             direction = target.position - parentTr.position;
             angle = Vector3.Angle(direction, parentTr.up);
         }

@@ -238,11 +238,7 @@ public class GameManager : MonoBehaviour
             case Gamestate.PLAYING:
                 gameElapsedTime -= Time.deltaTime;
 
-                if (gameElapsedTime <= 0)
-                {
-                    timeLimit();
-                }
-                else if (isGameOver)
+                if (isGameOver)
                 {
                     if (playerInput.enabled == true)
                         playerInput.enabled = false;
@@ -266,8 +262,12 @@ public class GameManager : MonoBehaviour
                         }
                     }
                 }
+                else if (gameElapsedTime <= 0)
+                {
+                    timeLimit();
+                }
 
-                if (gameElapsedTime <= 15 && vignette.intensity.value <= 0.45f)
+                if (gameElapsedTime <= 15 && vignette.intensity.value <= 0.48f)
                     vignette.intensity.value += 0.0005f;
                 break;
 
@@ -390,16 +390,8 @@ public class GameManager : MonoBehaviour
                     fmodGameManager.clock_event.StartEvent();
                 }
             }
-            if (gameElapsedTime <= 0)
-            {
-                //timeLimit();
-                if (!fmodGameManager.clockEnded_event.IsPlaying() || fmodGameManager.clockEnded_event.IsPaused())
-                {
-                    //Debug.Log("clock_event");
-                    fmodGameManager.clockEnded_event.StartEvent();
-                }
-            }
-            else if (isGameOver)
+            
+            if (isGameOver)
             {
                 if (win && firstTextElapsedTime <= 0)
                 {
@@ -433,6 +425,15 @@ public class GameManager : MonoBehaviour
                     {
                         npc.ChangeActualState(3);   //3 es el ultimo estado que es vacio/silencio
                     }
+                }
+            }
+            else if (gameElapsedTime <= 0)
+            {
+                //timeLimit();
+                if (!fmodGameManager.clockEnded_event.IsPlaying() || fmodGameManager.clockEnded_event.IsPaused())
+                {
+                    //Debug.Log("clock_event");
+                    fmodGameManager.clockEnded_event.StartEvent();
                 }
             }
         }
