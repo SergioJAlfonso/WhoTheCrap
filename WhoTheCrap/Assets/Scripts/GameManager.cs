@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     int id = -1;
 
     //Timers
-    private const float gameOriginalTime = 75; //TODO tiempo placeholder, el tiempo final irá asociado a la duración de audio de cada id
+    private const float gameOriginalTime = 92;
     private float gameElapsedTime = gameOriginalTime; 
 
     private const float oriFirstTextTime = 2f;
