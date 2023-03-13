@@ -5,7 +5,7 @@
 			<value>Music</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{715d0461-87e5-4e21-92fc-f6d521d41e1d}</destination>
@@ -123,7 +123,6 @@
 	<object class="MixerBusEffectChain" id="{05362193-c933-453c-b496-9cec577832d6}">
 		<relationship name="effects">
 			<destination>{cff4500d-0fd8-45bc-aa38-8057204f56bf}</destination>
-			<destination>{35ba145f-e266-4218-bf80-f855be08d8c1}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{371fdcab-fbbd-4e6f-aa65-7f38a9c2a682}" />
@@ -135,13 +134,5 @@
 	</object>
 	<object class="MixerBusPanner" id="{6b35c731-a9a0-42b5-bd12-a8174ee0a5e7}" />
 	<object class="MixerBusFader" id="{cff4500d-0fd8-45bc-aa38-8057204f56bf}" />
-	<object class="SpatialiserEffect" id="{35ba145f-e266-4218-bf80-f855be08d8c1}">
-		<property name="minimumDistance">
-			<value>13</value>
-		</property>
-		<property name="maximumDistance">
-			<value>50</value>
-		</property>
-	</object>
 	<object class="MixerBusFader" id="{3af51713-f098-4e00-893d-13687a8d91c1}" />
 </objects>
