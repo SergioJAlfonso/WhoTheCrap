@@ -351,6 +351,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cientifico
       objectReference: {fileID: 0}
+    - target: {fileID: 7606378109753568475, guid: ef996bf26e4f08e45bcb759a32a3633f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef996bf26e4f08e45bcb759a32a3633f, type: 3}
 --- !u!1 &39818606 stripped
@@ -549,6 +554,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mod_Musico_Bajo
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871784485878873737, guid: b10c7594e696f7c41ae1e2d1242c3ce7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b10c7594e696f7c41ae1e2d1242c3ce7, type: 3}
@@ -2345,6 +2355,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mod_Musico_Bateria
       objectReference: {fileID: 0}
+    - target: {fileID: 819112265276560959, guid: a7a447bca8730d349b880b8fcc34d74a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7a447bca8730d349b880b8fcc34d74a, type: 3}
 --- !u!4 &297347250 stripped
@@ -2671,6 +2686,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mod_Cura
+      objectReference: {fileID: 0}
+    - target: {fileID: 5280916458070032226, guid: b3e532c4e1e982b44b7c5a1370296617,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3e532c4e1e982b44b7c5a1370296617, type: 3}
@@ -4574,6 +4594,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mod_Punky_1
       objectReference: {fileID: 0}
+    - target: {fileID: 8702663291516997937, guid: 3e70bf7925073d94f9d849c56a189d1f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e70bf7925073d94f9d849c56a189d1f, type: 3}
 --- !u!4 &509904389 stripped
@@ -5301,6 +5326,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mod_Afro
       objectReference: {fileID: 0}
+    - target: {fileID: 8399284769015975907, guid: 94e03aaf5fd9df645992b7d5aa22ed45,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 9213116151460762969, guid: 94e03aaf5fd9df645992b7d5aa22ed45,
         type: 3}
       propertyPath: m_RootOrder
@@ -5625,6 +5655,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mod_Gordo
+      objectReference: {fileID: 0}
+    - target: {fileID: 3596525814655946740, guid: 26d27b72564ec094cb1ed9d2605176f5,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 4225147761146156366, guid: 26d27b72564ec094cb1ed9d2605176f5,
         type: 3}
@@ -6300,6 +6335,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ch_Musico_Trompeta
       objectReference: {fileID: 0}
+    - target: {fileID: 4214381307992091351, guid: 376fc4093f5b0d34fb6bef1fa733dfee,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 376fc4093f5b0d34fb6bef1fa733dfee, type: 3}
 --- !u!4 &786893173 stripped
@@ -6840,6 +6880,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mod_Pelirroja_Mostacho
+      objectReference: {fileID: 0}
+    - target: {fileID: 8538982137027624974, guid: 83706e019bb63174dba5c080712cb67e,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 9064443882489535156, guid: 83706e019bb63174dba5c080712cb67e,
         type: 3}
@@ -9023,6 +9068,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mod_Poli_Donut
       objectReference: {fileID: 0}
+    - target: {fileID: 7707361194556123401, guid: c02a283272ba7e646ab4e72a91eb3f02,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c02a283272ba7e646ab4e72a91eb3f02, type: 3}
 --- !u!4 &1098050107 stripped
@@ -10167,6 +10217,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: "Mod_Se\xF1ora_Negocios"
       objectReference: {fileID: 0}
+    - target: {fileID: 4404285274371564140, guid: 436a1ca2c72b14b488bff6a834bfd522,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 436a1ca2c72b14b488bff6a834bfd522, type: 3}
 --- !u!4 &1423396515 stripped
@@ -11102,6 +11157,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Gorda
+      objectReference: {fileID: 0}
+    - target: {fileID: 5820859751824518952, guid: 2d1dc43f07d641047829b72052213f3a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6596658232426378642, guid: 2d1dc43f07d641047829b72052213f3a,
         type: 3}
@@ -13893,6 +13953,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mod_Doctora
       objectReference: {fileID: 0}
+    - target: {fileID: 7932843978874141675, guid: f4921b9056e90a8489b1202c7cffa85b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f4921b9056e90a8489b1202c7cffa85b, type: 3}
 --- !u!4 &1906806221 stripped
@@ -14273,6 +14338,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Mod_Wualuigi
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665289176048048007, guid: 34fdcd69908374943b56df29a5df204a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 34fdcd69908374943b56df29a5df204a, type: 3}
@@ -15230,6 +15300,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Viejo
+      objectReference: {fileID: 0}
+    - target: {fileID: 2606572190195975618, guid: 8c528212f6e60f34188e42ef80b0a661,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 3415900277905776504, guid: 8c528212f6e60f34188e42ef80b0a661,
         type: 3}
