@@ -112,7 +112,7 @@ C
 -Mujer
 -Seria
 -Iba de blanco
--Sanidad
+-Sanidad 
 -Pelo Claro
 -Llevaba un monoculo
 -Sombrero en Copa

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{2e567a24-b1d8-4679-8a39-0245c980d338}">
+		<property name="assetPath">
+			<value>Locuciones/12 Científico entradas (regrabar) v1.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>86.804897959183677</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{22decf5e-0a9c-4720-bc2a-7587ae4a6cdc}</destination>
+		</relationship>
+	</object>
+</objects>
