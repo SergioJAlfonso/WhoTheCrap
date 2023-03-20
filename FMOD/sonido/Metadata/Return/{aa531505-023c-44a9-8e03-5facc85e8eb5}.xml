@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="MixerReturn" id="{aa531505-023c-44a9-8e03-5facc85e8eb5}">
+		<property name="name">
+			<value>ReverbOk</value>
+		</property>
+		<relationship name="effectChain">
+			<destination>{6c3e6be1-86f9-42fb-b0bb-e2d93e64cca5}</destination>
+		</relationship>
+		<relationship name="panner">
+			<destination>{f64df191-ae88-4577-a00c-b556607c4c91}</destination>
+		</relationship>
+		<relationship name="output">
+			<destination>{6f4f0bd5-16ca-40bd-90f9-f3090bdee825}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusEffectChain" id="{6c3e6be1-86f9-42fb-b0bb-e2d93e64cca5}">
+		<relationship name="effects">
+			<destination>{5cc9b97d-c679-4942-8ba4-d711437fce9d}</destination>
+			<destination>{41fa5dea-c4c4-4a3a-9348-b6fa1092261f}</destination>
+		</relationship>
+	</object>
+	<object class="MixerBusPanner" id="{f64df191-ae88-4577-a00c-b556607c4c91}" />
+	<object class="MixerBusFader" id="{5cc9b97d-c679-4942-8ba4-d711437fce9d}" />
+	<object class="SFXReverbEffect" id="{41fa5dea-c4c4-4a3a-9348-b6fa1092261f}">
+		<property name="earlyDelay">
+			<value>7</value>
+		</property>
+		<property name="lateDelay">
+			<value>11</value>
+		</property>
+		<property name="HFDecayRatio">
+			<value>86</value>
+		</property>
+		<property name="highCut">
+			<value>8300</value>
+		</property>
+		<property name="earlyLateMix">
+			<value>80</value>
+		</property>
+		<property name="wetLevel">
+			<value>0</value>
+		</property>
+		<property name="dryLevel">
+			<value>-80</value>
+		</property>
+		<relationship name="automators">
+			<destination>{a5ca8c48-110b-4ba6-b314-204735f73586}</destination>
+		</relationship>
+	</object>
+	<object class="Automator" id="{a5ca8c48-110b-4ba6-b314-204735f73586}">
+		<property name="nameOfPropertyBeingAutomated">
+			<value>wetLevel</value>
+		</property>
+		<relationship name="automationCurves">
+			<destination>{b42918de-cf56-49b3-b41c-c350d7cbf23d}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationCurve" id="{b42918de-cf56-49b3-b41c-c350d7cbf23d}">
+		<relationship name="parameter">
+			<destination>{19fec8c6-774c-4ede-b616-90c3fd774115}</destination>
+		</relationship>
+		<relationship name="automationPoints">
+			<destination>{cf632462-cbac-443b-ab86-56301842c3bd}</destination>
+			<destination>{01c45ae2-947b-4b5a-a7cc-8776f7449f0d}</destination>
+			<destination>{98c0cbe4-44f6-44a6-8aa1-6701ba2e0d18}</destination>
+		</relationship>
+	</object>
+	<object class="AutomationPoint" id="{cf632462-cbac-443b-ab86-56301842c3bd}">
+		<property name="position">
+			<value>2</value>
+		</property>
+		<property name="value">
+			<value>-80</value>
+		</property>
+		<property name="curveShape">
+			<value>0.470971644</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{01c45ae2-947b-4b5a-a7cc-8776f7449f0d}">
+		<property name="position">
+			<value>16</value>
+		</property>
+		<property name="value">
+			<value>-5</value>
+		</property>
+	</object>
+	<object class="AutomationPoint" id="{98c0cbe4-44f6-44a6-8aa1-6701ba2e0d18}">
+		<property name="position">
+			<value>10</value>
+		</property>
+		<property name="value">
+			<value>-26</value>
+		</property>
+		<property name="curveShape">
+			<value>0.323043853</value>
+		</property>
+	</object>
+</objects>
